@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { sidebarOpenClose } from 'src/app/constants/animations.constants';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
@@ -23,7 +24,8 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private observer: BreakpointObserver,
     public sidebar: SidebarService,
-    private menuService: MenuCardService
+    private menuService: MenuCardService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -55,5 +57,14 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onClose() {
     this.sidebar.toggleSidebar(false);
+  }
+
+  onCardClick(data: any) {
+    switch (data) {
+      case 'about-me':
+        this.router.navigateByUrl('/about-me');
+        this.sidebar.toggleSidebar(false);
+        break;
+    }
   }
 }

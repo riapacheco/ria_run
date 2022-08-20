@@ -1,0 +1,17 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+
+.title-area {
+  padding-top: 6rem;
+  @include auto-width;
+
+  .title {
+    text-align: center;
+
+    h1 {
+      color: $black;
+
+    }
+  }
+}

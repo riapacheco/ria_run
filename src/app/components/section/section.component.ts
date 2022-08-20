@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 
-export type TSectionType = 'section' | 'section blue' | 'section painted';
+export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange';
 
 @Component({
   selector: 'app-section',
@@ -13,13 +13,16 @@ export type TSectionType = 'section' | 'section blue' | 'section painted';
         <div class="section-content">
           <ng-content select="[sectionContent]"></ng-content>
         </div>
+ 
       </div>
+      
   `,
   styleUrls: ['./section.component.scss']
 })
 export class SectionComponent implements AfterViewInit {
   @Input() minHeight = '100vh';
   @Input() maxHeight = 'none';
+  @Input() showsPolygon = true;
   @Input() sectionClass: TSectionType = 'section';
 
   constructor() { }

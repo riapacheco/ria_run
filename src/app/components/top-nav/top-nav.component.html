@@ -39,7 +39,9 @@
     </div>
   </div>
 </nav>
-<nav [ngClass]="isMobile ? 'top-nav mobile' : 'top-nav'">
+
+<!-- --------------------------- STATIONARY NAV ---------------------------- -->
+<nav [ngClass]="isMobile ? navClass.mobile : navClass.desktop">
   <div class="nav-content">
     <a
       (click)="onLogoClick($event)"

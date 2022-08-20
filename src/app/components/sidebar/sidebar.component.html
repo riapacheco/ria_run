@@ -12,7 +12,8 @@
 
       <div class="scroll-window">
         <app-menu-card
-          [menuItems]="menuCards">
+          [menuItems]="menuCards"
+          (cardClick)="onCardClick($event)">
         </app-menu-card>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { slideDownUp } from 'src/app/constants/animations.constants';
@@ -14,6 +14,10 @@ import { SidebarService } from 'src/app/services/sidebar.service';
 })
 export class TopNavComponent implements AfterViewInit {
   @Output() menuClick: EventEmitter<any> = new EventEmitter<any>();
+  @Input() navClass = {
+    desktop: 'top-nav',
+    mobile: 'top-nav mobile'
+  }
 
   isAtTopView = true;
   isMobile!: boolean;

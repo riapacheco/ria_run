@@ -134,6 +134,47 @@ $scrolling-logo-color: $canary-dark;
 $pre-hover-opacity: 0.85;
 
 .top-nav {
+  &.canary {
+    .nav-content {
+      border-bottom: 1.5px solid $canary-dark;
+      .waves-logo {
+        .content {
+          h2 {
+            color: $canary-dark;
+            &:nth-child(1) {
+              color: transparent;
+              -webkit-text-stroke: 1.5px $canary-dark !important;
+            }
+          }
+        }
+      }
+
+      .right-content {
+        color: $canary-dark;
+      }
+    }
+  }
+
+  &.black {
+    .nav-content {
+      border-bottom: 2px solid $black;
+      .waves-logo {
+        .content {
+          h2 {
+            color: $black;
+            &:nth-child(1) {
+              color: transparent;
+              -webkit-text-stroke: 1.5px $black !important;
+            }
+          }
+        }
+      }
+
+      .right-content {
+        color: $black;
+      }
+    }
+  }
   &.scrolling {
     position: fixed;
     background-color: #0f1115c5;
