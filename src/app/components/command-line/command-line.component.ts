@@ -53,7 +53,10 @@ export class CommandLineComponent implements AfterViewInit {
 
   public clearInput() { this.inputString = ''; }
   /* --------------------------- CONTROL INTERACTION -------------------------- */
-  onEnter(e: any) { if (e) { this.keyupEnter.emit(this.inputString); } }
+  onEnter(e: any) { if (e) {
+    this.keyupEnter.emit(this.inputString); }
+    this.showRandomBanner();
+  }
   onEscape(e: any) {
     if (e) { this.router.navigateByUrl('/main'); }
   }
