@@ -1,0 +1,42 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss/colors.scss';
+
+$window-width: 80vw;
+$padding: 20px;
+$content-width: calc($window-width - ($padding * 2));
+
+:host {
+  font-family: "Fira Code", monospace;
+  // position: relative;
+}
+
+.terminal-window {
+  height: $terminal-window-height;
+  width: $window-width;
+  padding: $padding;
+  background: repeating-linear-gradient(black, #101010 3px, #060606 3px, #060606 3px);
+  margin: auto;
+  overflow-y: scroll;
+  background-color: $black;
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 12px 22px 38px black;
+  border: 1px solid $midnight-dark;
+  position: relative;
+
+
+}
+.shadow-div {
+  position: fixed;
+  bottom: -18rem;
+  height: 10rem;
+  left: 0;
+  right: 0;
+  width: calc($window-width - 4rem);
+  margin: auto;
+
+
+  box-shadow: 0rem -10rem 78px black;
+
+}
+

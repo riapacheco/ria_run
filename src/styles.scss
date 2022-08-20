@@ -1,1 +1,159 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@riapacheco/yutes/main.scss';
+@import '~@riapacheco/yutes/season/two.scss';
+@import './scss/colors.scss';
+@import './scss/mixins.scss';
+@import './scss//variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+%antialiased {
+  -webkit-font-smoothing: antialiased !important;
+  font-smooth: antialiased !important;
+}
+
+* {
+  box-sizing: border-box;
+  @extend %antialiased;
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+html {
+  font-family: "Inter", sans-serif !important;
+  font-size: 10px;
+  line-height: 1.7;
+  color: $white;
+  background-color: $black;
+  background-image: linear-gradient(to bottom right, $black, $midnight-dark);
+  background-attachment: fixed;
+  @extend %antialiased;
+}
+
+body {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.6rem;
+  letter-spacing: 0rem;
+  line-height: 1.7;
+}
+
+pre {
+  line-height: 1;
+  letter-spacing: 0rem;
+}
+
+/* --------------------------------- SPECIAL -------------------------------- */
+
+// Elements with [innerHTML] directives
+.inner-html {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   HEADERS                                  */
+/* -------------------------------------------------------------------------- */
+h1 {
+  font-size: 5.6rem;
+  line-height: 1;
+  letter-spacing: -0.25rem;
+  margin-block-start: -5px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
+  @extend %antialiased;
+  
+  &.mobile { @include h1-mobile; }
+}
+
+h2 {
+  font-size: 3.6rem;
+  line-height: 3.6rem;
+  letter-spacing: -0.10rem;
+  font-weight: 700;
+  margin-block-start: -3px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
+  @extend %antialiased;
+
+  &.mobile { @include h2-mobile; }
+}
+
+h3 {
+  font-size: 2.8rem;
+  line-height: 2.8rem;
+  letter-spacing: -0.07rem;
+  margin-block-start: -1px;
+  margin-block-end: 3px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
+
+  @extend %antialiased;
+
+  &.mobile { @include h3-mobile; }
+}
+
+h4 {
+  font-size: 2.3rem;
+  line-height: 2.3rem;
+  letter-spacing: -0.05rem;
+  font-weight: 700;
+  margin-block-start: -1px;
+  margin-block-end: 2px;
+  margin-inline-start: 0px;
+  margin-inline-end: 1px;
+  @extend %antialiased;
+
+  &.mobile { @include h4-mobile; }
+}
+
+h5 {
+  font-size: 1.9rem;
+  letter-spacing: 0rem;
+  line-height: 1.9rem;
+  font-weight: 700;
+  margin-block-start: -1px;
+  margin-block-end: 2px;
+  margin-inline-start: 0px;
+  margin-inline-end: 1px;
+  @extend %antialiased;
+}
+
+h6 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  letter-spacing: 0.13rem;
+  margin-block-start: 1px;
+  margin-block-end: 2px;
+  margin-inline-start: 1px;
+  margin-inline-end: 1px;
+  font-weight: 700;
+  @extend %antialiased;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Z-INDEX                                  */
+/* -------------------------------------------------------------------------- */
+
+$base-index: 2;
+app-root {
+  z-index: 1;
+}
+
+.top-area {
+  z-index: calc($base-index * 2);
+}
+
+app-top-nav, .top-nav {
+  z-index: calc($base-index * 3);
+}
+
+app-sidebar, .sidebar {
+  z-index: calc($base-index * 4) !important;
+}
+
+

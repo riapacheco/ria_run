@@ -1,0 +1,145 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/colors.scss';
+
+$card-height: 250px;
+$image-height: 115px;
+$content-height: calc($card-height - $image-height);
+$border-radius: 5px;
+$padding: 20px;
+
+.menu-card {
+  &:first-child { margin-top: 3rem;}
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: $card-height;
+  width: 100%;
+  box-shadow: 0px 0px 10px black;
+  margin-bottom: 4rem;
+
+  .tag {
+    
+    font-size: 1.05rem;
+    line-height: 1.05rem !important;
+    color: $white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+
+    &.sponsor {
+      position: absolute;
+      background-color: #00000030;
+      border: 1px solid $white;
+      top: 0;
+      right: 0;
+    }
+
+    .material-icons {
+      font-size: 1.4rem;
+      color: $cbt-teal-dark;
+    }
+  }
+
+  .image-area {
+    min-height: $image-height;
+    max-height: $image-height;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, $black, black);
+    position: relative;
+    img {
+      border-radius: $border-radius $border-radius 0rem 0rem;
+      width: 100%;
+      max-height: $image-height;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+  }
+
+  .content-area {
+    width: 100%;
+    min-height: $content-height;
+    height: $content-height;
+    background-color: $midnight;
+    border-radius: 0rem 0rem $border-radius $border-radius;
+    padding: $padding;
+
+    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    h5 {
+      padding-left: 5px;
+    }
+    .description {
+      @include body-text-mobile;
+      padding-left: 5px;
+      line-height: 1.5;
+      opacity: 0.8;
+    }
+
+    .tag-block {
+      // @include debug-red;
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: flex-start;
+      margin-bottom: -1rem;
+
+      .tag {
+        // height: 100%;
+        margin-right: 0.5rem;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.5rem 0.8rem !important;
+        color: $soot-grey-light;
+        border: 1px solid $midnight-regular;
+        border-radius: 5rem;
+
+        &.eta {
+          .material-icons {
+            color: $soot-grey-medium;
+            filter: brightness(0.8);
+            padding-right: 0.5rem;
+          }
+        }
+
+        &.rating {
+          .material-icons {
+            color: $canary-dark;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+        }
+        &:first-child {
+          margin-left: 0rem;
+        }
+        &:last-child {
+          margin-right: 0rem;
+        }
+      }
+
+    }
+  }
+
+  &:hover {
+    box-shadow: 8px 8px 18px black;
+    .image-area {
+      img {
+        filter: blur(1px) brightness(0.8) grayscale(1);
+      }
+    }
+
+    .content-area {
+      h5 {
+        transform: scale(1.02);
+      }
+    }
+  }
+}

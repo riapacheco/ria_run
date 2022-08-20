@@ -1,0 +1,20 @@
+<div [@sidebarTrigger]="(sidebar.showsSidebar$ | async) ? 'open' : 'close' " [ngClass]="isMobile ? 'sidebar mobile' : 'sidebar'">
+  <div class="frame-layer">
+    <a class="close-btn" (click)="onClose()">
+      <i class="material-icons">close</i>
+    </a>
+    <div class="content">
+      <div class="top">
+        <h3>
+          Delivery Menu
+        </h3>
+      </div>
+
+      <div class="scroll-window">
+        <app-menu-card
+          [menuItems]="menuCards">
+        </app-menu-card>
+      </div>
+    </div>
+  </div>
+</div>

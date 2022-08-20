@@ -1,0 +1,54 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+
+
+%section-defaults {
+  position: relative;
+  min-width: 100vw;
+  width: 100%;
+  max-width: 100%;
+  display: block !important;
+}
+
+
+.section-content {
+  height: inherit !important;
+  width: inherit !important;
+}
+
+.section {
+  @extend %section-defaults;
+  background-color: $black;
+  color: $white;
+  &.blue {
+    background-color: #00A6C4;
+    background-image: linear-gradient(to bottom right, $bondi-dark, $bondi-medium);
+    background-color: $black;
+  }
+
+  &.painted {
+    display: block;
+    .section-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      background-color: $canary-medium;
+      background-image: url('https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/paintBG1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3BhaW50QkcxLnBuZyIsImlhdCI6MTY2MDUwMDg0MCwiZXhwIjoxOTc1ODYwODQwfQ.qjn79pdOJGdAaPVJsi93fSIsejBPK94umVV4rYQOzUs');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.divider-white {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid $white;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+$desktop-height: 60vh;
+$mobile-height: 80vh;
+.hero { // aka hero-section
+  color: $black;
+  .hero-content { // aka hero
+    position: relative;
+    .polygon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: $desktop-height;
+      background-color: $canary-dark;
+      background-image: linear-gradient(to bottom right, $canary-dark, $canary-regular, $canary-medium, $canary-light);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+      clip-path: polygon(0 0, 100% 0%, 60% 100%, 0 80%);
+      
+      &.mobile {
+        min-height: $mobile-height;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 85% 100%, 0 82%);
+      }
+    }
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: $desktop-height;
+      .text-information {
+        @include auto-width;
+        .title {
+          margin-top: 8rem;
+        }
+        .paragraph {
+          margin-top: 2rem;
+          margin-bottom: 4rem;
+          width: 500px;
+        }
+        .cta-btn {
+          @include cta-btn;
+        }
+      }
+      &.mobile {
+        height: $mobile-height;
+        .text-information {
+          @include auto-width-mobile;
+          .title {
+            h1 {
+              @include h1-mobile;
+            }
+          }
+          .paragraph {
+            width: 75%;
+            @include body-text-mobile;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------- COMPUTER IMAGE ----------------------------- */
+.computer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: $desktop-height;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: center;
+  img {
+    width: 36%;
+    margin-right: -40%;
+    margin-bottom: -15%;
+  }
+
+  &.mobile {
+    height: $mobile-height;
+    img {
+      width: 75%;
+      margin-bottom: -13rem !important;
+    }
+  }
+}
+
+/* ------------------------------ ALL SECTIONS ------------------------------ */
+.section-repeater {
+  height: inherit;
+  width: inherit;
+  @include auto-width;
+
+  &.mobile {
+    @include auto-width-mobile;
+
+    h1 {
+      @include h1-mobile;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 sectionTwo                                 */
+/* -------------------------------------------------------------------------- */
+
+.section-two {
+  height: calc(100vh - $floating-nav-height);
+  
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  .section-two-content {
+
+
+    .title {
+      margin-bottom: 3rem;
+    }
+    .explainer-para {
+      max-width: 60%;
+      margin-bottom: 4rem;
+    }
+
+    .cta-btn-reverse {
+      @include cta-btn-reverse;
+
+      
+    }
+  }
+
+  &.mobile {
+    @include body-text-mobile;
+    .section-two-content {
+      .explainer-para {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                sectionThree                                */
+/* -------------------------------------------------------------------------- */
+.section-three {
+  height: calc(100vh - $floating-nav-height);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  @include auto-width;
+
+  .divider-white {
+    width: 65%;
+  }
+
+  .explainer {
+    width: 65%;
+  }
+
+  &.mobile {
+    @include auto-width-mobile;
+
+    .divider-white,
+    .explainer {
+      width: 100%;
+    }
+
+    .explainer {
+      @include body-text-mobile;
+    }
+  }
+
+}
+

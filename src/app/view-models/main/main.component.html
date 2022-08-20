@@ -1,0 +1,76 @@
+<app-section>
+  <div sectionContent>
+    <div class="hero">
+      <div class="hero-content">
+        <div [ngClass]="isMobile ? 'polygon mobile' : 'polygon'"></div>
+        
+        <div [ngClass]="isMobile ? 'computer mobile' : 'computer'">
+          <img src="../../../assets/img/computerThing.svg" alt="">
+        </div>
+
+        <div [ngClass]="isMobile ? 'content mobile' : 'content'">
+          <app-top-nav></app-top-nav>
+
+          <div class="text-information">
+            <div class="title">
+              <h1>
+                <div class="inner-html" [innerHTML]="sectionOne.title"></div>
+              </h1>
+            </div>
+
+            <div class="paragraph">
+              <div class="inner-html" [innerHTML]="sectionOne.body"></div>
+            </div>
+
+            <a
+              (click)="scrollTo('sectionTwo')"
+              class="cta-btn">
+              <i class="material-icons">south</i>
+              Start here
+            </a>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</app-section>
+<div #sectionTwoDiv></div>
+<app-section>
+  <div [ngClass]="isMobile ? 'section-repeater section-two mobile' : 'section-repeater section-two'" sectionContent>
+    
+    <div class="section-two-content">
+      
+      <div class="title">
+        <h1>
+          <div class="inner-html" [innerHTML]="sectionTwo.title"></div>
+        </h1>
+      </div>
+
+      <div class="inner-html explainer-para" [innerHTML]="sectionTwo.body"></div>
+      
+      <a
+        (click)="scrollTo('sectionThree')"
+        class="cta-btn-reverse">
+        <i class="material-icons">south</i>
+        Secret views
+      </a>
+    </div>
+  </div>
+</app-section>
+
+<div #sectionThreeDiv></div>
+<app-section [sectionClass]="sectionThreeClass">
+  <div [ngClass]="isMobile ? 'section-repeater section-three mobile' : 'section-repeater section-three'" sectionContent>
+    <h1>
+      <div class="inner-html" [innerHTML]="sectionThree.title"></div>
+    </h1>
+
+    <div class="divider-white"></div>
+
+    <div class="explainer">
+      <div class="inner-html" [innerHTML]="sectionThree.body"></div>
+    </div>
+  </div>
+</app-section>

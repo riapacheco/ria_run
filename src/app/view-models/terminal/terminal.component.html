@@ -1,0 +1,86 @@
+<app-command-line
+  [showsSpinner]="showsSpinner"
+  (keyupEnter)="onEnter($event)"
+  #commandComponent>
+</app-command-line>
+
+<ng-container *ngIf="result.isShowing">
+  <app-terminal-window>
+    <div terminalReturnContent>
+      <!-- ---------------------------- ERROR MESSAGE ---------------------------- -->
+      <ng-container *ngIf="result.type == 'error'">
+        <div class="mb-4"></div>
+        <div class="error-message">
+          <div class="main-title">
+            {{ result.errorMessage }}
+          </div>
+          <small>
+            type "--help" + enter key for commands
+          </small>
+        </div>
+      </ng-container>
+
+      <!-- ------------------- COMMAND PROMPTS / DESCRIPTIONS -------------------- -->
+      <!--General-->
+      <ng-container *ngIf="result.type == 'options'">
+        <div class="content-wrapper">
+          <h5>
+            General
+          </h5>
+          <div *ngFor="let option of allPrompts">
+            <ng-container *ngIf="option.publicCategory == 'general'">
+              <div class="row-div">
+                <div>
+                  {{ option.commands | joinArray }}
+                </div>
+                <div>
+                  {{ option.description }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <!--Published Work-->
+        <div class="content-wrapper">
+          <h5>
+            Published Code
+          </h5>
+
+          <div *ngFor="let option of allPrompts">
+            <ng-container *ngIf="option.publicCategory == 'publishedWork'">
+              <div class="row-div">
+                <div>
+                  {{ option.commands | joinArray }}
+                </div>
+                <div>
+                  {{ option.description }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+
+        <!--Contact-->
+        <div class="content-wrapper">
+          <h5>
+            Contact Me
+          </h5>
+          <div *ngFor="let option of allPrompts">
+            <ng-container *ngIf="option.publicCategory == 'contact'">
+              <div class="row-div">
+                <div>
+                  {{ option.commands | joinArray }}
+                </div>
+                <div>
+                  {{ option.description }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </app-terminal-window>
+</ng-container>

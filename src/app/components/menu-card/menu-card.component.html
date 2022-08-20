@@ -1,0 +1,45 @@
+<a
+  (click)="onCardClick(item.routerLink)"
+  class="menu-card" *ngFor="let item of menuItems">
+  <div class="image-area">
+
+    <img [src]="item.img" alt="">
+
+    <ng-container *ngIf="item.isSponsored">
+      <div class="tag sponsor">
+        Sponsored
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="content-area">
+    <h5>
+      {{ item.title }}
+    </h5>
+
+    <div class="description">
+      {{ item.description }}
+    </div>
+
+    <div class="tag-block">
+      <div class="tag eta">
+        <i class="material-icons">timer</i>
+        <div class="text">
+          {{ item.eta }}
+        </div>
+      </div>
+
+      <div class="tag rating">
+        <div class="rating">
+          {{ item.rating }}
+        </div>
+
+        <i class="material-icons">star</i>
+
+        <div class="raters-count">
+          {{ item.reviewCount }}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

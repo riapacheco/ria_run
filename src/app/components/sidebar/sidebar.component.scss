@@ -1,0 +1,59 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+
+
+$sidebar-padding: 1.5rem;
+$top-block: 4vh;
+$scroll-window-height: calc((100vh - $top-block) - ($sidebar-padding * 2));
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 390px;
+  background-color: $black;
+  overflow: hidden;
+  
+  border-right: 3px solid $canary-dark;
+  box-shadow: 4px 8px 152px $canary-dark;
+  color: $white;
+  .frame-layer {
+    position: relative;
+    width: inherit;
+    min-height: 100vh;
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: $sidebar-padding;
+    }
+    .content {
+      padding-top: 3rem;
+      @include auto-width;
+      .top {
+        min-height: $top-block;
+      }
+      .scroll-window {
+        min-height: $scroll-window-height;
+        max-height: $scroll-window-height;
+        height: $scroll-window-height;
+        overflow-y: scroll;
+      }
+    }
+  }
+  &.mobile {
+    width: 100%;
+    border-right: none;
+    box-shadow: none;
+    .frame-layer {
+      .content {
+        @include auto-width-mobile;
+        h3 {
+          @include h2-mobile;
+        }
+      }
+    }
+  }
+}

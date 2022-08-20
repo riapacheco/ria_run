@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import '~@riapacheco/yutes/breakpoints.scss';
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/keyframes.scss';
+
+$component-height: $command-line-height;
+$banner-height: calc($command-line-height - 130px);
+$input-height: 45px;
+$input-width: 480px;
+
+.command-line {
+  min-width: 100vw;
+  width: 100%;
+  min-height: $command-line-height;
+  max-height: $command-line-height;
+  height: $command-line-height;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  .top-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .esc {
+      border-radius: 5px;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      background-color: rgb(22, 23, 26);
+      margin: 2rem;
+      height: 65px;
+      width: 70px;
+      border: 2px solid $midnight-dark;
+      border-bottom: 18px solid $midnight-dark;
+      border-left: 9px solid #27292d;
+      border-right: 9px solid #27292d;
+      box-shadow: 2px 14px 12px black;
+      filter: brightness(1.25);
+      .inner-esc {
+        padding-left: 0.8rem;
+        code {
+          font-size: 1.6rem;
+          font-weight: 600;
+          -webkit-font-smoothing: antialiased !important;
+        }
+      }
+
+
+      &:hover {
+        filter: brightness(1.6);
+      }
+      &:active {
+        transform: translate(0px, 5px);
+        box-shadow: 2px 14px 12px #00000020;
+      }
+    }
+  }
+  .content-area {
+    .banner {
+      min-width: 100vw;
+      height: $banner-height; 
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 1rem;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(1.2);
+      }
+    }
+    .command-input {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 7rem;
+      .input-group {
+        position: relative;
+
+        .spinner {
+          position: absolute;
+          top: -0.12rem;
+          right: 0.5rem;
+          font-size: 2.8rem;
+          @include spinner;
+        }
+        input {
+          font-family: 'Fira Code', monospace;
+          color: $white;
+          min-height: $input-height;
+          border: 1px solid $midnight-dark;
+          background-color: transparent;
+          font-size: 1.6rem;
+          border-radius: 6px;
+          width: $input-width;
+          padding-left: 1rem;
+          min-width: $input-width;
+          max-width: $input-width;
+          &:focus {
+            box-shadow: 4px 4px 12px black;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   BANNERS                                  */
+/* -------------------------------------------------------------------------- */
+pre {
+  font-family: 'Fira Code', monospace;
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: -2rem;
+  color: $off-white;
+  &.ansi-shadow { font-size: 1.7rem; }
+
+  &.bloody {
+    font-size: 1.45rem;
+    margin-left: -10rem;
+  }
+
+  &.dos-rebel {
+    font-size: 1.13rem;
+    margin-left: -8rem;
+  }
+
+  &.elite {
+    font-size: 2.6rem;
+    margin-left: -18.5rem;
+  }
+
+  &.the-edge {
+    font-size: 2.2rem;
+    margin-left: -15rem;
+  }
+
+  &.big-money {
+    font-size: 1.3rem;
+    margin-left: -9rem;
+  }
+
+  &.big {
+    font-size: 1.05rem;
+    margin-left: -7.5rem;
+  }
+
+  &.three-d-ascii {
+    font-size: 1.1rem;
+    margin-left: -6rem;
+  }
+
+  &.delta-corpse {
+    font-size: 1.3rem;
+    margin-left: -6.5rem;
+  }
+}
+

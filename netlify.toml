@@ -1,0 +1,3 @@
+[build]
+  publish = "dist/ria-dot-run"
+  command = "ng build"

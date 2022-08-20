@@ -1,0 +1,83 @@
+<div #topDiv></div>
+<nav [@slideDownTrigger]="(!isAtTopView && !(sidebar.showsSidebar$ | async)) ? 'open' : 'close' " [ngClass]="isMobile ? 'top-nav scrolling mobile' : 'top-nav scrolling'">
+  <div class="nav-content">
+    <a
+      (click)="onLogoClick($event)"
+      class="waves-logo">
+      <div class="content">
+        <h2>
+          RIA.RUN
+        </h2>
+        <h2>
+          RIA.RUN
+        </h2>
+      </div>
+    </a>
+  
+    <div class="right-content">
+      <ng-container *ngIf="!isMobile">
+        <a (click)="onTerminalClick($event)">
+          <i class="material-icons">terminal</i>
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="!(sidebar.showsSidebar$ | async)">
+        <a
+          (click)="onSidebarOpen()"
+          class="menu-btn">
+          <i class="material-icons">menu</i>
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="(sidebar.showsSidebar$ | async)">
+        <a
+          (click)="onSidebarClose()"
+          class="menu-btn">
+          <i class="material-icons">close</i>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</nav>
+<nav [ngClass]="isMobile ? 'top-nav mobile' : 'top-nav'">
+  <div class="nav-content">
+    <a
+      (click)="onLogoClick($event)"
+      class="waves-logo">
+      <div class="content">
+        <h2>
+          RIA.RUN
+        </h2>
+        <h2>
+          RIA.RUN
+        </h2>
+      </div>
+    </a>
+  
+    <div class="right-content">
+      <ng-container *ngIf="!isMobile">
+        <a (click)="onTerminalClick($event)">
+          <i class="material-icons">terminal</i>
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="!(sidebar.showsSidebar$ | async)">
+        <a
+          (click)="onSidebarOpen()"
+          class="menu-btn">
+          <i class="material-icons">menu</i>
+        </a>
+      </ng-container>
+
+      <ng-container *ngIf="(sidebar.showsSidebar$ | async)">
+        <a
+          (click)="onSidebarClose()"
+          class="menu-btn">
+          <i class="material-icons">close</i>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</nav>
+
+

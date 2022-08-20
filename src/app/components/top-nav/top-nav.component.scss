@@ -1,0 +1,184 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+
+
+$font-size: 4rem;
+$interval-length: 1.5s;
+%top-bottom-margin {
+  padding-top: 2.7rem;
+  padding-bottom: 2.7rem;
+}
+%top-bottom-margin-mobile {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    LOGO                                    */
+/* -------------------------------------------------------------------------- */
+
+.waves-logo {
+  display: block;
+  width: fit-content;
+  height: 32px;
+  width: 160px;
+  
+  .content {
+    position: relative;
+    width: fit-content;
+    height: 32px;
+    width: 160px;
+
+    h2 {
+      height: 32px;
+      width: 160px;
+      color: black;
+      font-size: $font-size;
+      position: absolute;
+      top: 0rem;
+      left: 0rem;
+      line-height: 3.6rem !important;
+      font-weight: 800;
+      &:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 1.5px $black !important;
+      }
+
+      &:nth-child(2) {
+        animation: animate $interval-length ease-in-out infinite;
+      }
+    }
+  }
+}
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 35%,
+      26% 34%,
+      33% 40%,
+      64% 50%,
+      80% 51%,
+      94% 49%,
+      100% 42%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 50%,
+      25% 55%,
+      44% 56%,
+      61% 52%,
+      77% 40%,
+      94% 35%,
+      100% 36%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             NAVIGATION STYLING                             */
+/* -------------------------------------------------------------------------- */
+
+.nav-content {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 2px solid black;
+  padding-bottom: 1rem;
+
+  @include auto-width;
+  @extend %top-bottom-margin;
+
+  .right-content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    a:last-child {
+      margin-left: 1.5rem;
+    }
+    a {
+      height: 2.15rem;
+      width: 2.15rem;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      .material-icons {
+        display: inline-block;
+        
+      }
+
+      &:hover {
+        .material-icons {
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+
+}
+
+/* ----------------------------- MOBILE CHANGES ----------------------------- */
+
+$scrolling-logo-color: $canary-dark;
+$pre-hover-opacity: 0.85;
+
+.top-nav {
+  &.scrolling {
+    position: fixed;
+    background-color: #0f1115c5;
+    backdrop-filter: blur(3.5px);
+    padding-bottom: 1.5rem;
+    .nav-content {
+      
+      border-bottom: none !important;
+      .waves-logo {
+        opacity: $pre-hover-opacity;
+        .content {
+          h2 {
+            -webkit-font-smoothing: antialiased !important;
+            color: $scrolling-logo-color;
+
+            &:nth-child(1) {
+              color: transparent;
+              -webkit-text-stroke: 1.5px $scrolling-logo-color !important;
+            }
+          }
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .right-content {
+        color: $scrolling-logo-color !important;
+        a {
+          opacity: $pre-hover-opacity;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+        
+      }
+    }
+  }
+  &.mobile {
+    padding-top: 1rem;
+    .nav-content {
+      @include auto-width-mobile;
+      @extend %top-bottom-margin-mobile;
+    }
+  }
+}
