@@ -64,12 +64,15 @@ $mobile-height: 80vh;
         .text-information {
           @include auto-width-mobile;
           .title {
+            margin-top: 3rem;
             h1 {
               @include h1-mobile;
             }
           }
           .paragraph {
-            width: 75%;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            width: 85%;
             @include body-text-mobile;
           }
         }
