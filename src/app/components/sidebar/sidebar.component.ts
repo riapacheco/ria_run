@@ -60,11 +60,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onCardClick(data: any) {
-    switch (data) {
-      case 'about-me':
-        this.router.navigateByUrl('/about-me');
-        this.sidebar.toggleSidebar(false);
-        break;
-    }
+    this.router.navigateByUrl(`/${data}`);
+    this.sidebar.toggleSidebar(false);
   }
 }

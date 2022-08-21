@@ -1,0 +1,84 @@
+@import '../../../scss/mixins.scss';
+@import '../../../scss/colors.scss';
+
+
+.iframe-wrapper {
+  padding: 2rem;
+}
+
+.iframe-item {
+  display: flex;
+  flex-flow: row nowrap;
+
+  &.reverse {
+    flex-flow: row-reverse nowrap;
+  }
+
+  /* ------------------------------- TEXT STUFF ------------------------------- */
+  .iframe-details {
+    margin: 2rem;
+    min-width: 310px;
+
+    .title {
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .text-content {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      .inner-html {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+      }
+      .cta-btn {
+        @include dark-btn;
+        white-space: nowrap;
+        .material-icons {
+          font-size: 2.7rem;
+          margin-right: 1rem;
+          padding-left: 0.5rem;
+        }
+        &.reverse {
+          .material-icons {
+            font-size: 2.9rem;
+            padding-left: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* --------------------------------- MOBILE --------------------------------- */
+  &.mobile {
+    flex-flow: column-reverse nowrap;
+    .iframe-wrapper {
+      padding: 0rem;
+      max-height: 400px !important;
+    }
+    .iframe-details {
+      margin: 0rem;
+      min-width: 0rem;
+      margin-bottom: 2.5rem;
+      .title {
+        margin-bottom: 1.5rem;
+        h2 {
+          @include h2-mobile;
+        }
+      }
+      .text-content {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        @include body-text-mobile;
+
+        .interface-block {
+          margin-top: -1rem;
+          @include body-text-mobile;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}

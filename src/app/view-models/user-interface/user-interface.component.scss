@@ -1,0 +1,12 @@
+@import '../../../scss/mixins.scss';
+
+.sample-wrapper {
+  @include auto-width;
+
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  
+  &.mobile {
+    @include auto-width-mobile;
+  }
+}

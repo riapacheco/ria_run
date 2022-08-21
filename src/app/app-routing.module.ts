@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './view-models/about-me/about-me.component';
 import { MainComponent } from './view-models/main/main.component';
 import { TerminalComponent } from './view-models/terminal/terminal.component';
+import { UserInterfaceComponent } from './view-models/user-interface/user-interface.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'about-me',
     component: AboutMeComponent
+  },
+  {
+    path: 'user-interface',
+    component: UserInterfaceComponent
   }
 ];
 

@@ -1,4 +1,8 @@
-
+import {
+  HighlightModule,
+  HIGHLIGHT_OPTIONS,
+  HighlightOptions,
+} from 'ngx-highlightjs';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +32,10 @@ import { CommandLineComponent } from './components/command-line/command-line.com
 import { TerminalWindowComponent } from './components/terminal-window/terminal-window.component';
 
 import { AboutMeComponent } from './view-models/about-me/about-me.component';
+import { UserInterfaceComponent } from './view-models/user-interface/user-interface.component';
+import { SafePipe } from './pipes/safe.pipe';
+import { IframeComponent } from './components/iframe/iframe.component';
+import { IframeService } from './services/iframe.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +52,10 @@ import { AboutMeComponent } from './view-models/about-me/about-me.component';
     SidebarComponent,
     MenuCardComponent,
     MainComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    UserInterfaceComponent,
+    SafePipe,
+    IframeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +64,8 @@ import { AboutMeComponent } from './view-models/about-me/about-me.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    HighlightModule
   ],
 
   providers: [
@@ -65,6 +77,20 @@ import { AboutMeComponent } from './view-models/about-me/about-me.component';
     CommandPromptService,
     MenuCardService,
     HomeContentService,
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: <HighlightOptions>{
+        lineNumbers: true,
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        themePath: 'node_modules/highlight.js/styles/github.css',
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          css: () => import('highlight.js/lib/languages/css'),
+          xml: () => import('highlight.js/lib/languages/xml'),
+        },
+      },
+    },
+    IframeService
   ],
   bootstrap: [AppComponent]
 })
