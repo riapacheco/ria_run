@@ -19,10 +19,10 @@ pre {
   flex-flow: row nowrap;
   overflow-x: hidden;
   @include auto-width;
-  padding-top: 10rem;
-  padding-bottom: 8rem;
+  padding-top: 16rem;
+  padding-bottom: 15rem;
   border-bottom: 2px solid #ffffff10;
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
 
 
   &:nth-child(odd) {
@@ -79,9 +79,9 @@ pre {
   &.mobile {
     flex-flow: column-reverse nowrap;
     width: 370px;
-
-    
-
+    margin-bottom: 10rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
     .iframe-wrapper {
       padding: 0rem;
       margin: 0rem;
@@ -89,8 +89,8 @@ pre {
       max-height: 400px !important;
     }
     .iframe-details {
-      padding-left: 0rem;
-      padding-right: 0rem;
+      padding-left: 0rem !important;
+      padding-right: 0rem !important;
       margin: 0rem;
       min-width: 85%;
       margin-bottom: 2.5rem;

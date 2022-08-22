@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IIFrame } from 'src/app/components/iframe/iframe.component';
 import { TSectionType } from 'src/app/components/section/section.component';
@@ -12,11 +12,11 @@ import { IframeService } from 'src/app/services/iframe.service';
   templateUrl: './user-interface.component.html',
   styleUrls: ['./user-interface.component.scss']
 })
-export class UserInterfaceComponent implements OnInit, OnDestroy {
+export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('bottomDiv') bottomDiv!: ElementRef;
   introSectionClass: TSectionType = 'section pink-paint';
-  heroHeight = '70vh';
+  heroHeight = '100vh';
 
   /* ---------------------------- IFRAME COMPONENT ---------------------------- */
   config = {
@@ -47,6 +47,10 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
     this.sub.add(this.loadData());
+    
+  }
+
+  ngAfterViewInit() {
     document.body.scroll(0,0);
   }
 

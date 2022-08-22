@@ -13,7 +13,7 @@ app-top-nav {
 }
 
 .section-hero {
-  height: 70vh;
+  height: 100vh;
   // width: inherit;
   @include auto-width;
   @include flex-center;
@@ -27,6 +27,9 @@ app-top-nav {
 
 .scroll-btn {
   @include cta-btn;
+  .material-icons {
+    font-size: 2.5rem;
+  }
 }
 
 app-iframe {
