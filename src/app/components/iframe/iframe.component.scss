@@ -18,14 +18,17 @@ pre {
   display: flex;
   flex-flow: row nowrap;
 
-  &.reverse {
+  padding-bottom: 8rem;
+  border-bottom: 2px solid #ffffff10;
+  margin-bottom: 8rem;
+  &:nth-child(odd) {
     flex-flow: row-reverse nowrap;
   }
 
   /* ------------------------------- TEXT STUFF ------------------------------- */
   .iframe-details {
     margin: 2rem;
-    min-width: 310px;
+    min-width: 380px;
     max-width: 35%;
 
     .title {
