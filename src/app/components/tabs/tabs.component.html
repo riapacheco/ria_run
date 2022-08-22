@@ -120,8 +120,12 @@
       </ng-container>
 
       <!-- ------------------------------- PREVIEW ------------------------------- -->
-      <ng-container *ngIf="tabsState.preview">
-        <iframe [src]="htmlData.previewLink | safe: 'resourceUrl'" width="100%" height="550px" frameborder="0"></iframe>
+      <ng-container *ngIf="tabsState.preview && htmlData.component == 'Indicator Card'">
+        <div class="code-preview" [style.height]="'650px'">
+          <app-code-preview
+            [componentType]="htmlData.component">
+          </app-code-preview>
+        </div>
       </ng-container>
     </div>
 

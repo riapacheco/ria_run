@@ -5,13 +5,44 @@
 <div class="mb-10"></div>
 
 
-<app-tabs
-  [tabs]="indicatorCardsContent"
-  [htmlData]="cardsHtmlContent"
-  [typescriptData]="cardsTypescriptContent"
-  [scssData]="cardsScssContent"
-  >
-</app-tabs>
+<div
+  [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'" >
+
+  <div class="content">
+    <div class="title">
+      <h2>
+        {{ cardsHtmlContent?.component }}
+      </h2>
+    </div>
+
+    <div class="para">
+      <div class="inner-html" [innerHTML]="cardsHtmlContent?.description"></div>
+    </div>
+  </div>
+
+  <div class="tabs-wrapper">
+    <app-tabs
+      [tabs]="indicatorCardsContent"
+      [htmlData]="cardsHtmlContent"
+      [typescriptData]="cardsTypescriptContent"
+      [scssData]="cardsScssContent"
+      >
+    </app-tabs>
+  </div>
+
+</div>
+
+<div [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'" >
+  <div class="content">
+    <div class="title">
+      <h2>
+        Other one
+      </h2>
+    </div>
+  </div>
+
+  <!-- <app-tabs></app-tabs> -->
+</div>
 
 
 <div #bottomDiv></div>

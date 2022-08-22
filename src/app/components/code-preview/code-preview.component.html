@@ -1,0 +1,31 @@
+
+<div class="code-preview" [ngSwitch]="componentType">
+
+  <ng-container *ngSwitchCase="'Indicator Card'">
+    <div class="cards-wrapper">
+      <div class="card pink" *ngFor="let card of cards">
+        <div class="icon">
+          <i class="material-icons">
+            {{ card.icon }}
+          </i>
+        </div>
+    
+        <div class="amount-group">
+          <div class="label">
+            {{ card.mainLabel }}
+          </div>
+      
+          <div class="indicator-preview">
+            <span>$</span>{{ card.amount }}
+          </div>
+        </div>
+    
+        <ng-container *ngIf="card.bottomLabel">
+          <div class="bottom-label">
+            {{ card.bottomLabel }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

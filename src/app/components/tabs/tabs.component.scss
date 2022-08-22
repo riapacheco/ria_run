@@ -15,7 +15,6 @@ $radius: 6px;
 
 .tabs-wrapper {
   position: relative;
-  @include auto-width;
   .tabs {
     .tab-buttons {
       min-height: $buttons-height;
@@ -97,8 +96,6 @@ $radius: 6px;
           @extend %antialiased;
           display: inline-block;
           font-family: "Fira Code", monospace;
-          // background-image: linear-gradient(to right, $midnight-medium, $gunmetal-medium);
-          // background-attachment: fixed;
           background-color: $midnight;
           font-weight: 500;
           color: $steel-light;
@@ -136,8 +133,6 @@ $radius: 6px;
   }
 
   &.mobile {
-    @include auto-width-mobile;
-
     .tabs {
       .tab-body {
         .file-name {
