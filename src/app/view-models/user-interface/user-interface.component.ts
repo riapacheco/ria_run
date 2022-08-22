@@ -1,7 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IIFrame } from 'src/app/components/iframe/iframe.component';
+import { TSectionType } from 'src/app/components/section/section.component';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 import { IframeService } from 'src/app/services/iframe.service';
 
@@ -12,6 +13,9 @@ import { IframeService } from 'src/app/services/iframe.service';
   styleUrls: ['./user-interface.component.scss']
 })
 export class UserInterfaceComponent implements OnInit, OnDestroy {
+
+  introSectionClass: TSectionType = 'section painted';
+  heroHeight = '55vh';
 
   /* ---------------------------- IFRAME COMPONENT ---------------------------- */
   config = {

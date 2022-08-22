@@ -18,6 +18,7 @@
   .iframe-details {
     margin: 2rem;
     min-width: 310px;
+    max-width: 35%;
 
     .title {
       margin-top: 2.5rem;
@@ -61,6 +62,7 @@
       margin: 0rem;
       min-width: 0rem;
       margin-bottom: 2.5rem;
+      max-width: none;
       .title {
         margin-bottom: 1.5rem;
         h2 {

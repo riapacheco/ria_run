@@ -2,9 +2,20 @@
   [navClass]="navClass">
 </app-top-nav>
 
+<app-section
+  [sectionClass]="introSectionClass"
+  [minHeight]="heroHeight"
+  >
+  <div [ngClass]="isMobile ? 'section-hero mobile' : 'section-hero'" sectionContent>
+    <h1>User Interface</h1>
+  </div>
+</app-section>
+
 <div class="sample-wrapper">
   <app-iframe
     [embedList]="embedList"
     [wrapper]="wrapper">
   </app-iframe>
 </div>
+
+

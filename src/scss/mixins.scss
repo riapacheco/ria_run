@@ -126,3 +126,15 @@
     filter: brightness(1);
   }
 }
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                FLEX CHANGES                                */
+/* -------------------------------------------------------------------------- */
+@mixin flex-center {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,5 +1,13 @@
 @import '../../../scss/mixins.scss';
 
+app-top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 .sample-wrapper {
   @include auto-width;
 
@@ -8,5 +16,18 @@
   
   &.mobile {
     @include auto-width-mobile;
+  }
+}
+
+.section-hero {
+  height: 55vh;
+  width: inherit;
+  @include auto-width;
+  @include flex-center;
+
+  &.mobile {
+    h1 {
+      @include h1-mobile;
+    }
   }
 }
