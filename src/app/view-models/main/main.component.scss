@@ -146,7 +146,7 @@ $mobile-height: 80vh;
     }
 
     .cta-btn-reverse {
-      @include cta-btn-reverse;
+      @include btn($dark: true, $icon: true);
 
       
     }
@@ -196,3 +196,6 @@ $mobile-height: 80vh;
 
 }
 
+.call-to-action {
+  @include btn($dark: true, $icon: true);
+}

@@ -42,7 +42,7 @@
 
 <!-- --------------------------- STATIONARY NAV ---------------------------- -->
 <ng-container *ngIf="isAtTopView">
-  <nav [ngClass]="isMobile ? navClass.mobile : navClass.desktop">
+  <nav [ngClass]="isMobile ? navClass.desktop + ' mobile' : navClass.desktop">
     <div class="nav-content">
       <a
         (click)="onLogoClick($event)"

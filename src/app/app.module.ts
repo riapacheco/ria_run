@@ -37,6 +37,8 @@ import { UserInterfaceComponent } from './view-models/user-interface/user-interf
 import { SafePipe } from './pipes/safe.pipe';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { IframeService } from './services/iframe.service';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { CodeTabService } from './services/code-tab.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { IframeService } from './services/iframe.service';
     AboutMeComponent,
     UserInterfaceComponent,
     SafePipe,
-    IframeComponent
+    IframeComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -89,10 +92,12 @@ import { IframeService } from './services/iframe.service';
           typescript: () => import('highlight.js/lib/languages/typescript'),
           css: () => import('highlight.js/lib/languages/css'),
           xml: () => import('highlight.js/lib/languages/xml'),
+          scss: () => import('highlight.js/lib/languages/scss'),
         },
       },
     },
-    IframeService
+    IframeService,
+    CodeTabService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,127 @@
+<div [ngClass]="isMobile ? 'tabs-wrapper mobile' : 'tabs-wrapper'">
+  <div class="tabs">
+    <div class="tab-buttons">
+      <a
+        (click)="onTabClick('html')"
+        [ngClass]="tabsState.html ? 'active' : ''">
+        <ng-container *ngIf="tabsState.html">
+          <div class="active-nib"></div>
+        </ng-container>
+        html
+      </a>
+      <a
+        [ngClass]="tabsState.typescript ? 'active' : ''"
+        (click)="onTabClick('typescript')">
+        <ng-container *ngIf="tabsState.typescript">
+          <div class="active-nib"></div>
+        </ng-container>
+        ts
+      </a>
+      <a
+        [ngClass]="tabsState.scss ? 'active' : ''"
+        (click)="onTabClick('scss')">
+        <ng-container *ngIf="tabsState.scss">
+          <div class="active-nib"></div>
+        </ng-container>
+        scss
+      </a>
+      <a (click)="onTabClick('preview')">
+        <ng-container *ngIf="tabsState.preview">
+          <div class="active-nib"></div>
+        </ng-container>
+        <i class="material-icons">
+          open_in_browser
+        </i>
+      </a>
+    </div>
+
+    <div class="tab-body">
+      <!-- ---------------------------- HTML TAB DATA ---------------------------- -->
+      <ng-container *ngIf="tabsState.html">
+        <div class="file-name">
+          <div class="name">
+            {{ htmlData?.fileName }}
+          </div>
+  
+          <a *ngIf="!isMobile" class="icon-btn" (click)="onLinkClick(htmlData?.stackBlitzLink)">
+            <i class="material-icons">bolt</i>
+          </a>
+        </div>
+  
+        <div [ngClass]="isMobile ? 'body mobile' : 'body'">
+          <div class="code-snippet">
+            <pre>
+              <code
+                [highlight]="htmlData.code"
+                [languages]="[htmlData.language]"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+                >
+              </code>
+            </pre>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ----------------------------- TYPESCRIPT ------------------------------ -->
+      <ng-container *ngIf="tabsState.typescript">
+        <div class="file-name">
+          <div class="name">
+            {{ typescriptData?.fileName }}
+          </div>
+  
+          <a *ngIf="!isMobile" class="icon-btn">
+            <i class="material-icons">bolt</i>
+          </a>
+        </div>
+  
+        <div [ngClass]="isMobile ? 'body mobile' : 'body'">
+          <div class="code-snippet">
+            <pre>
+              <code
+                [highlight]="typescriptData.code"
+                [languages]="[typescriptData.language]"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+                >
+              </code>
+            </pre>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- -------------------------------- SCSS --------------------------------- -->
+      <ng-container *ngIf="tabsState.scss">
+        <div class="file-name">
+          <div class="name">
+            {{ scssData?.fileName }}
+          </div>
+  
+          <a *ngIf="!isMobile" class="icon-btn">
+            <i class="material-icons">bolt</i>
+          </a>
+        </div>
+  
+        <div [ngClass]="isMobile ? 'body mobile' : 'body'">
+          <div class="code-snippet">
+            <pre>
+              <code
+                [highlight]="scssData.code"
+                [languages]="['scss']"
+                (highlighted)="onHighlight($event)"
+                [lineNumbers]="true"
+                >
+              </code>
+            </pre>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ------------------------------- PREVIEW ------------------------------- -->
+      <ng-container *ngIf="tabsState.preview">
+        <iframe [src]="htmlData.previewLink | safe: 'resourceUrl'" width="100%" height="650px" frameborder="0"></iframe>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

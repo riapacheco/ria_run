@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+@import '~highlight.js/styles/atom-one-dark.css';
+
+:host { -webkit-font-smoothing: antialiased !important; }
+$black-medium: rgb(9, 9, 9);
+$buttons-height: 5rem;
+$radius: 6px;
+%antialiased {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.tabs-wrapper {
+  position: relative;
+  @include auto-width;
+  .tabs {
+    .tab-buttons {
+      min-height: $buttons-height;
+      height: $buttons-height;
+      max-height: $buttons-height;
+      margin-left: 2rem;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: flex-start;
+
+      a {
+        font-family: "Fira Code", monospace;
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: -0.04rem;
+        background-color: $midnight;
+        background-image: linear-gradient(to bottom, rgb(10, 10, 10), $black, $midnight);
+        min-height: 4rem;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-right: 2px;
+        border-radius: $radius $radius 0px 0px;
+        border-top: 3px solid $midnight;
+        opacity: 0.8;
+
+        .active-nib {
+          height: 6px;
+          width: 6px;
+          background-color: $canary-dark;
+          border-radius: 6px;
+          margin-right: 1rem;
+          line-height: $buttons-height;
+        }
+        .material-icons {
+          opacity: 0.4;
+        }
+        &.active {
+          background-image: none;
+          opacity: 1;
+          background-color: $black-medium;
+          .active-nib {
+            display: inline-block;
+          }
+        }
+        &:last-child {
+          border-right: 0rem;
+        }
+      }
+    }  
+
+    .tab-body {
+      background-color: $midnight;
+      background-image: linear-gradient(to bottom right, $black-medium, $black);
+      box-shadow: 1px 10px 12px rgba(0, 0, 0, 0.41);      
+      border-radius: $radius;
+      padding: 25px 25px 20px 25px;
+
+      .file-name {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        .name {
+          font-size: 1.4rem;
+          letter-spacing: -0.03rem;
+          @extend %antialiased;
+          display: inline-block;
+          font-family: "Fira Code", monospace;
+          background-image: linear-gradient(to right, $midnight-medium, $gunmetal-medium);
+          background-attachment: fixed;
+          font-weight: 400;
+          color: black;
+          padding: 0.1rem 1rem 0.05rem 1rem;
+          border-radius: 3px;
+        }
+
+        .icon-btn {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 3rem;
+          background-color: $midnight-medium;
+
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          .material-icons {
+            font-size: 1.8rem;
+            height: 1.8rem;
+            width: 1.8rem;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            color: black;
+          }
+
+          &:hover {
+            background-color: $canary-dark;
+          }
+        }
+      }
+    }
+  }
+
+  &.mobile {
+    @include auto-width-mobile;
+
+    .tabs {
+      .tab-body {
+        .file-name {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* ------------------------------- BODY STUFF ------------------------------- */
+.body {
+
+  &.mobile {
+    padding-top: 1.5rem;
+    .description {
+      @include body-text-mobile;
+    }
+
+    .code-snippet {
+      pre {
+        code {
+          @include body-text-mobile;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------- ENCAPSULATED STYLING FOR PRE ---------------------- */
+
+pre {
+  margin: 0rem;
+  
+  font-size: 1.4rem;
+  background-image: linear-gradient(to bottom right, #060606, $black, $midnight);
+  border-radius: 10px;
+  
+  box-shadow: -7px -7px 10px #ffffff07,
+              8px 8px 22px rgba(0, 0, 0, 0.752);
+
+  border: 1px solid $midnight;
+  code {
+    
+    line-height: 1.5;
+    &.hljs {
+      padding: 0rem;
+      padding-left: 2.5rem;
+      min-height: 550px;
+      max-height: 550px;
+      overflow-y: scroll;
+    }
+  }
+}
+
+
+

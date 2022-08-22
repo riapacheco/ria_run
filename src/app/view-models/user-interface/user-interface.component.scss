@@ -25,14 +25,20 @@ app-top-nav {
   }
 }
 
-.scroll-btn {
-  @include cta-btn;
-  .material-icons {
-    font-size: 2.5rem;
-    margin-right: 1rem;
-  }
-}
 
 app-iframe {
   width: 100%;
+}
+
+.section-content {
+  height: 100vh;
+  width: 100%;
+}
+
+a.view-profile {
+  @include btn($dark: true, $icon: false);
+}
+
+a.do-more {
+  @include btn($dark: false, $icon: false);
 }

@@ -1,10 +1,9 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IIFrame } from 'src/app/components/iframe/iframe.component';
-import { TSectionType } from 'src/app/components/section/section.component';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
-import { IframeService } from 'src/app/services/iframe.service';
+import { ICodeTab } from 'src/app/models/code-tabs.model';
+import { CodeTabService } from 'src/app/services/code-tab.service';
 
 
 @Component({
@@ -14,24 +13,11 @@ import { IframeService } from 'src/app/services/iframe.service';
 })
 export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  libraryIsShowing = false;
-  @ViewChild('bottomDiv') bottomDiv!: ElementRef;
-  introSectionClass: TSectionType = 'section pink-paint';
-  heroHeight = '100vh';
+  indicatorCardsContent: ICodeTab[] = [];
+  cardsHtmlContent!: ICodeTab | undefined;
+  cardsTypescriptContent!: ICodeTab | undefined;
+  cardsScssContent!: ICodeTab | undefined;
 
-  /* ---------------------------- IFRAME COMPONENT ---------------------------- */
-  config = {
-    indicatorCards: {
-      isShowing: true,
-      defaultClass: 'iframe-item reverse',
-      mobileClass: 'iframe-item mobile'
-    }
-  }
-  embedList: IIFrame[] = [];
-  wrapper = {
-    width: '100%',
-    height: '600px'
-  };
   /* ---------------------------- TOP NAV COMPONENT --------------------------- */
   navClass = {
     desktop: 'top-nav canary',
@@ -42,21 +28,20 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   private sub = new Subscription();
   constructor(
     private observer: BreakpointObserver,
-    private service: IframeService
+    private service: CodeTabService,
+
   ) { }
 
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
-    this.sub.add(this.loadData());
-    
+    this.sub.add(this.getData());
   }
 
   ngAfterViewInit() {
   }
 
   ngOnDestroy() {
-    this.libraryIsShowing = false;
-    this.sub.unsubscribe();
+
   }
 
   /* ------------------------------ DEVICE CHECK ------------------------------ */
@@ -67,17 +52,14 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
     })
   }
 
-  /* -------------------------------- GET DATA -------------------------------- */
-  private loadData() {
-    this.service.getAllIframes().then((res: any) => {
-      this.embedList = res.sort();
+  /* ---------------------------------- DATA ---------------------------------- */
+  private getData() {
+    this.service.getAllCodeTabs().then((res: any) => {
+      const data = [...res];
+      this.indicatorCardsContent = data.filter((obj: any) => obj.component == 'Indicator Card');
+      this.cardsHtmlContent = data.find((obj: any) => obj.language == 'html');
+      this.cardsTypescriptContent = data.find((obj: any) => obj.language == 'typescript');
+      this.cardsScssContent = data.find((obj: any) => obj.language == 'scss');
     })
-  }
-
-  scrollDown() {
-    this.libraryIsShowing = true;
-    setTimeout(() => {
-      this.bottomDiv.nativeElement.scrollIntoView({ behavior: 'smooth' })
-    }, 150);
   }
 }
