@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IIFrame } from 'src/app/components/iframe/iframe.component';
 import { TSectionType } from 'src/app/components/section/section.component';
@@ -36,6 +36,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
     mobile: 'top-nav canary mobile'
   };
 
+  @ViewChild('topDiv') topDiv!: ElementRef;
   isMobile!: boolean;
   private sub = new Subscription();
   constructor(
@@ -46,6 +47,9 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
     this.sub.add(this.loadData());
+    setTimeout(() => {
+      this.topDiv.nativeElement.scrollIntoView();
+    }, 100);
   }
 
   ngOnDestroy() {
