@@ -97,10 +97,11 @@ $radius: 6px;
           @extend %antialiased;
           display: inline-block;
           font-family: "Fira Code", monospace;
-          background-image: linear-gradient(to right, $midnight-medium, $gunmetal-medium);
-          background-attachment: fixed;
-          font-weight: 400;
-          color: black;
+          // background-image: linear-gradient(to right, $midnight-medium, $gunmetal-medium);
+          // background-attachment: fixed;
+          background-color: $midnight;
+          font-weight: 500;
+          color: $steel-light;
           padding: 0.1rem 1rem 0.05rem 1rem;
           border-radius: 3px;
         }
