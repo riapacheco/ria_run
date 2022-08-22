@@ -70,7 +70,13 @@ app-top-nav {
     @include auto-width-mobile;
 
     .content {
+      .title {
+        h2 {
+          @include h1-mobile;
+        }
+      }
       @extend %content-constraints-mobile;
+      @include body-text-mobile;
     }
 
     .tabs-wrapper {
