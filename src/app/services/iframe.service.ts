@@ -16,7 +16,8 @@ export class IframeService {
   async getAllIframes(): Promise<any> {
     const { data, error } = await this.supabaseClient
       .from(this.supabaseTable)
-      .select('*');
+      .select('*')
+      .order('index', { ascending: true });
     
     if (data) { return data; }
     if (error) { return error;}

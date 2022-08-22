@@ -63,7 +63,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   /* -------------------------------- GET DATA -------------------------------- */
   private loadData() {
     this.service.getAllIframes().then((res: any) => {
-      this.embedList = res;
+      this.embedList = res.sort();
     })
   }
 }
