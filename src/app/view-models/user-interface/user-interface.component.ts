@@ -52,12 +52,10 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   ngAfterViewInit() {
-    // setTimeout(() => {
-    //   document.body.scroll(0,0);
-    // }, 200)
   }
 
   ngOnDestroy() {
+    this.libraryIsShowing = false;
     this.sub.unsubscribe();
   }
 
