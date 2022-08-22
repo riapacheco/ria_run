@@ -9,15 +9,34 @@ app-top-nav {
 }
 
 
-.section-hero {
-  height: 100vh;
-  // width: inherit;
+.section-content {
+  min-height: 65vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
   @include auto-width;
-  @include flex-center;
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-para {
+    text-align: center;
+    width: 375px;
+    color: $steel-light;
+  }
 
   &.mobile {
+    @include auto-width-mobile;
     h1 {
       @include h1-mobile;
+    }
+    .hero-para {
+      @include body-text-mobile;
+      width: 100%;
+      margin-top: -1rem;
     }
   }
 }
@@ -41,12 +60,14 @@ app-top-nav {
 
 .portfolio-item {
   @include auto-width;
-  margin-bottom: 25rem;
 
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-start;
   justify-content: space-between;
+
+  padding-top: 15rem;
+  padding-bottom: 15rem;
 
   .content {
     @extend %content-constraints;

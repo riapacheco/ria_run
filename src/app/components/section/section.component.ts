@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 
-export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange' | 'section pink-paint';
+export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section blue-paint' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange' | 'section pink-paint' | 'section green-paint';
 
 @Component({
   selector: 'app-section',
@@ -13,7 +13,6 @@ export type TSectionType = 'section' | 'section blue' | 'section painted' | 'sec
         <div class="section-content">
           <ng-content select="[sectionContent]"></ng-content>
         </div>
- 
       </div>
       
   `,

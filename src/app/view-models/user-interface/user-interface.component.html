@@ -2,7 +2,20 @@
   [navClass]="navClass">
 </app-top-nav>
 
-<div class="mb-15"></div>
+<app-section
+  [sectionClass]="'section blue-paint'"
+  [minHeight]="'60vh'"
+  >
+  <div sectionContent [ngClass]="isMobile ? 'section-content mobile' : 'section-content'">
+    <h1 class="mb-3">
+      User Interfaces
+    </h1>
+
+    <div class="hero-para">
+      Hand-crafted artisan components, showcased and displayed through custom components.
+    </div>
+  </div>
+</app-section>
 
 
 <div
