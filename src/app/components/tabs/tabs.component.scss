@@ -55,11 +55,17 @@ $radius: 6px;
         }
         .material-icons {
           opacity: 0.4;
+          font-size: 1.7rem;
         }
         &.active {
           background-image: none;
           opacity: 1;
           background-color: $black-medium;
+          color: $canary-dark;
+          .material-icons {
+            color: $canary-dark !important;
+            opacity: 1;
+          }
           .active-nib {
             display: inline-block;
           }
