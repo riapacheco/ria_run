@@ -14,8 +14,9 @@ import { IframeService } from 'src/app/services/iframe.service';
 })
 export class UserInterfaceComponent implements OnInit, OnDestroy {
 
+  @ViewChild('bottomDiv') bottomDiv!: ElementRef;
   introSectionClass: TSectionType = 'section pink-paint';
-  heroHeight = '55vh';
+  heroHeight = '70vh';
 
   /* ---------------------------- IFRAME COMPONENT ---------------------------- */
   config = {
@@ -66,5 +67,11 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
     this.service.getAllIframes().then((res: any) => {
       this.embedList = res.sort();
     })
+  }
+
+  scrollDown() {
+    setTimeout(() => {
+      this.bottomDiv.nativeElement.scrollIntoView({ behavior: 'smooth' })
+    }, 150);
   }
 }

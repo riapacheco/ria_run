@@ -7,15 +7,17 @@
   [minHeight]="heroHeight"
   >
   <div [ngClass]="isMobile ? 'section-hero mobile' : 'section-hero'" sectionContent>
-    <h1>User Interface Library</h1>
+    <h1 class="mb-3">User Interface Library</h1>
+    <a class="scroll-btn" (click)="scrollDown()">
+      <i class="material-icons">south</i>
+      View Library
+    </a>
   </div>
 </app-section>
 
-<div class="sample-wrapper">
-  <app-iframe
-    [embedList]="embedList"
-    [wrapper]="wrapper">
-  </app-iframe>
-</div>
+<app-iframe
+[embedList]="embedList"
+[wrapper]="wrapper">
+</app-iframe>
 
-
+<div #bottomDiv></div>

@@ -1,0 +1,61 @@
+<cdk-virtual-scroll-viewport [style.height]="'85vh'" [itemSize]="'85vh'" cdk-scrollable>
+  <ng-container *cdkVirtualFor="let embed of embedList">
+    <div [ngClass]="isMobile ? iframeClass.mobile : iframeClass.default ">
+      <div *ngIf="!isMobile" [style.width]="wrapper.width" [style.height]="wrapper.height" class="iframe-wrapper">
+        <iframe width="100%" height="100%" [src]="showsAltUrl ? (embed.altUrl | safe:'resourceUrl') : (embed.url | safe:'resourceUrl')" frameborder="0"></iframe>
+      </div>
+  
+      <ng-container *ngIf="embed.showsDetails">
+        <div class="iframe-details">
+          <div class="title">
+            <h2>
+              {{ embed.label }}
+            </h2>
+          </div>
+          <div class="text-content">
+            <div class="inner-html" [innerHTML]="embed.description"></div>
+  
+            <ng-container *ngIf="embed.interface">
+              <pre class="interface-block">
+                <code
+                  [highlight]="embed.interface"
+                  [languages]="['typescript']"
+                  (highlighted)="onHighlight($event)"
+                  [lineNumbers]="true"
+                  >
+                </code>
+              </pre>
+            </ng-container>
+  
+            <div *ngIf="isMobile" [style.width]="wrapper.width" [style.height]="wrapper.height" class="iframe-wrapper">
+              <iframe width="100%" height="100%" [src]="showsAltUrl ? (embed.altUrl | safe:'resourceUrl') : (embed.url | safe:'resourceUrl')" frameborder="0"></iframe>
+            </div>
+  
+  
+            <ng-container *ngIf="isMobile">
+              <div class="mb-4"></div>
+            </ng-container>
+            
+            <ng-container *ngIf="!showsAltUrl">
+              <a (click)="onAltUrl()" class="cta-btn">
+                <i class="material-icons">
+                  slideshow
+                </i>
+                Preview UI
+              </a>
+            </ng-container>
+  
+            <ng-container *ngIf="showsAltUrl">
+              <a (click)="onOriginalUrl()" class="cta-btn">
+                <i class="material-icons">
+                  code
+                </i>
+                Editor
+              </a>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</cdk-virtual-scroll-viewport>

@@ -19,6 +19,7 @@ import { JoinArrayPipe } from './pipes/join-array.pipe';
 import { SectionComponent } from './components/section/section.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -65,7 +66,8 @@ import { IframeService } from './services/iframe.service';
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
-    HighlightModule
+    HighlightModule,
+    ScrollingModule
   ],
 
   providers: [

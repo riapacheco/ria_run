@@ -17,20 +17,32 @@ pre {
 .iframe-item {
   display: flex;
   flex-flow: row nowrap;
-
+  overflow-x: hidden;
+  @include auto-width;
+  padding-top: 10rem;
   padding-bottom: 8rem;
   border-bottom: 2px solid #ffffff10;
-  margin-bottom: 8rem;
+  margin-bottom: 10rem;
+
+
   &:nth-child(odd) {
     flex-flow: row-reverse nowrap;
   }
 
+  &:last-child {
+    margin-bottom: 0rem;
+    padding-bottom: 10rem;
+    
+    border-bottom: none;
+  }
+
   /* ------------------------------- TEXT STUFF ------------------------------- */
   .iframe-details {
-    margin: 2rem;
-    min-width: 380px;
+    // margin: 2rem;
+    min-width: 25%;
     max-width: 35%;
-
+    padding-left: 2rem;
+    padding-right: 2rem;
     .title {
       margin-top: 2.5rem;
       margin-bottom: 1.5rem;
@@ -40,6 +52,7 @@ pre {
       flex-flow: column nowrap;
       align-items: flex-start;
       justify-content: space-between;
+
       .inner-html {
         margin-bottom: 1rem;
         margin-right: 1rem;
@@ -65,15 +78,24 @@ pre {
   /* --------------------------------- MOBILE --------------------------------- */
   &.mobile {
     flex-flow: column-reverse nowrap;
+    width: 370px;
+
+    
+
     .iframe-wrapper {
       padding: 0rem;
+      margin: 0rem;
+      width: 100%;
       max-height: 400px !important;
     }
     .iframe-details {
+      padding-left: 0rem;
+      padding-right: 0rem;
       margin: 0rem;
-      min-width: 0rem;
+      min-width: 85%;
       margin-bottom: 2.5rem;
-      max-width: none;
+      margin: auto;
+
       .title {
         margin-bottom: 1.5rem;
         h2 {
@@ -90,6 +112,10 @@ pre {
           margin-top: -1rem;
           @include body-text-mobile;
           line-height: 1.4;
+        }
+
+        .cta-btn {
+          margin-left: 4rem;
         }
       }
     }

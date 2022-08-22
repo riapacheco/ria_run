@@ -7,21 +7,14 @@ app-top-nav {
   right: 0;
   width: 100%;
 }
-
 .sample-wrapper {
-  @include auto-width;
-
   padding-top: 5rem;
-  padding-bottom: 10rem;
-  
-  &.mobile {
-    @include auto-width-mobile;
-  }
+  // max-width: 100vw;
 }
 
 .section-hero {
-  height: 55vh;
-  width: inherit;
+  height: 70vh;
+  // width: inherit;
   @include auto-width;
   @include flex-center;
 
@@ -30,4 +23,12 @@ app-top-nav {
       @include h1-mobile;
     }
   }
+}
+
+.scroll-btn {
+  @include cta-btn;
+}
+
+app-iframe {
+  width: 100%;
 }
