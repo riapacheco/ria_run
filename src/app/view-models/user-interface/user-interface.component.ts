@@ -36,7 +36,6 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
     mobile: 'top-nav canary mobile'
   };
 
-  @ViewChild('topDiv') topDiv!: ElementRef;
   isMobile!: boolean;
   private sub = new Subscription();
   constructor(
@@ -47,9 +46,6 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
     this.sub.add(this.loadData());
-    setTimeout(() => {
-      this.topDiv.nativeElement.scrollIntoView();
-    }, 200);
   }
 
   ngOnDestroy() {

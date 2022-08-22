@@ -11,13 +11,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
 
   constructor() {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   ngAfterViewInit() {
-    this.scrollDiv.nativeElement.scrollIntoView();
+
   }
   ngOnDestroy() {}
 
-  onActivate() {
-    this.scrollDiv.nativeElement.scrollIntoView();
-  }
+  onActivate() { document.body.scroll(0,0); }
 }
