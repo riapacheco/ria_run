@@ -15,9 +15,12 @@
   </div>
 </app-section>
 
-<app-iframe
-[embedList]="embedList"
-[wrapper]="wrapper">
-</app-iframe>
+<ng-container 
+  *ngIf="libraryIsShowing">
+  <app-iframe
+    [embedList]="embedList"
+    [wrapper]="wrapper">
+  </app-iframe>
+</ng-container>
 
 <div #bottomDiv></div>

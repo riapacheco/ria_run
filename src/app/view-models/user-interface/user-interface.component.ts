@@ -14,6 +14,7 @@ import { IframeService } from 'src/app/services/iframe.service';
 })
 export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  libraryIsShowing = false;
   @ViewChild('bottomDiv') bottomDiv!: ElementRef;
   introSectionClass: TSectionType = 'section pink-paint';
   heroHeight = '100vh';
@@ -51,7 +52,9 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   ngAfterViewInit() {
-    document.body.scroll(0,0);
+    // setTimeout(() => {
+    //   document.body.scroll(0,0);
+    // }, 200)
   }
 
   ngOnDestroy() {
@@ -74,6 +77,7 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   scrollDown() {
+    this.libraryIsShowing = true;
     setTimeout(() => {
       this.bottomDiv.nativeElement.scrollIntoView({ behavior: 'smooth' })
     }, 150);

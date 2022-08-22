@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
   }
   ngAfterViewInit() {
-
+    document.body.scroll(0,0);
   }
   ngOnDestroy() {}
 
