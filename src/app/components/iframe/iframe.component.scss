@@ -46,6 +46,9 @@ pre {
     .title {
       margin-top: 2.5rem;
       margin-bottom: 1.5rem;
+      h2 {
+        line-height: 1.25;
+      }
     }
     .text-content {
       display: flex;
@@ -98,8 +101,10 @@ pre {
 
       .title {
         margin-bottom: 1.5rem;
+   
         h2 {
           @include h2-mobile;
+
         }
       }
       .text-content {
