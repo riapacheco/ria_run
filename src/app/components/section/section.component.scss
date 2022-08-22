@@ -78,7 +78,15 @@
     }
   }
 
-  &.yellow-splatter {
+  &.orange {
+    
+    background-image: linear-gradient(to bottom right, $blood-orange-dark, $blood-orange-regular,$blood-orange-medium, $blood-orange-light);
+    // background-color: $black;
+
+  }
+
+
+  &.pink-paint {
     display: block;
     .section-content {
       position: absolute;
@@ -86,7 +94,6 @@
       top: 0;
       width: 100%;
       height: 100%;
-      
     }
     &::before {
       content: ' ';
@@ -98,47 +105,10 @@
       height: 100%;
       opacity: 0.3;
       background-color: $canary-medium;
-      background-image: url('../../../assets/patterns/yellow_splatter.png');
+      background-image: url('../../../assets/patterns/pinkPaint.png');
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      // background-size: cover;
-      object-fit: cover;
-      background-size: 170%;
-      // filter: blur(8px);
+      background-size: cover;
     }
-  }
-
-  &.blue-rust {
-    display: block;
-    .section-content {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-    &::before {
-      content: ' ';
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $canary-medium;
-      background-image: linear-gradient(to bottom right, rgba(4, 17, 4, 0.818), rgba(14, 59, 24, 0.169)), url('../../../assets/patterns/DT50.jpg');
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      object-fit: fill;
-      background-size: 180%;
-      // filter: blur(6px) brightness(0.4);
-    }
-  }
-
-  &.orange {
-    
-    background-image: linear-gradient(to bottom right, $blood-orange-dark, $blood-orange-regular,$blood-orange-medium, $blood-orange-light);
-    // background-color: $black;
-
   }
 }

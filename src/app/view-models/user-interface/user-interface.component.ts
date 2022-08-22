@@ -14,7 +14,7 @@ import { IframeService } from 'src/app/services/iframe.service';
 })
 export class UserInterfaceComponent implements OnInit, OnDestroy {
 
-  introSectionClass: TSectionType = 'section painted';
+  introSectionClass: TSectionType = 'section pink-paint';
   heroHeight = '55vh';
 
   /* ---------------------------- IFRAME COMPONENT ---------------------------- */

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 
-export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange';
+export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange' | 'section pink-paint';
 
 @Component({
   selector: 'app-section',
