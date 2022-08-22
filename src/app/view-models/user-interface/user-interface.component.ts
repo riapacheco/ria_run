@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IIFrame } from 'src/app/components/iframe/iframe.component';
 import { TSectionType } from 'src/app/components/section/section.component';
@@ -49,7 +49,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
     this.sub.add(this.loadData());
     setTimeout(() => {
       this.topDiv.nativeElement.scrollIntoView();
-    }, 100);
+    }, 200);
   }
 
   ngOnDestroy() {
