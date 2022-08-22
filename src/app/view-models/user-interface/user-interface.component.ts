@@ -46,6 +46,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
     this.sub.add(this.loadData());
+    document.body.scroll(0,0);
   }
 
   ngOnDestroy() {
