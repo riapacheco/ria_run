@@ -1,7 +1,15 @@
 @import '../../../scss/mixins.scss';
 @import '../../../scss/colors.scss';
 
-
+pre {
+  line-height: 1.3;
+  white-space: pre;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Fira Code", sans-serif !important;
+  width: 100%;
+  border-radius: 6px;
+}
 .iframe-wrapper {
   padding: 2rem;
 }
