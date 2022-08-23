@@ -139,6 +139,7 @@
           type="text"
           (outsideClick)="focusInput()"
           (keyup.enter)="onEnter($event)"
+          (keydown.esc)="onEscape($event)"
           #commandLineInput
           autofocus>
       </div>
