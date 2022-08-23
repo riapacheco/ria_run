@@ -1,7 +1,12 @@
 @import '../../../scss/previews.scss';
-
+$left-buttons-height: 6.5rem;
+$right-button-height: 6.5rem;
 .code-preview {
   @include preview-component('Indicator Card');
+  @include preview-component('Iphone Mockup');
+}
 
-  @include preview-component('iphone-mockup');
+.mockup-area {
+  padding: 5px;
+  padding-top: 5rem;
 }

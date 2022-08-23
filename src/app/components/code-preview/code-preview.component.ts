@@ -1,11 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 
 @Component({
   selector: 'app-code-preview',
   templateUrl: './code-preview.component.html',
   styleUrls: ['./code-preview.component.scss']
 })
-export class CodePreviewComponent implements OnInit {
+export class CodePreviewComponent implements OnInit, OnDestroy {
   @Input() componentType = '';
   cards = [
     {
@@ -27,9 +30,25 @@ export class CodePreviewComponent implements OnInit {
       bottomLabel: 'Last 30 Days',
     }
   ];
-  constructor() { }
+
+  isMobile!: boolean;
+  private sub = new Subscription();
+  constructor(
+    private observer: BreakpointObserver
+  ) { }
 
   ngOnInit(): void {
+    this.sub.add(this.checkViewport());
   }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  private checkViewport() {
+    this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
+      if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
+      else { this.isMobile = false; }
+    })
+  }
 }

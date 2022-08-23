@@ -19,10 +19,11 @@ export class TabsComponent implements OnInit {
   @Input() tabs: ICodeTab[] = [];
 
   tabsState = {
-    html: true,
+    preview: true,
+    html: false,
     typescript: false,
     scss: false,
-    preview: false
+
   };
 
   response!: HighlightAutoResult;

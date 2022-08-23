@@ -1,0 +1,17 @@
+<div [ngClass]="isMobile ? 'wrapper mobile' : 'wrapper'">
+  <div class="left-buttons">
+    <div class="button-top"></div>
+    <div class="button-middle"></div>
+    <div class="button-bottom"></div>
+  </div>
+  <div class="iphone-area">
+    <div class="iphone">
+      <div class="screen">
+        <ng-content select="[mockupScreen]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="right-buttons">
+    <div class="single-button"></div>
+  </div>
+</div>

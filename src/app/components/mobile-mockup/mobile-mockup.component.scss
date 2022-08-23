@@ -1,0 +1,107 @@
+$left-buttons-height: 6.5rem;
+$right-button-height: 6.5rem;
+$screen-padding: 8px;
+.wrapper {
+  width: 320px;
+  height: 690px;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 5px;
+  position: relative;
+
+  &.mobile {
+    width: 300px;
+    height: 675px;
+  }
+  .iphone-area {
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+    border-radius: 56px;
+    background-color: #41414146;
+
+    .iphone {
+      height: 100%;
+      width: 100%;
+      border-radius: 56px;
+      background-color: rgb(24, 24, 24);
+      padding: 8px;
+      box-shadow: 22px 32px 32px rgba(0, 0, 0, 0.726);
+      border-top: 2px solid rgba(255, 255, 255, 0.171);
+      border-left: 4px solid rgba(255, 255, 255, 0.295);
+
+      .screen {
+        border: 2px solid black;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        border-radius: 48px;
+        padding: $screen-padding;
+      }
+    }
+  }
+
+  .left-buttons {
+    width: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    .button-top {
+      margin-top: 10rem;
+      width: inherit;
+      height: 3rem;
+    }
+
+    .button-middle {
+      margin-top: 3.5rem;
+      width: inherit;
+      height: $left-buttons-height;
+    }
+
+    .button-bottom {
+      margin-top: 2rem;
+      width: inherit; 
+      height: $left-buttons-height;
+    }
+
+    .button-top,
+    .button-middle,
+    .button-bottom {
+      border-radius: 5px 0px 0px 5px;
+      border-left: 3.2px solid rgba(201, 201, 201, 0.212);
+      background-color: rgb(31, 31, 31);
+      border-top: 3px solid grey;
+    }
+  }
+
+  .right-buttons {
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .single-button {
+      width: inherit;
+      height: $right-button-height;
+      margin-top: 15rem;
+      background-color: rgb(22, 22, 22);
+      border-radius: 0px 5px 5px 0px;
+      border-top: 4px solid rgb(138, 138, 138);
+      border-right: 2px solid grey;
+    }
+  }
+
+  .top-nib {
+    width: 120px;
+    height: 30px;
+    background-color: black;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 60px);
+    border-radius: 0px 0px 15px 15px;
+
+  }
+}
+

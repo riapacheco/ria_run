@@ -42,6 +42,7 @@ import { IframeService } from './services/iframe.service';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { CodeTabService } from './services/code-tab.service';
 import { CodePreviewComponent } from './components/code-preview/code-preview.component';
+import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CodePreviewComponent } from './components/code-preview/code-preview.com
     SafePipe,
     IframeComponent,
     TabsComponent,
-    CodePreviewComponent
+    CodePreviewComponent,
+    MobileMockupComponent
   ],
   imports: [
     BrowserModule,

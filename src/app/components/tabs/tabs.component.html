@@ -2,6 +2,16 @@
   <div class="tabs">
     <div class="tab-buttons">
       <a
+        [ngClass]="tabsState.preview ? 'active' : ''"
+        (click)="onTabClick('preview')">
+        <ng-container *ngIf="tabsState.preview">
+          <div class="active-nib"></div>
+        </ng-container>
+        <i class="material-icons draw">
+          draw
+        </i>
+      </a>
+      <a
         (click)="onTabClick('html')"
         [ngClass]="tabsState.html ? 'active' : ''">
         <ng-container *ngIf="tabsState.html">
@@ -25,16 +35,7 @@
         </ng-container>
         scss
       </a>
-      <a
-        [ngClass]="tabsState.preview ? 'active' : ''"
-        (click)="onTabClick('preview')">
-        <ng-container *ngIf="tabsState.preview">
-          <div class="active-nib"></div>
-        </ng-container>
-        <i class="material-icons draw">
-          draw
-        </i>
-      </a>
+
     </div>
 
     <div class="tab-body">
@@ -121,15 +122,16 @@
 
       <!-- ------------------------------- PREVIEW ------------------------------- -->
       <ng-container *ngIf="tabsState.preview && htmlData.component == 'Indicator Card'">
-        <div class="code-preview" [style.height]="'650px'">
+        <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
           <app-code-preview
             [componentType]="htmlData.component">
           </app-code-preview>
         </div>
       </ng-container>
 
+      <!-- ---------------------------- IPHONE MOCKUP ---------------------------- -->
       <ng-container *ngIf="tabsState.preview && htmlData.component == 'Iphone Mockup'">
-        <div class="code-preview" [style.height]="'820px'">
+        <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
           <app-code-preview
             [componentType]="'Iphone Mockup'">
           </app-code-preview>
