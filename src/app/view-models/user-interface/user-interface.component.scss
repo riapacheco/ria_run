@@ -90,12 +90,11 @@ app-top-nav {
     }
   }
   &.mobile {
-
     flex-flow: column nowrap;
     align-items: flex-start;
     justify-content: flex-start;
     @include auto-width-mobile;
-
+    padding-top: 3rem;
     .content {
       .title {
         h2 {
