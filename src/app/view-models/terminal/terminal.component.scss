@@ -68,7 +68,7 @@ a.copy-btn {
     align-items: center;
     justify-content: center;
 
-    opacity: 0.15;
+    opacity: 0.1;
   }
 }
 
@@ -77,7 +77,7 @@ a.copy-btn {
     &:first-child {
       a {
         .material-icons {
-          opacity: 0.3;
+          opacity: 0.5;
           animation: shake 0.4s;
         }
 
