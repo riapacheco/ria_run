@@ -137,7 +137,7 @@
           [(ngModel)]="inputString"
           placeholder=" > type '--help' + enter key for commands"
           type="text"
-          (outsideClick)="focusInput()"
+          (outsideClick)="focusInput();clearInput()"
           (keyup.enter)="onEnter($event)"
           (keydown.esc)="onEscape($event)"
           #commandLineInput
