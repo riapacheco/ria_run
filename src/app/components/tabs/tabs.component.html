@@ -1,5 +1,11 @@
 <div [ngClass]="isMobile ? 'tabs-wrapper mobile' : 'tabs-wrapper'">
   <div class="tabs">
+    <div [class]="hintClass">
+      <small>
+        click tabs for code
+        <i class="material-icons">south</i>
+      </small>
+    </div>
     <div class="tab-buttons">
       <a
         [ngClass]="tabsState.preview ? 'active' : ''"
@@ -35,7 +41,6 @@
         </ng-container>
         scss
       </a>
-
     </div>
 
     <div class="tab-body">
@@ -138,6 +143,5 @@
         </div>
       </ng-container>
     </div>
-
   </div>
 </div>

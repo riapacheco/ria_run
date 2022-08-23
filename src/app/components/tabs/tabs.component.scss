@@ -17,6 +17,7 @@ $radius: 6px;
   position: relative;
   .tabs {
     .tab-buttons {
+      position: relative;
       min-height: $buttons-height;
       height: $buttons-height;
       max-height: $buttons-height;
@@ -193,3 +194,29 @@ pre {
 
 
 
+
+.hidden-message {
+  transition: 200ms ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-left: 3rem;
+  
+  opacity: 0;
+  small {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: 500;
+    .material-icons {
+      font-size: 1.4rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &.showing {
+    opacity: 0.8;
+  }
+}

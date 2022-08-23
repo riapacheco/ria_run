@@ -26,6 +26,7 @@ export class TabsComponent implements OnInit {
 
   };
 
+  hintClass = 'hidden-message';
   response!: HighlightAutoResult;
   isMobile!: boolean;
   private sub = new Subscription();
@@ -38,7 +39,9 @@ export class TabsComponent implements OnInit {
     this.sub.add(this.checkDevice());
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.showHideHint();
+  }
 
   checkDevice() {
     this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
@@ -47,6 +50,14 @@ export class TabsComponent implements OnInit {
     })
   }
 
+  showHideHint() {
+    setTimeout(() => {
+      this.hintClass = 'hidden-message showing';
+    }, 200);
+    setTimeout(() => {
+      this.hintClass = 'hidden-message';
+    }, 3000);
+  }
   // Code highlighting
   onHighlight(e: HighlightAutoResult) {
     this.response = {

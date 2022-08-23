@@ -71,6 +71,7 @@ app-top-nav {
 
   .content {
     @extend %content-constraints;
+    padding-top: 5rem;
     .title {
       margin-top: 6rem;
       margin-bottom: 2rem;
