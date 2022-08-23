@@ -43,7 +43,7 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    
+    this.onEnter('--help');
   }
   ngAfterViewInit() {
     this.sub.add(this.checkDevice());

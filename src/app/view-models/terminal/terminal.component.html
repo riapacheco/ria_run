@@ -32,6 +32,10 @@
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
+
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                    <i class="material-icons">content_copy</i>
+                  </a>
                 </div>
                 <div>
                   {{ option.description }}
@@ -52,6 +56,9 @@
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                    <i class="material-icons">content_copy</i>
+                  </a>
                 </div>
                 <div>
                   {{ option.description }}
@@ -72,6 +79,16 @@
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
+                  <ng-container *ngIf="option.refName !== 'email'">
+                    <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                      <i class="material-icons">content_copy</i>
+                    </a>
+                  </ng-container>
+                  <ng-container *ngIf="option.refName == 'email'">
+                    <a class="copy-btn" cdkCopyToClipboard="me@riapacheco.com">
+                      <i class="material-icons">content_copy</i>
+                    </a>
+                  </ng-container>
                 </div>
                 <div>
                   {{ option.description }}

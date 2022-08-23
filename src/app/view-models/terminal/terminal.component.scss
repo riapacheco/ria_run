@@ -1,5 +1,6 @@
 @import '../../../scss/variables.scss';
 @import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss//keyframes.scss';
 .content-wrapper {
   width: 80%;
   margin: auto;
@@ -23,6 +24,10 @@
   justify-content: space-between;
   margin-bottom: 1rem;
   div:first-child {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
     margin-right: 2rem;
   }
   div:nth-child(2) {
@@ -41,4 +46,47 @@
   width: 40%;
   margin: auto;
   border: 1px solid $danger;
+}
+
+a.copy-btn {
+
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  
+  .material-icons {
+    margin-left: 2rem;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.65rem;
+
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.15;
+  }
+}
+
+.row-div:hover {
+  div {
+    &:first-child {
+      a {
+        .material-icons {
+          opacity: 0.3;
+          animation: shake 0.4s;
+        }
+
+        &:hover {
+          .material-icons {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }

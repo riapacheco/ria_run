@@ -10,6 +10,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
+import { ClipboardModule } from '@angular/cdk/clipboard'
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarService } from './services/sidebar.service';
 import { OutsideClickDirective } from './directives/outside-click.directive';
@@ -72,7 +74,8 @@ import { CodePreviewComponent } from './components/code-preview/code-preview.com
     LayoutModule,
     HttpClientModule,
     HighlightModule,
-    ScrollingModule
+    ScrollingModule,
+    ClipboardModule,
   ],
 
   providers: [
