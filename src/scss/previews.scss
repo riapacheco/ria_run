@@ -14,7 +14,7 @@ $grey-medium: #252831;
 @mixin preview-component($component) {
   @if $component == 'Indicator Card' {
     .cards-wrapper {
-      font-size: 1.6rem;
+
       -webkit-font-smoothing: antialiased !important;
       width: 100%;
       
@@ -45,6 +45,12 @@ $grey-medium: #252831;
         flex-flow: column nowrap;
         align-items: flex-start;
         justify-content: space-between;
+  
+        .icon {
+          .material-icons {
+            font-size: 1.8rem;
+          }
+        }
     
         &:nth-child(1) {
           background-image: linear-gradient(to bottom right, $bondi-dark, $bondi-medium, $bondi-light);
@@ -79,8 +85,8 @@ $grey-medium: #252831;
     
     
         .icon {
-          height: 2.5rem;
-          width: 2.5rem;
+          height: 3rem;
+          width: 3rem;
           border-radius: 50%;
     
           display: flex;
@@ -108,33 +114,139 @@ $grey-medium: #252831;
             color: $grey-dark;
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 1.3rem;
             letter-spacing: 0.03rem;
           }
       
           .indicator-preview {
             display: flex;
             align-items: center;
-            font-size: 2.4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: $grey-dark;
             letter-spacing: -0.09rem;
+            margin-top: -1rem;
       
             span {
               margin-right: 0.2rem;
-              font-size: 1.1rem;
+              font-size: 1.6rem;
             }
           }
         }
     
         .bottom-label {
-          font-size: 0.75rem;
+          font-size: 1rem;
           background-color: $grey-dark;
-          padding: 0.3rem 0.6rem 0.3rem 0.5rem;
+          padding: 0.3rem 1.2rem;
           border-radius: 20px;
           font-weight: 600;
           letter-spacing: 0.01rem;
         }
+      }
+    }
+  }
+
+  @if $component == 'iphone-mockup' {
+    .wrapper {
+      width: 370px;
+      height: 800px;
+      // border: 1px solid blue;
+      margin: auto;
+      margin-top: 2rem;
+      padding: 5px;
+      position: relative;
+      .iphone-area {
+        height: 100%;
+        width: 100%;
+        padding: 3px;
+        border-radius: 56px;
+        background-color: #41414146;
+        // border: 2px solid #999999;
+    
+        .iphone {
+          height: 100%;
+          width: 100%;
+          border-radius: 56px;
+          background-color: rgb(24, 24, 24);
+          padding: 8px;
+          box-shadow: 22px 32px 22px rgba(0, 0, 0, 0.726);
+          border-top: 2px solid rgba(255, 255, 255, 0.171);
+          border-left: 4px solid rgba(255, 255, 255, 0.295);
+    
+    
+          .screen {
+            border: 2px solid black;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            border-radius: 48px;
+          }
+        }
+      }
+    
+      .left-buttons {
+        width: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        // border: 1px solid green;
+    
+        .button-top {
+          margin-top: 5rem;
+          width: inherit;
+          height: 2rem;
+        }
+    
+        .button-middle {
+          // border: 1px solid yellow;
+          margin-top: 2.5rem;
+          width: inherit;
+          height: 4rem;
+        }
+    
+        .button-bottom {
+          margin-top: 1.5rem;
+          width: inherit; 
+          height: 4rem;
+        }
+    
+        .button-top,
+        .button-middle,
+        .button-bottom {
+          border-radius: 5px 0px 0px 5px;
+          border-left: 3.2px solid rgba(201, 201, 201, 0.212);
+          background-color: rgb(31, 31, 31);
+          border-top: 3px solid grey;
+        }
+      }
+    
+      .right-buttons {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        .single-button {
+          width: inherit;
+          height: 4.5rem;
+          margin-top: 10rem;
+          background-color: rgb(22, 22, 22);
+          border-radius: 0px 5px 5px 0px;
+          border-top: 4px solid rgb(138, 138, 138);
+          border-right: 2px solid grey;
+        }
+      }
+    
+      .top-nib {
+        width: 120px;
+        height: 30px;
+        background-color: black;
+        position: absolute;
+        top: 10px;
+        left: calc(50% - 60px);
+        border-radius: 0px 0px 15px 15px;
+    
       }
     }
   }

@@ -13,10 +13,18 @@ import { CodeTabService } from 'src/app/services/code-tab.service';
 })
 export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  /* ----------------------------- INDICATOR CARD ----------------------------- */
   indicatorCardsContent: ICodeTab[] = [];
   cardsHtmlContent!: ICodeTab | undefined;
   cardsTypescriptContent!: ICodeTab | undefined;
   cardsScssContent!: ICodeTab | undefined;
+
+  /* ------------------------------ IPHONE-MOCKUP ----------------------------- */
+  iphoneMockupContent: ICodeTab[] = [];
+  iphoneHtmlContent!: ICodeTab | undefined;
+  iphoneTypescriptContent!: ICodeTab | undefined;
+  iphoneScssContent!: ICodeTab | undefined;
+  
 
   /* ---------------------------- TOP NAV COMPONENT --------------------------- */
   navClass = {
@@ -56,10 +64,17 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   private getData() {
     this.service.getAllCodeTabs().then((res: any) => {
       const data = [...res];
-      this.indicatorCardsContent = data.filter((obj: any) => obj.component == 'Indicator Card');
-      this.cardsHtmlContent = data.find((obj: any) => obj.language == 'html');
-      this.cardsTypescriptContent = data.find((obj: any) => obj.language == 'typescript');
-      this.cardsScssContent = data.find((obj: any) => obj.language == 'scss');
+      const indicatorCards = data.filter((obj: any) => obj.component == 'Indicator Card');
+      this.indicatorCardsContent = indicatorCards;
+      this.cardsHtmlContent = indicatorCards.find((obj: any) => obj.language == 'html');
+      this.cardsTypescriptContent = indicatorCards.find((obj: any) => obj.language == 'typescript');
+      this.cardsScssContent = indicatorCards.find((obj: any) => obj.language == 'scss');
+
+      const iphoneData = data.filter((obj:any) => obj.component == 'Iphone Mockup');
+      this.iphoneMockupContent = iphoneData;
+      this.iphoneHtmlContent = iphoneData.find((obj: any) => obj.language == 'html');
+      this.iphoneTypescriptContent = iphoneData.find((obj: any) => obj.language == 'typescript');
+      this.iphoneScssContent = iphoneData.find((obj: any) => obj.language == 'scss');
     })
   }
 }

@@ -45,15 +45,28 @@
 </div>
 
 <div [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'" >
+
+  <div class="tabs-wrapper">
+    <app-tabs
+      [tabs]="iphoneMockupContent"
+      [htmlData]="iphoneHtmlContent"
+      [typescriptData]="iphoneTypescriptContent"
+      [scssData]="iphoneScssContent"
+      >
+    </app-tabs>
+  </div>
   <div class="content">
     <div class="title">
       <h2>
-        Other one
+        {{ iphoneHtmlContent?.component }}
       </h2>
+    </div>
+
+    <div class="para">
+      <div class="inner-html" [innerHTML]="iphoneHtmlContent?.description"></div>
     </div>
   </div>
 
-  
 </div>
 
 

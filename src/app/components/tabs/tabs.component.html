@@ -72,7 +72,7 @@
             {{ typescriptData?.fileName }}
           </div>
   
-          <a *ngIf="!isMobile" class="icon-btn">
+          <a *ngIf="!isMobile" class="icon-btn" (click)="onLinkClick(htmlData?.stackBlitzLink)">
             <i class="material-icons">bolt</i>
           </a>
         </div>
@@ -99,7 +99,7 @@
             {{ scssData?.fileName }}
           </div>
   
-          <a *ngIf="!isMobile" class="icon-btn">
+          <a *ngIf="!isMobile" class="icon-btn" (click)="onLinkClick(htmlData?.stackBlitzLink)">
             <i class="material-icons">bolt</i>
           </a>
         </div>
@@ -124,6 +124,14 @@
         <div class="code-preview" [style.height]="'650px'">
           <app-code-preview
             [componentType]="htmlData.component">
+          </app-code-preview>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="tabsState.preview && htmlData.component == 'Iphone Mockup'">
+        <div class="code-preview" [style.height]="'820px'">
+          <app-code-preview
+            [componentType]="'Iphone Mockup'">
           </app-code-preview>
         </div>
       </ng-container>
