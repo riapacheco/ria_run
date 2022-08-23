@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 import { HighlightAutoResult } from 'ngx-highlightjs';
@@ -17,16 +17,19 @@ export class TabsComponent implements OnInit {
   @Input() typescriptData!: ICodeTab | any;
   @Input() scssData!: ICodeTab | any;
   @Input() tabs: ICodeTab[] = [];
+  @Input() hintClass = 'hidden-message';
+  @Input() showsHint!: boolean; // to prevent animation slips
+
+  @ViewChild('hintBlock') hintBlock!: ElementRef;
 
   tabsState = {
     preview: true,
     html: false,
     typescript: false,
     scss: false,
-
   };
 
-  hintClass = 'hidden-message';
+  
   response!: HighlightAutoResult;
   isMobile!: boolean;
   private sub = new Subscription();
@@ -40,7 +43,6 @@ export class TabsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.showHideHint();
   }
 
   checkDevice() {
@@ -50,14 +52,6 @@ export class TabsComponent implements OnInit {
     })
   }
 
-  showHideHint() {
-    setTimeout(() => {
-      this.hintClass = 'hidden-message showing';
-    }, 200);
-    setTimeout(() => {
-      this.hintClass = 'hidden-message';
-    }, 3000);
-  }
   // Code highlighting
   onHighlight(e: HighlightAutoResult) {
     this.response = {
@@ -121,4 +115,5 @@ export class TabsComponent implements OnInit {
   onLinkClick(link: any) {
     window.open(link);
   }
+
 }

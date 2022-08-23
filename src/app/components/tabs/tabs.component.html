@@ -1,11 +1,12 @@
 <div [ngClass]="isMobile ? 'tabs-wrapper mobile' : 'tabs-wrapper'">
   <div class="tabs">
-    <div [class]="hintClass">
-      <small>
-        click tabs for code
+    <ng-container *ngIf="showsHint">
+      <div [class]="hintClass">
         <i class="material-icons">south</i>
-      </small>
-    </div>
+        <div class="text">Click tabs to view code</div>
+        <i class="material-icons">south</i>
+      </div>
+    </ng-container>
     <div class="tab-buttons">
       <a
         [ngClass]="tabsState.preview ? 'active' : ''"
@@ -14,7 +15,7 @@
           <div class="active-nib"></div>
         </ng-container>
         <i class="material-icons draw">
-          draw
+          view_in_ar
         </i>
       </a>
       <a
@@ -43,7 +44,7 @@
       </a>
     </div>
 
-    <div class="tab-body">
+    <div class="tab-body" #hintBlock>
       <!-- ---------------------------- HTML TAB DATA ---------------------------- -->
       <ng-container *ngIf="tabsState.html">
         <div class="file-name">
@@ -126,7 +127,7 @@
       </ng-container>
 
       <!-- ------------------------------- PREVIEW ------------------------------- -->
-      <ng-container *ngIf="tabsState.preview && htmlData.component == 'Indicator Card'">
+      <ng-container *ngIf="tabsState.preview && htmlData?.component == 'Indicator Card'">
         <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
           <app-code-preview
             [componentType]="htmlData.component">
@@ -135,7 +136,7 @@
       </ng-container>
 
       <!-- ---------------------------- IPHONE MOCKUP ---------------------------- -->
-      <ng-container *ngIf="tabsState.preview && htmlData.component == 'Iphone Mockup'">
+      <ng-container *ngIf="tabsState.preview && htmlData?.component == 'Iphone Mockup'">
         <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
           <app-code-preview
             [componentType]="'Iphone Mockup'">

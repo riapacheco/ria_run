@@ -55,7 +55,7 @@ $radius: 6px;
         }
         .material-icons {
           opacity: 0.4;
-          font-size: 1.7rem;
+          font-size: 1.9rem;
         }
         &.active {
           background-image: none;
@@ -202,18 +202,17 @@ pre {
   flex-flow: row nowrap;
   align-items: center;
   margin-left: 3rem;
-  
+  font-weight: 600;
   opacity: 0;
-  small {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end;
-    font-weight: 500;
-    .material-icons {
-      font-size: 1.4rem;
-      margin-left: 0.5rem;
-    }
+  color: $steel-regular;
+
+  .text {
+    font-size: 1.3rem;
+  }
+  .material-icons {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   &.showing {

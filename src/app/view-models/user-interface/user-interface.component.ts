@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 import { ICodeTab } from 'src/app/models/code-tabs.model';
@@ -25,12 +25,18 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   iphoneTypescriptContent!: ICodeTab | undefined;
   iphoneScssContent!: ICodeTab | undefined;
   
+  /* -------------------------------- ALL TABS -------------------------------- */
+  hintClass = 'hidden-message';     // RESET THIS
+  showsHint = false; // to prevent any animation slips
+  
 
   /* ---------------------------- TOP NAV COMPONENT --------------------------- */
   navClass = {
     desktop: 'top-nav canary',
     mobile: 'top-nav canary mobile'
   };
+
+  @ViewChild('hint') hint!: ElementRef;
 
   isMobile!: boolean;
   private sub = new Subscription();
@@ -43,13 +49,14 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
     this.sub.add(this.getData());
+    this.showsHint = true;
   }
 
   ngAfterViewInit() {
   }
 
   ngOnDestroy() {
-
+    this.clearStorage();
   }
 
   /* ------------------------------ DEVICE CHECK ------------------------------ */
@@ -76,5 +83,38 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
       this.iphoneTypescriptContent = iphoneData.find((obj: any) => obj.language == 'typescript');
       this.iphoneScssContent = iphoneData.find((obj: any) => obj.language == 'scss');
     })
+  }
+
+  /* --------------------------- LISTEN TO SHOW DIV --------------------------- */
+  @HostListener('body:scroll', ['$event'])
+  public onScrollBy() {
+    const windowHeight = window.innerHeight;
+    const boundingRect = this.hint.nativeElement.getBoundingClientRect();
+
+    if (boundingRect.top >= 0 && boundingRect.bottom <= windowHeight) {
+      this.checkStorage();
+    }
+  }
+
+  checkStorage() {
+    const key = 'New User Session';
+    const date = new Date().toDateString(); 
+
+    if (!localStorage.getItem(key)) {
+      this.playStopHint();
+      localStorage.setItem(key, date);
+    }
+  }
+
+  playStopHint() {
+    this.hintClass = 'hidden-message showing';
+    setTimeout(() => {
+      this.hintClass = 'hidden-message';
+    }, 2000);
+  }
+
+  clearStorage() {
+    this.showsHint = false;
+    localStorage.clear();
   }
 }

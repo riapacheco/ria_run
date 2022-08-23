@@ -19,8 +19,8 @@
 
 
 <div
-  [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'" >
-  <div class="content">
+  [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'">
+  <div class="content" #hint>
     <div class="title">
       <h2>
         {{ cardsHtmlContent?.component }}
@@ -34,6 +34,8 @@
 
   <div class="tabs-wrapper">
     <app-tabs
+      [showsHint]="showsHint"
+      [hintClass]="hintClass"
       [tabs]="indicatorCardsContent"
       [htmlData]="cardsHtmlContent"
       [typescriptData]="cardsTypescriptContent"
@@ -41,6 +43,8 @@
       >
     </app-tabs>
   </div>
+
+
 
 </div>
 
