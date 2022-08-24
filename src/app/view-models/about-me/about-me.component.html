@@ -1,19 +1,47 @@
-<app-section
-  [sectionClass]="sectionClass"
-  [minHeight]="'60vh'"
-  >
-  <div class="section-content" sectionContent>
-    <app-top-nav
-      [navClass]="navClass">
-    </app-top-nav>
+<app-top-nav style="position: absolute; width: 100%;" [navClass]="navClass"></app-top-nav>
 
-    <div class="title-area">
-      <div class="title">
+<app-section
+  [sectionClass]="'section pink-paint'"
+  [minHeight]="isMobile ? '130vh' : '100vh'">
+  <div [ngClass]="isMobile ? 'hero mobile' : 'hero'" sectionContent>
+    <div class="content">
+      <div class="my-image">
+        <img src="https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/website/IMG_0632.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3dlYnNpdGUvSU1HXzA2MzIuSlBHIiwiaWF0IjoxNjYxMzAzNjkzLCJleHAiOjE5NzY2NjM2OTN9.QefFfa7tC7acs-jIP-5PxDWrRo95_HZG1Lx1zneVy7Q" alt="">
+      </div>
+
+      <div class="text-content">
         <h1>
-          About who?
+          You met me at a <span class="strikethrough">very strange</span>&nbsp;<span class="new-word">hella dope</span> time in my life
         </h1>
+        <div class="para">
+          <div class="inner-html" [innerHTML]="heroPara"></div>
+        </div>
+        <div *ngIf="showContent" class="button-group">
+          <a class="start-btn" (click)="scrollTo('firstSection')">
+            <i class="material-icons">
+              south
+            </i>
+            View my Experience
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </app-section>
 
+
+<ng-container *ngIf="showContent">
+  <app-section >
+    <div class="first-block" sectionContent #firstSection>
+      <div class="content">
+        <div class="left">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae laborum cupiditate doloremque consequuntur magnam sed ad dolorum, officiis aliquam soluta aut nam voluptates nemo quas quia. Tempora perferendis praesentium molestias!
+        </div>
+  
+        <div class="right">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia laboriosam laborum ut culpa nam veniam neque animi autem exercitationem! Qui mollitia nesciunt voluptatem. Natus quasi dolor ipsam saepe eos vel!
+        </div>
+      </div>
+    </div>
+  </app-section>
+</ng-container>

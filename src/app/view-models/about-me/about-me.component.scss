@@ -2,16 +2,142 @@
 @import '../../../scss/colors.scss';
 @import '../../../scss/mixins.scss';
 
-.title-area {
-  padding-top: 6rem;
+%image-width-mobile {
+  width: 250px;
+}
+%text-width-mobile {
+  width: 100%;
+}
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   @include auto-width;
 
-  .title {
-    text-align: center;
+  .content {
+    display: flex;
+    flex-flow: row nowrap;
+    .my-image {
+      width: 35%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 300px;
+        border-radius: 300px;
+        border: 3px solid $canary-dark;
+        filter: brightness(1.1);
+      }
+    }
 
-    h1 {
-      color: $black;
+    .text-content {
+      width: 610px;
+      margin-left: 5rem;
+      h1 {
+        text-align: left;
+        font-size: 6rem;
+        line-height: 1.15;
+        margin-bottom: 4rem;
+        .strikethrough {
+          opacity: 0.65;
+        }
+        .new-word {
+          color: $canary-medium;
+        }
+      }
+
+      .quote-source {
+        width: 100%;
         
+        margin-bottom: 4rem;
+        padding-left: 5rem;
+      }
+
+      .para {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
+
+.hero {
+
+  &.mobile {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    @include auto-width-mobile;
+    .content {
+      flex-flow: column nowrap;
+      .my-image {
+        width: 100%;
+        margin-top: 8rem;
+        margin-bottom: 6rem;
+        @extend %image-width-mobile;
+      }
+
+      .text-content {
+        @extend %text-width-mobile;
+        margin-left: 0rem;
+        h1 {
+          @include h1-mobile;
+          margin-bottom: 2rem;
+          margin-bottom: 4rem;
+          text-align: left;
+        }
+        .quote-source {
+          text-align: left;
+          padding-left: 0rem;
+        }
+        .para {
+          @include body-text-mobile;
+          text-align: left;
+        }
+
+        .button-group {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.start-btn {
+  @include btn($dark: true, $icon: true);
+
+  &:hover {
+    @include btn($dark: false, $icon: true);
+  }
+}
+
+/* ------------------------------- FIRST BLOCK ------------------------------ */
+.first-block {
+  width: 100%;
+  min-height: 100vh;
+  .content {
+    width: inherit;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    .left,
+    .right {
+      width: 100vw;
+      height: 100vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .left {
+      width: 50%;
+    }
+    .right {
+      width: 50%;
+      
     }
   }
 }
