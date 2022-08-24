@@ -6,6 +6,7 @@ import { CommandLineComponent } from 'src/app/components/command-line/command-li
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 import { ICommandPrompt } from 'src/app/interfaces/command-prompt.interface';
 import { CommandPromptService } from 'src/app/services/command-prompt.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 interface IResult {
   type?: string;
@@ -39,7 +40,8 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private commandsService: CommandPromptService,
     private router: Router,
-    private observer: BreakpointObserver
+    private observer: BreakpointObserver,
+    private toast: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -182,6 +184,12 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
       this.resetTerminal();
       this.stopSpinner();
     }
+  }
+
+  confirmCopy() {
+    const title = 'Copied to Clipboard!';
+    const description = `Press <code>CTRL+V</code> to paste the command and <code>ENTER</code> to run it`;
+    this.toast.callToast(title, description, undefined);
   }
 
 }

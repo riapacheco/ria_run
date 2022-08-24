@@ -43,6 +43,8 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { CodeTabService } from './services/code-tab.service';
 import { CodePreviewComponent } from './components/code-preview/code-preview.component';
 import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { ToastService } from './services/toast.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.
     IframeComponent,
     TabsComponent,
     CodePreviewComponent,
-    MobileMockupComponent
+    MobileMockupComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +107,8 @@ import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.
       },
     },
     IframeService,
-    CodeTabService
+    CodeTabService,
+    ToastService
   ],
   bootstrap: [AppComponent]
 })

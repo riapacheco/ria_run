@@ -165,4 +165,7 @@ app-sidebar, .sidebar {
   z-index: calc($base-index * 5) !important;
 }
 
+app-toast, .toast {
+  z-index: calc($base-index * 6);
+}
 

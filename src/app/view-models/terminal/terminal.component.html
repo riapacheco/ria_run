@@ -33,7 +33,7 @@
                 <div>
                   {{ option.commands | joinArray }}
 
-                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                     <i class="material-icons">content_copy</i>
                   </a>
                 </div>
@@ -56,7 +56,7 @@
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
-                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                     <i class="material-icons">content_copy</i>
                   </a>
                 </div>
@@ -80,7 +80,7 @@
                 <div>
                   {{ option.commands | joinArray }}
                   <ng-container *ngIf="option.refName !== 'email'">
-                    <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''">
+                    <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                       <i class="material-icons">content_copy</i>
                     </a>
                   </ng-container>
