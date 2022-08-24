@@ -35,7 +35,7 @@ export const slideDownUp = trigger('slideDownTrigger',  [
 
 export const slideLeftAnimation = trigger('slideLeftTrigger', [
   state('open', style({ transform: 'translateX(0%)' })),
-  state('close', style({ transform: 'translateX(+150%)' })),
+  state('close', style({ transform: 'translateX(+150%)', display: 'none' })),
   transition('open <=> close', [
     animate('450ms ease-in-out')
   ])
