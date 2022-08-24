@@ -67,14 +67,17 @@
 .hero {
 
   &.mobile {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    // padding-top: 10rem;
+    // padding-bottom: 10rem;
     @include auto-width-mobile;
+    min-height: 190vh;
+    max-height: 190vh;
     .content {
       flex-flow: column nowrap;
       .my-image {
         width: 100%;
-        margin-top: 8rem;
+        // margin-top: 8rem;
+        margin-top: 1rem;
         margin-bottom: 6rem;
         @extend %image-width-mobile;
       }
