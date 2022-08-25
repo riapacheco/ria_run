@@ -125,6 +125,10 @@ app-top-nav {
       .para {
         margin-bottom: 4rem;
       }
+
+      .user-story {
+        @include body-text-mobile;
+      }
       @extend %content-constraints-mobile;
       @include body-text-mobile;
     }
