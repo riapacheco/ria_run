@@ -6,5 +6,5 @@ export enum BREAKPOINT_VALUE {
 export enum LAYOUT_STATE {
   mobile = 'isMobile',
   tablet = 'isTablet',
-  desktop = 'isDesktop'
+  desktop = 'isDesktop',
 }

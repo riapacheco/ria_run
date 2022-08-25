@@ -10,6 +10,7 @@ export interface ICodeTab {
   code: string;
   stackBlitzLink?: string;
   previewLink?: string;
+  userStory?: string;
 }
 
 export class CodeTabsState {

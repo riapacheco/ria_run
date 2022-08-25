@@ -55,6 +55,12 @@
   line-height: 1.85;
 }
 
+@mixin code-text-mobile {
+  font-size: 1.2rem;
+  letter-spacing: 0.03rem;
+  line-height: 1.6;
+}
+
 /* --------------------------------- BUTTON --------------------------------- */
 @mixin cta-btn {
   background-color: $black;

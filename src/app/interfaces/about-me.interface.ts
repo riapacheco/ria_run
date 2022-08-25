@@ -6,4 +6,5 @@ export interface IAboutMe {
   target?: string | any;  // if there's a URL or target string
   abstract?: string;      // plain text
   index?: number;         // in case ordering is required
+
 }

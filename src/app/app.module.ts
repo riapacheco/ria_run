@@ -45,6 +45,8 @@ import { CodePreviewComponent } from './components/code-preview/code-preview.com
 import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { ToastService } from './services/toast.service';
+import { XpService } from './services/xp.service';
+
 
 @NgModule({
   declarations: [
@@ -108,7 +110,8 @@ import { ToastService } from './services/toast.service';
     },
     IframeService,
     CodeTabService,
-    ToastService
+    ToastService,
+    XpService
   ],
   bootstrap: [AppComponent]
 })

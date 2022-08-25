@@ -30,6 +30,19 @@
     <div class="para">
       <div class="inner-html" [innerHTML]="cardsHtmlContent?.description"></div>
     </div>
+
+    <ng-container *ngIf="cardsHtmlContent?.userStory">
+      <div class="user-story">
+        <div class="us-title">
+          <h6>
+            User Story
+          </h6>
+        </div>
+        <div class="html-body">
+          <div class="inner-html" [innerHTML]="cardsHtmlContent?.userStory"></div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 
   <div class="tabs-wrapper">

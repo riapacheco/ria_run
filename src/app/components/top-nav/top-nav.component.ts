@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { slideDownUp } from 'src/app/constants/animations.constants';
+import { TOP_NAV } from 'src/app/constants/size.constants';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
@@ -18,7 +19,7 @@ export class TopNavComponent implements AfterViewInit {
     desktop: 'top-nav',
     mobile: 'top-nav mobile'
   }
-
+  @Input() topNav = TOP_NAV.height;
   isAtTopView = true;
   isMobile!: boolean;
 
