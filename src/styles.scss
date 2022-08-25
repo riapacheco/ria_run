@@ -42,6 +42,7 @@ html {
 body {
   font-family: "Inter", sans-serif !important;
   font-size: 1.6rem;
+  font-weight: 400;
   letter-spacing: 0rem;
   line-height: 1.7;
 }
@@ -72,7 +73,7 @@ h1 {
   margin-inline-end: 0px;
   font-weight: 700;
   @extend %antialiased;
-  
+
   &.mobile { @include h1-mobile; }
 }
 

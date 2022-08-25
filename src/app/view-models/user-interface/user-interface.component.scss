@@ -85,10 +85,15 @@ app-top-nav {
       text-align: left;
       margin-bottom: 2rem;
       border: 3px solid black;
+      font-size: 1.4rem;
+      border-radius: 3px;
       .us-title {
         background: black;
         padding: 10px;
         color: $steel-regular;
+        border-radius: 3px 3px 0px 0px;
+        padding-left: 15px;
+        padding-right: 15px;
       }
       .html-body {
         padding: 10px;
