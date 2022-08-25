@@ -50,9 +50,11 @@
             </ng-container>
           </div>
         </div>
+
+        <!-- Published Code -->
         <div class="content-wrapper">
           <h5>
-            Published Code
+            Published Work
           </h5>
 
           <div *ngFor="let option of allPrompts">
@@ -60,29 +62,6 @@
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
-                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
-                    <i class="material-icons">content_copy</i>
-                  </a>
-                </div>
-                <div>
-                  {{ option.description }}
-                </div>
-              </div>
-            </ng-container>
-          </div>
-        </div>
-
-        <!--Published Work-->
-        <div class="content-wrapper">
-          <h5>
-            General
-          </h5>
-          <div *ngFor="let option of allPrompts">
-            <ng-container *ngIf="option.publicCategory == 'general'">
-              <div class="row-div">
-                <div>
-                  {{ option.commands | joinArray }}
-
                   <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                     <i class="material-icons">content_copy</i>
                   </a>
@@ -124,6 +103,31 @@
             </ng-container>
           </div>
         </div>
+
+        <!-- General -->
+        <div class="content-wrapper">
+          <h5>
+            General
+          </h5>
+          <div *ngFor="let option of allPrompts">
+            <ng-container *ngIf="option.publicCategory == 'general'">
+              <div class="row-div">
+                <div>
+                  {{ option.commands | joinArray }}
+
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
+                    <i class="material-icons">content_copy</i>
+                  </a>
+                </div>
+                <div>
+                  {{ option.description }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+
       </ng-container>
     </div>
   </app-terminal-window>
