@@ -1,10 +1,10 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
-import { ICodeTab } from 'src/app/models/code-tabs.model';
-import { CodeTabService } from 'src/app/services/code-tab.service';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
+import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
+import { CodeTabService } from 'src/app/services/code-tab.service';
+import { ICodeTab } from 'src/app/models/code-tabs.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-interface',
@@ -24,11 +24,11 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   iphoneHtmlContent!: ICodeTab | undefined;
   iphoneTypescriptContent!: ICodeTab | undefined;
   iphoneScssContent!: ICodeTab | undefined;
-  
+
   /* -------------------------------- ALL TABS -------------------------------- */
   hintClass = 'hidden-message';     // RESET THIS
   showsHint = false; // to prevent any animation slips
-  
+
 
   /* ---------------------------- TOP NAV COMPONENT --------------------------- */
   navClass = {
@@ -77,7 +77,7 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
       this.cardsTypescriptContent = indicatorCards.find((obj: any) => obj.language == 'typescript');
       this.cardsScssContent = indicatorCards.find((obj: any) => obj.language == 'scss');
 
-      const iphoneData = data.filter((obj:any) => obj.component == 'Iphone Mockup');
+      const iphoneData = data.filter((obj: any) => obj.component == 'Iphone Mockup');
       this.iphoneMockupContent = iphoneData;
       this.iphoneHtmlContent = iphoneData.find((obj: any) => obj.language == 'html');
       this.iphoneTypescriptContent = iphoneData.find((obj: any) => obj.language == 'typescript');
@@ -98,7 +98,7 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
 
   checkStorage() {
     const key = 'New User Session';
-    const date = new Date().toDateString(); 
+    const date = new Date().toDateString();
 
     if (!localStorage.getItem(key)) {
       this.playStopHint();
@@ -110,7 +110,7 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
     this.hintClass = 'hidden-message showing';
     setTimeout(() => {
       this.hintClass = 'hidden-message';
-    }, 2000);
+    }, 2500);
   }
 
   clearStorage() {

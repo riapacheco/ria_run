@@ -74,12 +74,12 @@ $radius: 6px;
           border-right: 0rem;
         }
       }
-    }  
+    }
 
     .tab-body {
       background-color: $midnight;
       background-image: linear-gradient(to bottom right, $black-medium, $black);
-      box-shadow: 1px 10px 12px rgba(0, 0, 0, 0.41);      
+      box-shadow: 1px 10px 12px rgba(0, 0, 0, 0.41);
       border-radius: $radius;
       padding: 25px 25px 20px 25px;
 
@@ -169,17 +169,17 @@ $radius: 6px;
 
 pre {
   margin: 0rem;
-  
+
   font-size: 1.4rem;
   background-image: linear-gradient(to bottom right, #060606, $black, $midnight);
   border-radius: 10px;
-  
+
   box-shadow: -7px -7px 10px #ffffff07,
               8px 8px 22px rgba(0, 0, 0, 0.752);
 
   border: 1px solid $midnight;
   code {
-    
+
     line-height: 1.5;
     &.hljs {
       padding: 0rem;
@@ -203,10 +203,10 @@ pre {
   margin-left: 3rem;
   font-weight: 600;
   opacity: 0;
-  color: $steel-regular;
+  color: $blood-orange-regular;
 
   .text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   .material-icons {
     font-size: 1.4rem;

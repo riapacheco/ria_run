@@ -7,6 +7,8 @@
 <ng-container *ngIf="result.isShowing">
   <app-terminal-window>
     <div terminalReturnContent>
+
+
       <!-- ---------------------------- ERROR MESSAGE ---------------------------- -->
       <ng-container *ngIf="result.type == 'error'">
         <div class="mb-4"></div>
@@ -21,11 +23,34 @@
       </ng-container>
 
       <!-- ------------------- COMMAND PROMPTS / DESCRIPTIONS -------------------- -->
+
+
       <!--General-->
       <ng-container *ngIf="result.type == 'options'">
+
         <div class="content-wrapper">
+          <h5>
+            Work Experience
+          </h5>
 
+          <div *ngFor="let option of allPrompts">
+            <ng-container *ngIf="option.publicCategory == 'work experience'">
+              <div class="row-div">
+                <div>
+                  {{ option.commands | joinArray }}
+                  <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
+                    <i class="material-icons">content_copy</i>
+                  </a>
+                </div>
 
+                <div>
+                  {{ option.description }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="content-wrapper">
           <h5>
             Published Code
           </h5>

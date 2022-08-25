@@ -1,11 +1,12 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Subscription, take } from 'rxjs';
-import { CommandLineComponent } from 'src/app/components/command-line/command-line.component';
+
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
-import { ICommandPrompt } from 'src/app/interfaces/command-prompt.interface';
+import { CommandLineComponent } from 'src/app/components/command-line/command-line.component';
 import { CommandPromptService } from 'src/app/services/command-prompt.service';
+import { ICommandPrompt } from 'src/app/interfaces/command-prompt.interface';
+import { Router } from '@angular/router';
 import { ToastService } from 'src/app/services/toast.service';
 
 interface IResult {
@@ -93,7 +94,7 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
     }).catch((error) => {
       this.returnWindow(
         'error',
-        error, 
+        error,
         undefined
       );
     })
@@ -101,6 +102,18 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private returnWindow(typeName: string, contentString?: string, contentObject?: object) {
     if (this.result) { this.resetTerminal(); }
+
+    if (typeName == 'userInterface') {
+      setTimeout(() => {
+        this.router.navigateByUrl('/user-interface');
+      }, this.shortLoadingLength);
+    }
+
+    if (typeName == 'cv') {
+      setTimeout(() => {
+        this.router.navigateByUrl('/about-me');
+      }, this.shortLoadingLength);
+    }
 
     /* ---------------------------------- EMAIL --------------------------------- */
     if (typeName == 'email') {
@@ -158,7 +171,7 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
             this.allPrompts = res;
           })
         );
-        
+
         this.result = {
           type: 'options',
           isShowing: true
