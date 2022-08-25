@@ -16,7 +16,7 @@
         <div class="para">
           <div class="inner-html" [innerHTML]="heroPara"></div>
         </div>
-        <a class="start-btn" (click)="scrollTo('firstSection')">
+        <a [style.display]="'none'" class="start-btn" (click)="scrollTo('firstSection')">
           <i class="material-icons">
             south
           </i>
@@ -28,5 +28,5 @@
 </app-section>
 
 <div [style.display]="'none'" class="about-section cold-bore-technology" id="{{ sections[0].divId }}">
-  
+
 </div>
