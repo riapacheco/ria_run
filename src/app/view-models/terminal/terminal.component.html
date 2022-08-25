@@ -24,15 +24,17 @@
       <!--General-->
       <ng-container *ngIf="result.type == 'options'">
         <div class="content-wrapper">
+
+
           <h5>
-            General
+            Published Code
           </h5>
+
           <div *ngFor="let option of allPrompts">
-            <ng-container *ngIf="option.publicCategory == 'general'">
+            <ng-container *ngIf="option.publicCategory == 'publishedWork'">
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
-
                   <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                     <i class="material-icons">content_copy</i>
                   </a>
@@ -48,14 +50,14 @@
         <!--Published Work-->
         <div class="content-wrapper">
           <h5>
-            Published Code
+            General
           </h5>
-
           <div *ngFor="let option of allPrompts">
-            <ng-container *ngIf="option.publicCategory == 'publishedWork'">
+            <ng-container *ngIf="option.publicCategory == 'general'">
               <div class="row-div">
                 <div>
                   {{ option.commands | joinArray }}
+
                   <a class="copy-btn" [cdkCopyToClipboard]="option.commands ? option.commands[0] : ''" (click)="confirmCopy()">
                     <i class="material-icons">content_copy</i>
                   </a>
