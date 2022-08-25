@@ -3,7 +3,7 @@
     <div class="hero">
       <div class="hero-content">
         <div [ngClass]="isMobile ? 'polygon mobile' : 'polygon'"></div>
-        
+
         <div [ngClass]="isMobile ? 'computer mobile' : 'computer'">
           <img src="../../../assets/img/computerThing.svg" alt="">
         </div>
@@ -30,18 +30,18 @@
             </a>
           </div>
 
-          
+
         </div>
       </div>
     </div>
   </div>
 </app-section>
 <div #sectionTwoDiv></div>
-<app-section>
+<app-section [minHeight]="'150vh'">
   <div [ngClass]="isMobile ? 'section-repeater section-two mobile' : 'section-repeater section-two'" sectionContent>
     <div class="mb-15"></div>
     <div class="section-two-content">
-      
+
       <div class="title">
         <h1>
           <div class="inner-html" [innerHTML]="sectionTwo.title"></div>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="inner-html explainer-para" [innerHTML]="sectionTwo.body"></div>
-      
+
       <a
         (click)="scrollTo('sectionThree')"
         class="cta-btn-reverse">

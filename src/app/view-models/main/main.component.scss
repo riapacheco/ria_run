@@ -31,7 +31,7 @@ $mobile-height: 80vh;
       background-image: linear-gradient(to bottom right, $canary-dark, $canary-regular, $canary-medium, $canary-light);
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
       clip-path: polygon(0 0, 100% 0%, 60% 100%, 0 80%);
-      
+
       &.mobile {
         min-height: $mobile-height;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
@@ -128,15 +128,17 @@ $mobile-height: 80vh;
 /* -------------------------------------------------------------------------- */
 
 .section-two {
-  height: calc(100vh - $floating-nav-height);
-  
+  min-height: calc(100vh - $floating-nav-height);
+  width: 100%;
+
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+
   .section-two-content {
 
-
+    @include auto-width;
     .title {
       margin-bottom: 3rem;
     }
@@ -147,13 +149,14 @@ $mobile-height: 80vh;
 
     .cta-btn-reverse {
       @include btn($dark: true, $icon: true);
-
-      
     }
   }
 
   &.mobile {
+    @include auto-width-mobile;
     @include body-text-mobile;
+
+
     .section-two-content {
       .explainer-para {
         max-width: 100%;
