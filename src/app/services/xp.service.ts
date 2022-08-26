@@ -48,34 +48,23 @@ export class XpService {
     }
   }
 
-  async getProductMgmtData(companyId: number) {
-    const { data, error } = await this._supabaseClient
-      .from(this._companiesTable)
-      .select('*')
-      .match({ id: companyId });
-
-    if (error) { return error; }
-    if (data) {
-      this.companies = data;
-
-      this.getCompany(companyId).then((co: any) => {
-        const returnedCompany = co;
-        this.company = returnedCompany;
-        
-        // const pmIdsArray = this.company.productMgmtIds;
-        // this.getPmData(pmIdsArray)
-      })
-    }
-  }
-
-  private async getPmData(pmIds: Array<string>) {
+  async getProductProjects(ids: any) {
     const { data, error } = await this._supabaseClient
       .from(this._productMgmtTable)
-      .select('*');
-
+      .select('*')
+      .in('id', ids);
     if (error) { return error; }
-    if (data) {
-      const selectPmData = data.filter((pm: any) => pm.id.includes())
-    }
+    if (data) { return data; }
   }
+
+  async getDevProjects(ids: any) {
+    const { data, error } = await this._supabaseClient
+      .from(this._devProjectsTable)
+      .select('*')
+      .in('id', ids);
+    if (error) { return error; }
+    if (data) { return data; }
+  }
+
+
 }

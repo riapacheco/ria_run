@@ -1,0 +1,38 @@
+<div [ngClass]="isMobile ? 'split-block mobile' : 'split-block' ">
+  <div class="block-title">
+    <h2>
+      {{ blockTitle }}
+    </h2>
+    <div class="toggle-area">
+      <app-toggle-switch
+        [btn]="btn"
+        (firstTabClick)="onToggleSwitch($event)"
+        (secondTabClick)="onToggleSwitch($event)"
+        (thirdTabClick)="onToggleSwitch($event)"
+        >
+      </app-toggle-switch>
+    </div>
+  </div>
+
+  <div class="split-content">
+    <div
+      [style.display]="left.display"
+      [style.min-width]="left.width"
+      [@leftSlideLeftTrigger]="left.isShowing ? 'open' : 'close' "
+      class="content-left">
+      <div class="content-wrapper">
+        <ng-content select="[leftSectionContent]"></ng-content>
+      </div>
+    </div>
+
+    <div
+      [style.display]="right.display"
+      [style.min-width]="right.width"
+      [@rightSlideRightTrigger]="right.isShowing ? 'open' : 'close' "
+      class="content-right">
+      <div class="content-wrapper">
+        <ng-content select="[rightSectionContent]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

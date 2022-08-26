@@ -55,9 +55,6 @@ $mobile-height: 80vh;
           margin-bottom: 4rem;
           width: 500px;
         }
-        .cta-btn {
-          @include cta-btn;
-        }
       }
       &.mobile {
         height: $mobile-height;
@@ -201,4 +198,11 @@ $mobile-height: 80vh;
 
 .call-to-action {
   @include btn($dark: true, $icon: true);
+}
+
+.start-button {
+  @include btn($dark: true, $icon: true);
+  &:hover {
+    @include btn($dark: false, $icon: true);
+  }
 }

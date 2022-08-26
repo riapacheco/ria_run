@@ -1,4 +1,6 @@
-<div [@slideLeftTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'" [ngClass]="isMobile ? 'toast mobile' : 'toast'">
+<div 
+  [@slideLeftTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'" 
+  [class]="isMobile ? (toast.toastClassMobile$ | async) : (toast.toastClass$ | async)">
   <div class="wrapper">
     <div class="content">
       <div class="title">

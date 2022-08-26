@@ -46,6 +46,9 @@ import { MobileMockupComponent } from './components/mobile-mockup/mobile-mockup.
 import { ToastComponent } from './components/toast/toast.component';
 import { ToastService } from './services/toast.service';
 import { XpService } from './services/xp.service';
+import { SplitBlockComponent } from './components/split-block/split-block.component';
+import { SbService } from './services/sb.service';
+import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 
 
 @NgModule({
@@ -70,7 +73,9 @@ import { XpService } from './services/xp.service';
     TabsComponent,
     CodePreviewComponent,
     MobileMockupComponent,
-    ToastComponent
+    ToastComponent,
+    SplitBlockComponent,
+    ToggleSwitchComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +113,7 @@ import { XpService } from './services/xp.service';
         },
       },
     },
+    SbService,
     IframeService,
     CodeTabService,
     ToastService,

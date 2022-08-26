@@ -1,26 +1,49 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { TSectionType } from 'src/app/components/section/section.component';
-import { TOP_NAV } from 'src/app/constants/size.constants';
+import { SplitBlockComponent } from 'src/app/components/split-block/split-block.component';
+import { leftSlidesLeft, rightSlideRight } from 'src/app/constants/animations.constants';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
+import { COMPANY, TABLE_NAME } from 'src/app/enums/company.enums';
 import { IAboutMe } from 'src/app/interfaces/about-me.interface';
-import { ICompany } from 'src/app/models/xp.model';
+import { ICompany, IDevProjects, IProductMgmt } from 'src/app/models/xp.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
-import { XpService } from 'src/app/services/xp.service';
+import { SbService } from 'src/app/services/sb.service';
+import { ToastService } from 'src/app/services/toast.service';
+
 
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
-  styleUrls: ['./about-me.component.scss']
+  styleUrls: ['./about-me.component.scss'],
+  animations: [ leftSlidesLeft, rightSlideRight ]
 })
 export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
-  /* ---------------------------------- DATA ---------------------------------- */
-  allCompanyData: ICompany[] = [];
-  ColdBoreProd: ICompany[] = [];
-  ColdBoreDev: ICompany[] = [];
+  /* ------------------------------ COMPANY DATA ------------------------------ */
+  cbt!: ICompany;
+  cbtPP!: IProductMgmt[] | any;
+  cbtDV!: IDevProjects[] | any;
+  mydoma!: ICompany;
+  mydomaPP!: IProductMgmt[] | any;
+  mydomaDV!: IDevProjects[] | any;
+  steer!: ICompany;
+  steerPP!: IProductMgmt[] | any;
+  steerDV!: IDevProjects[] | any;
+
+  /* ------------------------- PRESENTATION STRUCTURE ------------------------- */
+  sections = [
+    {
+      index: 0,
+      identifier: 'cbt',
+      scrollToTarget: 'coldBoreTechnology',
+      sectionNgFor: ''
+    }
+  ];
+  @ViewChild('startHere') startHere!: ElementRef;
 
 
   // Content properties
@@ -36,31 +59,29 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   sectionClass: TSectionType = 'section orange';
   maxHeight = '70vh';
 
-  // SECTION 1
-  sections = [
-    {
-      index: 0,
-      divId: 'section_1',
-      company: 'Cold Bore Technology'
-    }
-  ];
-  
+  /* --------------------------- SECTION ANIMATIONS --------------------------- */
+  @ViewChild('cbtComponent') cbtComponent!: SplitBlockComponent;
+  @ViewChild('mydomaBlock') mydomaBlock!: ElementRef;
+
   isMobile!: boolean;
   private sub = new Subscription();
   constructor(
     private observer: BreakpointObserver,
     private aboutService: AboutMeService,
-    private xp: XpService
+    private supaService: SbService,
+    private toast: ToastService
   ) { }
 
   ngOnInit(): void {
     this.sub.add(this.checkView());
     this.sub.add(this.getHeroContent());
-    this.sub.add(this.getCompanyData());
+    this.sub.add(this.getData());
   }
 
   ngAfterViewInit() {
-    // this.scrollToFirst();
+    setTimeout(() => {
+      this.showToast();
+    }, 1000);
   }
 
   ngOnDestroy() {
@@ -74,20 +95,17 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
   
-  private scrollToFirst() {
-    const location = document.getElementById(this.sections[0].divId);
-    setTimeout(() => {
-      location?.scrollIntoView();
-    }, 100)
-  }
   
   scrollTo(target: string) {
     switch (target) {
       case 'firstSection':
-        
+        setTimeout(() => {
+          this.startHere.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
         break;
     }
   }
+
 
 
   /* ---------------------------------- DATA ---------------------------------- */
@@ -98,7 +116,25 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.heroPara = heroData?.body;
     })
   }
-  getCompanyData() {
- 
+
+  getData() {
+    this.supaService.get('companies').subscribe((res: any) => {
+      const companyData = [...res];
+
+      this.cbt = companyData.find((company: ICompany) => company.name == COMPANY.CBT);
+      this.supaService.getFromArray(TABLE_NAME.PRODUCT, 'id', this.cbt.productMgmtIds).subscribe((res: any) => { this.cbtPP = res; });
+      this.supaService.getFromArray(TABLE_NAME.DEV, 'id', this.cbt.devProjectIds).subscribe((res: any) => { this.cbtDV = res; });
+
+      this.mydoma = companyData.find((company: ICompany) => company.name == COMPANY.MYDOMA);
+      // this.supaService.getFromArray(TABLE_NAME.PRODUCT, 'id', this.mydoma.productMgmtIds).subscribe((res: any) => { this.mydomaPP = res; });
+      // this.supaService.getFromArray(TABLE_NAME.DEV, 'id', this.mydoma.devProjectIds).subscribe((res: any) => { this.mydomaDV = res; });
+    })
+  }
+
+
+  private showToast() {
+    const title = 'Under Construction';
+    const description = `But why not build in public?`;
+    this.toast.callToast(title, description, false);
   }
 }

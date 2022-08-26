@@ -2,15 +2,16 @@
 @import './colors.scss';
 @import '~@riapacheco/yutes/season/two.scss';
 
-
+$auto-width: 87%;
+$auto-width-mobile: 90%;
 /* ---------------------------- RESPONSIVE WIDTHS --------------------------- */
 @mixin auto-width {
-  width: calc(87%);
+  width: calc($auto-width);
   margin: auto;
 }
 
 @mixin auto-width-mobile {
-  width: calc(90%);
+  width: calc($auto-width-mobile);
   margin: auto;
 }
 
@@ -151,7 +152,7 @@
 
 @mixin btn($dark: false, $icon: false) {
   border-radius: 6px;
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   font-weight: 400;
   display: inline-flex;
   flex-flow: row nowrap;

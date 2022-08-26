@@ -60,6 +60,14 @@
         margin-bottom: 4rem;
       }
     }
+
+
+    .start-btn {
+      @include btn($dark: true, $icon: true);
+      &:hover {
+        @include btn($dark: false, $icon: true);
+      }
+    }
   }
 }
 
@@ -105,20 +113,5 @@
   }
 }
 
-.start-btn {
-  @include btn($dark: true, $icon: true);
 
-  &:hover {
-    @include btn($dark: false, $icon: true);
-  }
-}
 
-/* ------------------------------- FIRST BLOCK ------------------------------ */
-$nav-height: 84px;
-$min-height: calc(100vh - $nav-height);
-.about-section {
-  &.cold-bore-technology {
-    width: 100%;
-    min-height: $min-height;
-  }
-}

@@ -1,5 +1,6 @@
 <app-top-nav style="position: absolute; width: 100%;" [navClass]="navClass"></app-top-nav>
 
+<!-- -------------------------------- HERO --------------------------------- -->
 <app-section
   [sectionClass]="'section pink-paint'"
   [minHeight]="isMobile ? '160vh' : '100vh'">
@@ -16,20 +17,76 @@
         <div class="para">
           <div class="inner-html" [innerHTML]="heroPara"></div>
         </div>
-        <a [style.pointer-events]="'none'" class="start-btn" (click)="scrollTo('firstSection')">
-          <i class="material-icons">
-            <!-- south -->
 
-            <span style="font-size: 2.5rem;">plumbing</span>
+        <a class="start-btn" (click)="scrollTo('firstSection')">
+          <i class="material-icons">
+            south
           </i>
-          <!-- View my Experience -->
-          &nbsp;Under Construction
+          Start Experience Timeline
         </a>
       </div>
     </div>
+    <div #startHere></div>
   </div>
 </app-section>
 
-<div [style.display]="'none'" class="about-section cold-bore-technology" id="{{ sections[0].divId }}">
 
-</div>
+<!-- ------------------------ COLD BORE TECHNOLOGY ------------------------- -->
+<app-split-block
+  [blockTitle]="'Cold Bore Technology'"
+  #cbtComponent>
+  <div class="left-content" leftSectionContent>
+
+  </div>
+  <div rightSectionContent>
+    <div class="right-content">
+
+    </div>
+  </div>
+</app-split-block>
+
+
+<!-- ------------------------------- MYDOMA -------------------------------- -->
+<app-split-block
+  [blockTitle]="'Mydoma Studio'">
+  <div leftSectionContent>
+    
+  </div>
+  <div rightSectionContent>
+    
+  </div>
+</app-split-block>
+
+
+<app-split-block
+  [blockTitle]="'Steer Software'">
+  <div leftSectionContent>
+    
+  </div>
+  <div rightSectionContent>
+    
+  </div>
+</app-split-block>
+
+<app-split-block
+  [blockTitle]="'Showpass'">
+  <div leftSectionContent>
+    
+  </div>
+  <div rightSectionContent>
+    
+  </div>
+</app-split-block>
+
+<app-split-block
+  [blockTitle]="'Intriga Mobility'">
+  <div leftSectionContent>
+    
+  </div>
+  <div rightSectionContent>
+    
+  </div>
+</app-split-block>
+
+
+

@@ -1,0 +1,23 @@
+<div [ngClass]="isMobile ? 'toggle-switch mobile' : 'toggle-switch'">
+  <div class="wrapper-area">
+    <a
+      (click)="onFirstTabClick($event)"
+      [ngClass]="btn.first.isActive ? 'active' : ''">
+      Both
+    </a>
+
+    <a
+      (click)="onSecondTabClick($event)"
+      [ngClass]="btn.second.isActive ? 'active' : '' "
+      >
+      {{ isMobile ? 'Product MGMT' : 'Product Management' }}
+    </a>
+
+    <a
+      (click)="onThirdTabClick($event)"
+      [ngClass]="btn.third.isActive ? 'active' : ''"
+      >
+      {{ isMobile ? 'Software Dev' : 'Software Development' }}
+    </a>
+  </div>
+</div>
