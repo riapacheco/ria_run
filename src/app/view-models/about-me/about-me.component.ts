@@ -157,7 +157,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     switch (target) {
       case 'firstSection':
         setTimeout(() => {
-          this.startHere.nativeElement.scrollIntoView({ behavior: 'smooth' });
+          this.cbtScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
         }, 100);
         break;
       case 'mydoma':

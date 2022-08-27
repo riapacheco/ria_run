@@ -173,3 +173,6 @@ app-toast, .toast {
   z-index: calc($base-index * 6);
 }
 
+app-dialog-overlay, .dialog-overlay {
+  z-index: calc($base-index * 7);
+}

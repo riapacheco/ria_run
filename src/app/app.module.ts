@@ -53,6 +53,8 @@ import { ComparisonSliderComponent } from './components/comparison-slider/compar
 
 import { ResizeDirective } from './directives/resize.directive';
 import { ResizeLrDirective } from './directives/resize-lr.directive';
+import { DialogOverlayComponent } from './components/dialog-overlay/dialog-overlay.component';
+import { DialogOverlayService } from './services/dialog-overlay.service';
 
 
 @NgModule({
@@ -82,7 +84,8 @@ import { ResizeLrDirective } from './directives/resize-lr.directive';
     ToggleSwitchComponent,
     ComparisonSliderComponent,
     ResizeDirective,
-    ResizeLrDirective
+    ResizeLrDirective,
+    DialogOverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +127,8 @@ import { ResizeLrDirective } from './directives/resize-lr.directive';
     IframeService,
     CodeTabService,
     ToastService,
-    XpService
+    XpService,
+    DialogOverlayService
   ],
   bootstrap: [AppComponent]
 })

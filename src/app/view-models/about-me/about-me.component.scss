@@ -163,8 +163,16 @@ $next-btn-height: 3rem;
     }
 
     &:hover {
+      filter: brightness(1.4);
       .material-icons {
         color: $canary-dark;
+      }
+    }
+
+    &:active {
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.307);
+      .material-icons {
+        color: $canary-medium;
       }
     }
   }

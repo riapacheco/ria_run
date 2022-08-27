@@ -1,0 +1,84 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss//mixins.scss';
+
+
+$br: 6px;
+$title-height: 4rem;
+.dialog-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #00000090;
+  backdrop-filter: blur(3px);
+
+  .structure-layer {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .dialog-container {
+      border-radius: $br;
+      background-image: linear-gradient(to bottom right, $black, $midnight);
+      box-shadow: 4px 8px 28px black;
+      padding: 20px;
+      margin-top: -2rem;
+      .title {
+        // border: 1px solid blue;
+        min-height: $title-height;
+        height: $title-height;
+        max-height: $title-height;
+        line-height: $title-height;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+$close-btn-height: 4.5rem;
+.close-btn {
+  border: 2px solid white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: $close-btn-height;
+  width: $close-btn-height;
+  border-radius: $close-btn-height;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1.5rem;
+
+  &:hover {
+    background-color: $white;
+    border: none;
+
+    .material-icons {
+      border: none;
+      color: $black;
+    }
+  }
+
+  &:active {
+    background-color: $steel-dark;
+    .material-icons {
+      color: $canary-dark;
+    }
+  }
+}

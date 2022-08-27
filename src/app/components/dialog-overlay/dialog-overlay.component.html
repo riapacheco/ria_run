@@ -1,0 +1,26 @@
+<ng-container *ngIf="(dialog.isShowing$ | async)">
+  <div class="dialog-overlay">
+    <div class="structure-layer">
+      <div
+        [style.width.px]="isMobile ? '90%' : (dialog.width$ | async)"
+        [style.min-width.px]="isMobile ? '90%' : (dialog.width$ | async)"
+        [style.max-width.px]="isMobile ? '90%' : (dialog.width$ | async)"
+        [style.max-height.px]="(dialog.maxHeight$ | async)"
+        class="dialog-container">
+        <div class="title">
+          <h3>
+            {{ (dialog.title$ | async) }}
+          </h3>
+        </div>
+  
+        <div class="body">
+          <ng-content select="[bodyContent]"></ng-content>
+        </div>
+      </div>
+  
+      <a class="close-btn" (click)="onClose()">
+        <i class="material-icons">close</i>
+      </a>
+    </div>
+  </div>
+</ng-container>
