@@ -49,6 +49,10 @@ import { XpService } from './services/xp.service';
 import { SplitBlockComponent } from './components/split-block/split-block.component';
 import { SbService } from './services/sb.service';
 import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
+import { ComparisonSliderComponent } from './components/comparison-slider/comparison-slider.component';
+
+import { ResizeDirective } from './directives/resize.directive';
+import { ResizeLrDirective } from './directives/resize-lr.directive';
 
 
 @NgModule({
@@ -75,7 +79,10 @@ import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.
     MobileMockupComponent,
     ToastComponent,
     SplitBlockComponent,
-    ToggleSwitchComponent
+    ToggleSwitchComponent,
+    ComparisonSliderComponent,
+    ResizeDirective,
+    ResizeLrDirective
   ],
   imports: [
     BrowserModule,

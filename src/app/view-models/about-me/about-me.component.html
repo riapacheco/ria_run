@@ -34,13 +34,55 @@
 <!-- ------------------------ COLD BORE TECHNOLOGY ------------------------- -->
 <app-split-block
   [blockTitle]="'Cold Bore Technology'"
+  (toggleStateSwitch)="getToggleState($event, 'Cold Bore Technology')"
+  [left]="cbtSplitBlock.left"
+  [right]="cbtSplitBlock.right"
   #cbtComponent>
-  <div class="left-content" leftSectionContent>
-
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <ng-container *ngIf="cbtSplitBlock.left.isShowing && cbtSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Cold Bore Technology block
+        </h3>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="cbtSplitBlock.left.isShowing && !cbtSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Left side only for Cold Bore Technology block
+        </h3>
+      </div>
+    </ng-container>
   </div>
-  <div rightSectionContent>
+  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
     <div class="right-content">
+      <ng-container *ngIf="cbtSplitBlock.right.isShowing && cbtSplitBlock.left.isShowing">
+        <div class="text-area">
+          <h6 class="mb-2">
+            Minimal Content Weight
+          </h6>
+          <h3>
+            Both sides for Cold Bore Technology block
+          </h3>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="cbtSplitBlock.right.isShowing && !cbtSplitBlock.left.isShowing">
+        <div class="text-area">
+          <h6 class="mb-2">
+            Significant Changes / Weight
+          </h6>
+          <h3>
+            Right side only for Cold Bore Technology block
+          </h3>
 
+        </div>
+      </ng-container>
     </div>
   </div>
 </app-split-block>
@@ -48,43 +90,217 @@
 
 <!-- ------------------------------- MYDOMA -------------------------------- -->
 <app-split-block
-  [blockTitle]="'Mydoma Studio'">
-  <div leftSectionContent>
-    
+  [blockTitle]="'Mydoma Studio'"
+  (toggleStateSwitch)="getToggleState($event, 'Mydoma')"
+  [left]="mydomaSplitBlock.left"
+  [right]="mydomaSplitBlock.right"
+  >
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <ng-container *ngIf="mydomaSplitBlock.left.isShowing && mydomaSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Mydoma Studio block
+        </h3>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="mydomaSplitBlock.left.isShowing && !mydomaSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes
+        </h6>
+        <h3>
+          Left side only for Mydoma Studio block
+        </h3>
+      </div>
+    </ng-container>
   </div>
-  <div rightSectionContent>
-    
+  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+    <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Mydoma Studio block
+        </h3>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="mydomaSplitBlock.right.isShowing && !mydomaSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Right side only for Mydoma Studio block
+        </h3>
+      </div>
+    </ng-container>
   </div>
 </app-split-block>
 
-
+<!-- -------------------------------- STEER -------------------------------- -->
 <app-split-block
-  [blockTitle]="'Steer Software'">
-  <div leftSectionContent>
-    
+  [blockTitle]="'Steer Software'"
+  (toggleStateSwitch)="getToggleState($event, 'Steer')"
+  [left]="steerSplitBlock.left"
+  [right]="steerSplitBlock.right"
+  >
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <ng-container *ngIf="steerSplitBlock.left.isShowing && steerSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Steer Software block
+        </h3>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="steerSplitBlock.left.isShowing && !steerSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Left side only for Steer Software block
+        </h3>
+      </div>
+    </ng-container>
   </div>
-  <div rightSectionContent>
-    
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" rightSectionContent>
+    <ng-container *ngIf="steerSplitBlock.right.isShowing && steerSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Steer Software block
+        </h3>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="steerSplitBlock.right.isShowing && !steerSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Right side only for Steer Software block
+        </h3>
+      </div>
+    </ng-container>
   </div>
 </app-split-block>
 
+<!-- ------------------------------ SHOWPASS ------------------------------- -->
 <app-split-block
-  [blockTitle]="'Showpass'">
-  <div leftSectionContent>
-    
+  [blockTitle]="'Showpass'"
+  (toggleStateSwitch)="getToggleState($event, 'Showpass')"
+  [left]="showpassSplitBlock.left"
+  [right]="showpassSplitBlock.right"
+  >
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <ng-container *ngIf="showpassSplitBlock.left.isShowing && showpassSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Showpass block
+        </h3>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showpassSplitBlock.left.isShowing && !showpassSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Left side only for Showpass block
+        </h3>
+      </div>
+    </ng-container>
   </div>
-  <div rightSectionContent>
-    
+  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+    <ng-container *ngIf="showpassSplitBlock.right.isShowing && showpassSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Showpass block
+        </h3>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showpassSplitBlock.right.isShowing && !showpassSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Right side only for Showpass block
+        </h3>
+      </div>
+    </ng-container>
   </div>
 </app-split-block>
 
+<!-- -------------------------- INTRIGA MOBILITY --------------------------- -->
 <app-split-block
-  [blockTitle]="'Intriga Mobility'">
-  <div leftSectionContent>
-    
+  [blockTitle]="'Intriga Mobility'"
+  (toggleStateSwitch)="getToggleState($event, 'Intriga Mobility')"
+  [left]="intrigaSplitBlock.left"
+  [right]="intrigaSplitBlock.right"
+  >
+  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <ng-container *ngIf="intrigaSplitBlock.left.isShowing && intrigaSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Intriga Mobility block
+        </h3>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="intrigaSplitBlock.left.isShowing && !intrigaSplitBlock.right.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Left side only for Intriga Mobility block
+        </h3>
+      </div>
+    </ng-container>
   </div>
-  <div rightSectionContent>
-    
+  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+    <ng-container *ngIf="intrigaSplitBlock.right.isShowing && intrigaSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Minimal Content Weight
+        </h6>
+        <h3>
+          Both sides for Intriga Mobility block
+        </h3>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="intrigaSplitBlock.right.isShowing && !intrigaSplitBlock.left.isShowing">
+      <div class="text-area">
+        <h6 class="mb-2">
+          Significant Changes / Weight
+        </h6>
+        <h3>
+          Right side only for Intriga Mobility block
+        </h3>
+      </div>
+    </ng-container>
   </div>
 </app-split-block>
 

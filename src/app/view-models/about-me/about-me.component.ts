@@ -34,15 +34,68 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   steerPP!: IProductMgmt[] | any;
   steerDV!: IDevProjects[] | any;
 
-  /* ------------------------- PRESENTATION STRUCTURE ------------------------- */
-  sections = [
-    {
-      index: 0,
-      identifier: 'cbt',
-      scrollToTarget: 'coldBoreTechnology',
-      sectionNgFor: ''
+  /* ---------------------------- SPLIT BLOCK STATE --------------------------- */
+  cbtSplitBlock = {
+    left: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    },
+    right: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
     }
-  ];
+  }
+  mydomaSplitBlock = {
+    left: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    },
+    right: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    }
+  };
+  steerSplitBlock = {
+    left: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    },
+    right: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    }
+  };
+  showpassSplitBlock = {
+    left: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    },
+    right: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    }
+  };
+  intrigaSplitBlock = {
+    left: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    },
+    right: {
+      isShowing: true,
+      width: '50%',
+      display: 'block',
+    }
+  };
+
   @ViewChild('startHere') startHere!: ElementRef;
 
 
@@ -106,6 +159,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  getToggleState(state: any, childName: string) {
+    console.log(state, childName);
+  }
 
 
   /* ---------------------------------- DATA ---------------------------------- */

@@ -1,0 +1,59 @@
+<div
+  class="comparison-container"
+  [style.height.px]="imgHeight"
+  [style.min-height.px]="imgHeight"
+  [style.max-height.px]="imgHeight"
+  [style.width.px]="imgWidth"
+  [style.min-width.px]="imgWidth"
+  [style.max-width.px]="imgWidth">
+
+  <!-- -------------------------- STATIONARY IMAGE --------------------------- -->
+  <div
+    [style.height.px]="imgHeight"
+    [style.min-height.px]="imgHeight"
+    [style.max-height.px]="imgHeight"
+    [style.width.px]="imgWidth"
+    [style.min-width.px]="imgWidth"
+    [style.max-width.px]="imgWidth"
+    class="img-wrapper"
+    >
+    <img 
+      [src]="rightImg" 
+      [style.height.px]="imgHeight"
+      [style.min-height.px]="imgHeight"
+      [style.max-height.px]="imgHeight"
+      [style.width.px]="imgWidth"
+      [style.min-width.px]="imgWidth"
+      [style.max-width.px]="imgWidth"
+      alt="">
+  </div>
+
+  <!-- --------------------------- RESIZING IMAGE ---------------------------- -->
+  <div
+    appResizeLR
+    [style.width.px]="sliderWidth"
+    [style.height.px]="imgHeight"
+    [style.min-height.px]="imgHeight"
+    [style.max-height.px]="imgHeight"
+    [(width)]="sliderWidth"
+    [style.max-width.px]="imgWidth"
+    class="img-wrapper img-overlay">
+
+    <div class="resizer-layer">
+      <a class="slider-btn" [style.background-color]="sliderBgColor" >
+        <i [style.color]="sliderIconColor" [style.transform]="'rotate(90deg)'" class="material-icons">drag_handle</i>
+      </a>
+
+      <img
+        [style.height.px]="imgHeight"
+        [style.min-height.px]="imgHeight"
+        [style.max-height.px]="imgHeight"
+        [style.width.px]="imgWidth"
+        [style.min-width.px]="imgWidth"
+        [style.max-width.px]="imgWidth"
+        class="resizer-image"
+        [src]="leftImg"
+        alt="">
+    </div>
+  </div>
+</div>

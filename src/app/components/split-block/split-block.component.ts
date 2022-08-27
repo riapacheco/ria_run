@@ -1,8 +1,15 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { leftSlidesLeft, rightSlideRight } from 'src/app/constants/animations.constants';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
+
+export enum TOGGLE_STATE {
+  first = 'bothTab',
+  second = 'productTab',
+  third = 'softwareTab'
+}
 
 @Component({
   selector: 'app-split-block',
@@ -10,9 +17,10 @@ import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
   styleUrls: ['./split-block.component.scss'],
   animations: [ leftSlidesLeft, rightSlideRight ]
 })
-export class SplitBlockComponent implements OnInit, OnDestroy {
+export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() blockTitle = 'Split Block Title';
+  @Output() toggleStateSwitch: EventEmitter<any> = new EventEmitter<any>();
 
   // Toggle switch
   btn = {
@@ -29,15 +37,13 @@ export class SplitBlockComponent implements OnInit, OnDestroy {
       isActive: false
     }
   }
-
-  // Presentation properties that don't need to be controlled by parent
-  left = {
+  @Input() left = {
     isShowing: true,
     width: '50%',
     display: 'block',
   };
 
-  right = {
+  @Input() right = {
     isShowing: true,
     width: '50%',
     display: 'block'
@@ -51,6 +57,10 @@ export class SplitBlockComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub.add(this.checkDevice());
+  }
+
+  ngAfterViewInit() {
+    this.toggleStateSwitch.emit(TOGGLE_STATE.first);
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
@@ -76,6 +86,7 @@ export class SplitBlockComponent implements OnInit, OnDestroy {
   }
 
   private resetToggles() {
+    this.toggleStateSwitch.emit(TOGGLE_STATE.first);
     this.btn = {
       first: {
         label: 'Both',
@@ -104,6 +115,7 @@ export class SplitBlockComponent implements OnInit, OnDestroy {
   }
 
   private setSecondToggle() {
+    this.toggleStateSwitch.emit(TOGGLE_STATE.second);
     this.btn = {
       first: {
         label: 'Both',
@@ -132,6 +144,7 @@ export class SplitBlockComponent implements OnInit, OnDestroy {
   }
 
   private setThirdToggle() {
+    this.toggleStateSwitch.emit(TOGGLE_STATE.third);
     this.btn = {
       first: {
         label: 'Both',

@@ -2,6 +2,32 @@
 @import '../../../scss/colors.scss';
 @import '../../../scss/mixins.scss';
 
+
+.left-content,
+.right-content {
+  .text-area {
+    text-align: center;
+    padding-top: 10rem;
+    margin: auto;
+    h3 {
+      line-height: 1.4;
+    }
+  }
+  &.mobile {
+    width: 90%;
+    margin: auto;
+    
+    .text-area {
+      h3 {
+        @include h3-mobile;
+      }
+      h6 {
+        font-size: 0.92rem;
+      }
+    }
+
+  }
+}
 %image-width-mobile {
   width: 250px;
 }
