@@ -4,7 +4,7 @@
 
 /* ------------------------------- FIRST BLOCK ------------------------------ */
 $nav-height: 84px;
-$min-height: calc(100vh - $nav-height);
+$min-height: calc(50vh - $nav-height);
 $title-height: 13rem;
 $content-min-height: calc($min-height - $title-height);
 
@@ -28,7 +28,7 @@ $content-min-height: calc($min-height - $title-height);
     width: $auto-width;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 1.5rem;
+    padding-bottom: 3rem;
     h2 {
       height: calc($title-height - 2rem);
       display: flex;
@@ -59,55 +59,36 @@ $content-min-height: calc($min-height - $title-height);
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-    justify-content: space-around;
-    .content-left,
-    .content-right {
-      padding: 15px;
-      background-attachment: fixed;
-      width: 97%;
-    }
+    justify-content: space-between;    
+
     .content-left {
-      
-      min-height: $content-min-height;
-      padding: 20px;
-      .content-wrapper {
-        border-radius: 20px;
-      }
-      &.close {
-        display: none;
-      }
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
+
     .content-right {
-      
-      min-height: $content-min-height;
-      .content-wrapper {
-        border-radius: 20px;
-      }
-      &.close {
-        display: none;
-      }
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
     }
   }
 }
 
+/* --------------------------------- MOBILE --------------------------------- */
 .split-block.mobile {
   .split-content {
     .content-left,
     .content-right {
+      padding-left: 0rem;
+      padding-right: 0rem;
       padding: 5px; 
     }
 
     .content-left {
       width: 100%;
-      .content-wrapper {
-        border-radius: 20px 0px 0px 20px;
-      }
+      
     }
     .content-right {
       width: 100%;
-      .content-wrapper {
-        border-radius: 0px 20px 20px 0px;
-      }
     }
   }
   .block-title {
@@ -121,6 +102,7 @@ $content-min-height: calc($min-height - $title-height);
 }
 .content-wrapper {
   min-height: calc($content-min-height - 40px);
+  border-radius: 8px;
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.61),
               -5px -5px 25px rgba(255, 255, 255, 0.05);
               // border-radius: 20px;

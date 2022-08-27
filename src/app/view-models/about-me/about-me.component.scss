@@ -2,32 +2,10 @@
 @import '../../../scss/colors.scss';
 @import '../../../scss/mixins.scss';
 
-
-.left-content,
-.right-content {
-  .text-area {
-    text-align: center;
-    padding-top: 10rem;
-    margin: auto;
-    h3 {
-      line-height: 1.4;
-    }
-  }
-  &.mobile {
-    width: 90%;
-    margin: auto;
-    
-    .text-area {
-      h3 {
-        @include h3-mobile;
-      }
-      h6 {
-        font-size: 0.92rem;
-      }
-    }
-
-  }
+:host {
+  color: $steel-regular;
 }
+
 %image-width-mobile {
   width: 250px;
 }
@@ -138,48 +116,165 @@
     }
   }
 }
-$next-btn-height: 3rem;
-.left-content,
-.right-content {
-  position: relative;
-  .next-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: -1rem;
-    margin-right: -0.3rem;
-    height: $next-btn-height;
-    width: $next-btn-height;
-    border-radius: $next-btn-height;
-    background-image: linear-gradient(to bottom right, $black, $midnight);
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 4px 6px 12px black;
-    .material-icons {
-      font-size: 1.4rem;
-      color: $soot-grey-medium;
-    }
 
-    &:hover {
-      filter: brightness(1.4);
+/* -------------------------------------------------------------------------- */
+/*                               ACTUAL CONTENT                               */
+/* -------------------------------------------------------------------------- */
+
+$folder-height: 3.5rem;
+%block-margin {
+  width: 95%;
+  margin: auto;
+}
+
+%folders-margin {
+  width: 80%;
+  margin: auto;
+}
+.content {
+  padding-bottom: 3rem;
+  .portfolio-item {
+    .headline-block {
+      padding: 4rem 2rem 0rem 2rem;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: flex-end;
+      h4 {
+        font-size: 2rem;
+        line-height: 1.35;
+        color: $steel-regular;
+        // filter: brightness(0.7);
+      }
+      @extend %block-margin;
+      &.reverse { justify-content:  flex-start;}
+      &.opened { font-weight: bold; }
+      &.mobile {
+        h4 {
+          @include h4-mobile;
+        }
+      }
+    }
+    .divider-block  {
+      width: 95%;
+      @extend %block-margin;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+      .divider-line {
+        border-bottom: 2px solid $midnight-medium;
+        @extend %block-margin;
+      }
       .material-icons {
-        color: $canary-dark;
+        color: $soot-grey-light;
+        font-size: 2.5rem;
+      }
+
+      &.mobile {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
       }
     }
 
-    &:active {
-      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.307);
-      .material-icons {
-        color: $canary-medium;
+    .folders {
+      line-height: 1.3;
+      &.mobile {
+        font-size: 1.4rem;
+        .folder {
+          margin-bottom: 3rem;
+        }
+      }
+      .folder {
+        min-height: $folder-height;
+        height: $folder-height;
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        transition: 200ms ease-in-out;
+
+        span {
+          font-weight: 500;
+        }
+        .icon {
+          height: $folder-height;
+          width: $folder-height;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          padding: 2.5rem;
+          // border: 1px solid grey;
+          .material-icons {
+            display: inline-block;
+            font-size: 2rem;
+            color: $canary-dark;
+            opacity: 0.4;
+          }
+        }
+        &.reverse {
+          flex-flow: row nowrap;
+        }
+
+        &:hover {
+          color: $canary-dark;
+        }
+      }
+      .folder-contents {
+        padding-top: 1rem;
+        border-right: 1px solid $canary-dark;
+        font-size: 1.5rem;
+        line-height: 1.6;
+        margin-right: 2.8rem;
+        padding-right: 2.5rem;
+        margin-bottom: 2.5rem;
+        text-align: right;
+        color: $steel-dark;
+        
+        &.reverse {
+          border-left: 1px solid $canary-dark;
+          margin-left: 2.8rem;
+          padding-left: 2.5rem;
+          text-align: left;
+          border-right: none;
+        }
+
+
+        .preview-group {
+          display: block;
+          // padding-top: 3.5rem;
+          font-size: 1.6rem;
+          .preview-btn {
+            color: $steel-regular;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            border: 1px solid $steel-regular;
+            padding: 0.5rem 1.5rem 0.5rem 1rem;
+            font-size: 1.3rem;
+            border-radius: 5px;
+            font-weight: 500;
+            .material-icons {
+              font-size: 1.8rem;
+              margin-right: 1rem;
+              color: $steel-regular;
+            }
+
+            &:hover {
+              background-color: $steel-regular;
+              color: $black;
+
+              .material-icons {
+                color: $black;
+              }
+            }
+          }
+        }
       }
     }
   }
 }
-
-
-.right-content {
-
-}
-

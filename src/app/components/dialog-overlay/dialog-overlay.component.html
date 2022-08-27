@@ -2,10 +2,11 @@
   <div class="dialog-overlay">
     <div class="structure-layer">
       <div
-        [style.width.px]="isMobile ? '90%' : (dialog.width$ | async)"
-        [style.min-width.px]="isMobile ? '90%' : (dialog.width$ | async)"
-        [style.max-width.px]="isMobile ? '90%' : (dialog.width$ | async)"
-        [style.max-height.px]="(dialog.maxHeight$ | async)"
+        [style.width.%]="isMobile ? '90%' : (dialog.width$ | async)"
+        [style.min-width.%]="isMobile ? '90' : (dialog.width$ | async)"
+        [style.max-width.%]="isMobile ? '90' : (dialog.width$ | async)"
+        [style.min-height.%]="(dialog.height$ | async)"
+        [style.max-height.%]="(dialog.maxHeight$ | async)"
         class="dialog-container">
         <div class="title">
           <h3>
@@ -14,7 +15,7 @@
         </div>
   
         <div class="body">
-          <ng-content select="[bodyContent]"></ng-content>
+          <div class="inner-html" [innerHTML]="(dialog.body$ | async)"></div>
         </div>
       </div>
   

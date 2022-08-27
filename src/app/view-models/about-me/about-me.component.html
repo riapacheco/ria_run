@@ -1,6 +1,9 @@
-<app-top-nav style="position: absolute; width: 100%;" [navClass]="navClass"></app-top-nav>
+<app-top-nav style="position: absolute; width: 100%;" [navClass]="navClass">
+</app-top-nav>
 
-<!-- -------------------------------- HERO --------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<!--                        ***** HERO SECTION *****                         -->
+<!-- ----------------------------------------------------------------------- -->
 <app-section
   [sectionClass]="'section pink-paint'"
   [minHeight]="isMobile ? '160vh' : '100vh'">
@@ -9,7 +12,6 @@
       <div class="my-image">
         <img [style.width]="isMobile ? '200px' : '300px'" src="https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/website/IMG_0632.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3dlYnNpdGUvSU1HXzA2MzIuSlBHIiwiaWF0IjoxNjYxMzAzNjkzLCJleHAiOjE5NzY2NjM2OTN9.QefFfa7tC7acs-jIP-5PxDWrRo95_HZG1Lx1zneVy7Q" alt="">
       </div>
-
       <div class="text-content">
         <h1>
           You met me at a <span class="strikethrough">very strange</span>&nbsp;<span class="new-word">hella dope</span> time in my life
@@ -17,7 +19,6 @@
         <div class="para">
           <div class="inner-html" [innerHTML]="heroPara"></div>
         </div>
-
         <a class="start-btn" (click)="scrollTo('firstSection')">
           <i class="material-icons">
             south
@@ -31,354 +32,279 @@
 </app-section>
 
 
-<!-- ------------------------ COLD BORE TECHNOLOGY ------------------------- -->
+
+<!-- ----------------------------------------------------------------------- -->
+<!--                      ***** COLD BORE SECTION *****                      -->
+<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #cbtScrollBlock></div>
 <app-split-block
   [blockTitle]="'Cold Bore Technology'"
   [left]="cbtSplitBlock.left"
   [right]="cbtSplitBlock.right"
   #cbtComponent>
-  <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                           COLD BORE LEFT SIDE                           -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="content" leftSectionContent>
+    <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && cbtSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Cold Bore Technology block
-        </h3>
+      <div 
+        class="portfolio-item"
+        *ngFor="let item of cbtPortfolioItems">
+        <ng-container *ngIf="!item.isDevelopment">
+          <div [ngClass]="isMobile ? 'headline-block mobile' : 'headline-block'">
+            <h4>
+              {{item.title}}
+            </h4>
+          </div>
+          <div [ngClass]="isMobile ? 'divider-block mobile' : 'divider-block'">
+            <i class="material-icons">{{item.icon}}</i>
+            <div class="divider-line"></div>
+          </div>
+          
+          <!-- ------------------------------- FOLDERS ------------------------------- -->
+          <a
+            *ngFor="let folder of item.folders"
+            (click)="folder.isOpen = !folder.isOpen"
+            [ngClass]="isMobile ? 'folders mobile' : 'folders'">
+            <div class="folder">
+              <div class="icon">
+                <i class="material-icons">
+                  {{ folder.isOpen ? 'folder_open' : 'folder' }}
+                </i>
+              </div>
+              <span>{{ folder.title }}</span>
+            </div>
+
+            <ng-container *ngIf="folder.isOpen">
+              <div class="folder-contents">
+                <ng-container *ngIf="folder.contents">
+                  <div class="pb-3">
+                    {{ folder.contents }}
+                  </div>
+                </ng-container>
+                <div class="preview-group">
+                  <a
+                    (click)="onFolderOpen(folder.target)"
+                    class="preview-btn">
+                    <i class="material-icons">open_in_browser</i>
+                    {{ folder.targetLabel }}
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+          </a>
+          
+        </ng-container>
       </div>
     </ng-container>
+    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && !cbtSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Left side only for Cold Bore Technology block
-        </h3>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="!cbtSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('mydoma')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
     </ng-container>
   </div>
-  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
-    <div class="right-content">
-      <ng-container *ngIf="cbtSplitBlock.right.isShowing && cbtSplitBlock.left.isShowing">
-        <div class="text-area">
-          <h6 class="mb-2">
-            Minimal Content Weight
-          </h6>
-          <h3>
-            Both sides for Cold Bore Technology block
-          </h3>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="cbtSplitBlock.right.isShowing && !cbtSplitBlock.left.isShowing">
-        <div class="text-area">
-          <h6 class="mb-2">
-            Significant Changes / Weight
-          </h6>
-          <h3>
-            Right side only for Cold Bore Technology block
-          </h3>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                          COLD BORE RIGHT SIDE                           -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="content" rightSectionContent>
+    <!-- ------------------------------- SUMMARY ------------------------------- -->
+    <ng-container *ngIf="cbtSplitBlock.right.isShowing && cbtSplitBlock.left.isShowing">
+      <div class="portfolio-item reverse"
+        *ngFor="let item of cbtPortfolioItems">
+        <ng-container *ngIf="item.isDevelopment">
+          <div [ngClass]="isMobile ? 'headline-block reverse mobile' : 'headline-block reverse'">
+            <h4>{{item.title}}</h4>
+          </div>
+          <div [ngClass]="isMobile ? 'divider-block mobile' : 'divider-block'">
+            <div class="divider-line"></div>
+            <i class="material-icons">{{item.icon}}</i>
+          </div>
+          <!-- ------------------------------- FOLDERS ------------------------------- -->
+          <a 
+            *ngFor="let folder of item.folders"
+            (click)="folder.isOpen = !folder.isOpen"
+            [ngClass]="isMobile ? 'folders mobile' : 'folders'">
+            <div class="folder reverse">
+              <div class="icon">
+                <i class="material-icons">
+                  {{ folder.isOpen ? 'folder_open' : 'folder' }}
+                </i>
+              </div>
+              <span>{{ folder.title }}</span>
+            </div>
 
-        </div>
-      </ng-container>
-    </div>
-    <ng-container *ngIf="cbtSplitBlock.right.isShowing">
-      <a
-      (click)="scrollTo('mydoma')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
+            <ng-container *ngIf="folder.isOpen">
+              <div class="folder-contents reverse">
+                <ng-container *ngIf="folder.contents">
+                  <div class="pb-2">
+                    {{ folder.contents }}
+                  </div>
+                </ng-container>
+                <div class="preview-group">
+                  <a
+                    (click)="onFolderOpen(folder.target)"
+                    class="preview-btn">
+                    <i class="material-icons">open_in_browser</i>
+                    {{ folder.targetLabel }}
+                  </a>
+                </div>
+              </div>
+
+            </ng-container>
+          </a>
+        </ng-container>
+      </div>
+    </ng-container>
+    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
+    <ng-container *ngIf="cbtSplitBlock.right.isShowing && !cbtSplitBlock.left.isShowing">
+
     </ng-container>
   </div>
 </app-split-block>
 
 
-<!-- ------------------------------- MYDOMA -------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<!--                       ***** MYDOMA SECTION *****                        -->
+<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #mydomaScrollBlock></div>
 <app-split-block
   [blockTitle]="'Mydoma Studio'"
   [left]="mydomaSplitBlock.left"
   [right]="mydomaSplitBlock.right"
   >
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                            MYDOMA LEFT SIDE                             -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <!-- ------------------------------- SUMMARY ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && mydomaSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Mydoma Studio block
-        </h3>
-      </div>
     </ng-container>
-
+    <!-- ------------------------------ EXPANDED ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && !mydomaSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes
-        </h6>
-        <h3>
-          Left side only for Mydoma Studio block
-        </h3>
-      </div>
+
     </ng-container>
 
-    <ng-container *ngIf="!mydomaSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('steer')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
-    </ng-container>
   </div>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                            MYDOMA RIGHT SIDE                            -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+    <!-- ------------------------------- SUMMARY ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Mydoma Studio block
-        </h3>
-      </div>
-    </ng-container>
 
+    </ng-container>
+    <!-- ------------------------------ EXPANDED ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && !mydomaSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Right side only for Mydoma Studio block
-        </h3>
-      </div>
+
     </ng-container>
 
-    <ng-container *ngIf="mydomaSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('steer')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
-    </ng-container>
   </div>
 </app-split-block>
 
-<!-- -------------------------------- STEER -------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<!--                        ***** STEER SECTION *****                        -->
+<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #steerScrollBlock></div>
 <app-split-block
   [blockTitle]="'Steer Software'"
   [left]="steerSplitBlock.left"
   [right]="steerSplitBlock.right"
   >
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                               STEER LEFT                                -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+    <!-- ------------------------- STEER LEFT SUMMARY -------------------------- -->
     <ng-container *ngIf="steerSplitBlock.left.isShowing && steerSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Steer Software block
-        </h3>
-      </div>
     </ng-container>
+    <!-- ------------------------ STEER RIGHT EXPANDED ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.left.isShowing && !steerSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Left side only for Steer Software block
-        </h3>
-      </div>
-    </ng-container>
-
-    <ng-container *ngIf="!steerSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('showpass')"
-        class="next-btn">
-      <i class="material-icons">south</i>
-    </a>
     </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" rightSectionContent>
+    <!-- ------------------------- STEER RIGHT SUMMARY ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.right.isShowing && steerSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Steer Software block
-        </h3>
-      </div>
     </ng-container>
+    <!-- ------------------------ STEER RIGHT EXPANDED ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.right.isShowing && !steerSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Right side only for Steer Software block
-        </h3>
-      </div>
-    </ng-container>
-
-    <ng-container *ngIf="steerSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('showpass')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
     </ng-container>
   </div>
 </app-split-block>
 
-<!-- ------------------------------ SHOWPASS ------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<!--                      ***** SHOWPASS SECTION *****                       -->
+<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #showpassScrollBlock></div>
 <app-split-block
   [blockTitle]="'Showpass'"
   [left]="showpassSplitBlock.left"
   [right]="showpassSplitBlock.right"
   >
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                              SHOWPASS LEFT                              -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
-    <ng-container *ngIf="showpassSplitBlock.left.isShowing && showpassSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Showpass block
-        </h3>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="showpassSplitBlock.left.isShowing && !showpassSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Left side only for Showpass block
-        </h3>
-      </div>
-    </ng-container>
 
-    <ng-container *ngIf="!showpassSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('intriga')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
+    <!-- ------------------------ SHOWPASS LEFT SUMMARY ------------------------ -->
+    <ng-container *ngIf="showpassSplitBlock.left.isShowing && showpassSplitBlock.right.isShowing">
+    </ng-container>
+    <!-- ----------------------- SHOWPASS LEFT EXPANDED ------------------------ -->
+    <ng-container *ngIf="showpassSplitBlock.left.isShowing && !showpassSplitBlock.right.isShowing">
     </ng-container>
   </div>
-  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
-    <ng-container *ngIf="showpassSplitBlock.right.isShowing && showpassSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Showpass block
-        </h3>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="showpassSplitBlock.right.isShowing && !showpassSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Right side only for Showpass block
-        </h3>
-      </div>
-    </ng-container>
 
-    <ng-container *ngIf="showpassSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('intriga')"
-        class="next-btn">
-        <i class="material-icons">south</i>
-      </a>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                             SHOWPASS RIGHT                              -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+
+    <!-- ----------------------- SHOWPASS RIGHT SUMMARY ------------------------ -->
+    <ng-container *ngIf="showpassSplitBlock.right.isShowing && showpassSplitBlock.left.isShowing">
+    </ng-container>
+    <!-- ----------------------- SHOWPASS RIGHT EXPANDED ----------------------- -->
+    <ng-container *ngIf="showpassSplitBlock.right.isShowing && !showpassSplitBlock.left.isShowing">
     </ng-container>
   </div>
 </app-split-block>
 
-<!-- -------------------------- INTRIGA MOBILITY --------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<!--                       ***** INTRIGA SECTION *****                       -->
+<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #intrigaScrollBlock></div>
 <app-split-block
   [blockTitle]="'Intriga Mobility'"
   [left]="intrigaSplitBlock.left"
   [right]="intrigaSplitBlock.right"
   >
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                              INTRIGA LEFT                               -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
+
+    <!-- ----------------------- INTRIGA LEFT - SUMMARY ------------------------ -->
     <ng-container *ngIf="intrigaSplitBlock.left.isShowing && intrigaSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Intriga Mobility block
-        </h3>
-      </div>
     </ng-container>
 
+    <!-- ----------------------- INTRIGA LEFT - EXPANDED ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.left.isShowing && !intrigaSplitBlock.right.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Left side only for Intriga Mobility block
-        </h3>
-      </div>
     </ng-container>
 
-    <ng-container *ngIf="!intrigaSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('cbt')"
-        class="next-btn">
-        <i class="material-icons">keyboard_double_arrow_up</i>
-      </a>
-    </ng-container>
   </div>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                           INTRIGA RIGHT SIDE                            -->
+  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
+
+    <!-- ----------------------- INTRIGA RIGHT - SUMMARY ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.right.isShowing && intrigaSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Minimal Content Weight
-        </h6>
-        <h3>
-          Both sides for Intriga Mobility block
-        </h3>
-      </div>
     </ng-container>
 
+    <!-- ---------------------- INTRIGA RIGHT - EXPANDED ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.right.isShowing && !intrigaSplitBlock.left.isShowing">
-      <div class="text-area">
-        <h6 class="mb-2">
-          Significant Changes / Weight
-        </h6>
-        <h3>
-          Right side only for Intriga Mobility block
-        </h3>
-      </div>
     </ng-container>
 
-    <ng-container *ngIf="intrigaSplitBlock.right.isShowing">
-      <a
-        (click)="scrollTo('cbt')"
-        class="next-btn">
-        <i class="material-icons">keyboard_double_arrow_up</i>
-      </a>
-    </ng-container>
   </div>
 </app-split-block>
 

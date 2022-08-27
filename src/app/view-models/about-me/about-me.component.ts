@@ -23,16 +23,80 @@ import { ToastService } from 'src/app/services/toast.service';
 export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
-  /* ------------------------------ COMPANY DATA ------------------------------ */
-  cbt!: ICompany;
-  cbtPP!: IProductMgmt[] | any;
-  cbtDV!: IDevProjects[] | any;
-  mydoma!: ICompany;
-  mydomaPP!: IProductMgmt[] | any;
-  mydomaDV!: IDevProjects[] | any;
-  steer!: ICompany;
-  steerPP!: IProductMgmt[] | any;
-  steerDV!: IDevProjects[] | any;
+  cbtPortfolioItems = [
+    {
+      title: 'Enterprise Product Portfolio Re-Launch',
+      description: '',
+      isDevelopment: false,
+      icon: 'rocket_launch',
+      folders: [
+        {
+          title: 'Re-Launched Portfolio including all Enterprise Elements',
+          isOpen: false,
+          contents: 'Blah blah blah',
+          targetLabel: 'View Comparison',
+          target: 'productRelaunch'
+        },
+        {
+          title: 'Market, Technology, and Industry Segmented Research',
+          isOpen: false,
+          contents: '',
+          targetLabel: 'View Samples',
+          target: 'industryResearch'
+        },
+        {
+          title: 'Sales Enablement Development & Materials',
+          isOpen: false,
+          contents: '',
+          targetLabel: 'View Sample Data Sheets',
+          target: 'dataSheets'
+        }
+      ]
+    },
+    {
+      title: 'Asset Tracker Internal Platform Development',
+      description: '',
+      isDevelopment: true,
+      icon: 'code',
+      folders: [
+        {
+          title: 'Data Model Design & Testing',
+          isOpen: false,
+          contents: '',
+          targetLabel: 'Data Model Sample',
+          target: 'dataModelling'
+        },
+        {
+          title: 'Inventory Manager - System of Record Module',
+          isOpen: false,
+          contents: 'lsdkfjsld',
+          targetLabel: 'See Preview',
+          target: 'inventoryManagerFeature'
+        },
+        {
+          title: 'Lab Kanban - M&R Workflow Tracking Module',
+          isOpen: false,
+          contents: 'sldkfjsdlkfjsdlkj',
+          targetLabel: 'See Preview',
+          target: 'labKanbanFeature'
+        }
+      ]
+    },
+    {
+      title: 'MFG Process Scoping for Software Development',
+      description: '',
+      isDevelopment: true,
+      icon: 'web',
+      folders: []
+    },
+    { 
+      title: 'Product Marketing Discovery',
+      description: '',
+      isDevelopment: false,
+      icon: 'file_copy',
+      folders: []
+    }
+  ];
 
   /* ---------------------------- SPLIT BLOCK STATE --------------------------- */
   cbtSplitBlock = {
@@ -135,9 +199,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.showToast();
-    }, 1000);
   }
 
   ngOnDestroy() {
@@ -198,24 +259,17 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-  getData() {
-    this.supaService.get('companies').subscribe((res: any) => {
-      const companyData = [...res];
-
-      this.cbt = companyData.find((company: ICompany) => company.name == COMPANY.CBT);
-      this.supaService.getFromArray(TABLE_NAME.PRODUCT, 'id', this.cbt.productMgmtIds).subscribe((res: any) => { this.cbtPP = res; });
-      this.supaService.getFromArray(TABLE_NAME.DEV, 'id', this.cbt.devProjectIds).subscribe((res: any) => { this.cbtDV = res; });
-
-      this.mydoma = companyData.find((company: ICompany) => company.name == COMPANY.MYDOMA);
-      // this.supaService.getFromArray(TABLE_NAME.PRODUCT, 'id', this.mydoma.productMgmtIds).subscribe((res: any) => { this.mydomaPP = res; });
-      // this.supaService.getFromArray(TABLE_NAME.DEV, 'id', this.mydoma.devProjectIds).subscribe((res: any) => { this.mydomaDV = res; });
-    })
-  }
 
 
   private showToast() {
     const title = 'Under Construction';
     const description = `But why not build in public?`;
     this.toast.callToast(title, description, false);
+  }
+
+
+  onFolderOpen(targetString: string) {
+    console.log(targetString);
+
   }
 }

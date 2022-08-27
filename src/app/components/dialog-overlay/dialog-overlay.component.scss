@@ -15,7 +15,7 @@ $title-height: 4rem;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #00000090;
+  background-color: #00000050;
   backdrop-filter: blur(3px);
 
   .structure-layer {
@@ -28,12 +28,11 @@ $title-height: 4rem;
 
     .dialog-container {
       border-radius: $br;
-      background-image: linear-gradient(to bottom right, $black, $midnight);
+      background-image: linear-gradient(to bottom right, $midnight, $midnight-dark);
       box-shadow: 4px 8px 28px black;
       padding: 20px;
       margin-top: -2rem;
       .title {
-        // border: 1px solid blue;
         min-height: $title-height;
         height: $title-height;
         max-height: $title-height;
@@ -50,7 +49,7 @@ $title-height: 4rem;
 
 $close-btn-height: 4.5rem;
 .close-btn {
-  border: 2px solid white;
+  border: 2px solid $canary-dark;
   position: absolute;
   top: 0;
   right: 0;
@@ -65,10 +64,24 @@ $close-btn-height: 4.5rem;
 
   margin: 1.5rem;
 
+  box-shadow: 4px 6px 12px #00000050;
+
+  background-color: $canary-dark;
+  background-image: linear-gradient(to bottom right, $canary-dark, $canary-medium);
+  border-bottom: 4px solid $canary-dark;
+  border-left: 4px solid $canary-medium;
+  border-right: 4px solid $canary-dark;
+  border-top: 4px solid $canary-medium;
+  .material-icons {
+    color: $black;
+    text-shadow: 4px 6px 12px #00000050;
+  }
+
   &:hover {
     background-color: $white;
     border: none;
-
+    border-right: 4px solid $canary-dark;
+    border-top: 4px solid $canary-medium;
     .material-icons {
       border: none;
       color: $black;
@@ -77,8 +90,10 @@ $close-btn-height: 4.5rem;
 
   &:active {
     background-color: $steel-dark;
+    border-bottom: none;
+    border-left: none;
     .material-icons {
-      color: $canary-dark;
+      color: $black;
     }
   }
 }
