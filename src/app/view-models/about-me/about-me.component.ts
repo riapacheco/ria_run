@@ -96,10 +96,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   };
 
-  @ViewChild('startHere') startHere!: ElementRef;
-  @ViewChild('cbtScrollBlock') cbtScrollBlock!: ElementRef;
-  @ViewChild('mydomaScrollBlock') mydomaScrollBlock!: ElementRef;
-  @ViewChild('showpassScrollBlock') showpassScrollBlock!: ElementRef;
 
   // Content properties
   heroPara!: string | undefined;
@@ -115,6 +111,10 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   maxHeight = '70vh';
 
   /* --------------------------- SECTION ANIMATIONS --------------------------- */
+  @ViewChild('startHere') startHere!: ElementRef;
+  @ViewChild('cbtScrollBlock') cbtScrollBlock!: ElementRef;
+  @ViewChild('mydomaScrollBlock') mydomaScrollBlock!: ElementRef;
+  @ViewChild('showpassScrollBlock') showpassScrollBlock!: ElementRef;
   @ViewChild('cbtComponent') cbtComponent!: SplitBlockComponent;
   @ViewChild('mydomaBlock') mydomaBlock!: ElementRef;
   @ViewChild('steerScrollBlock') steerScrollBlock!: ElementRef;
@@ -132,7 +132,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.sub.add(this.checkView());
     this.sub.add(this.getHeroContent());
-    this.sub.add(this.getData());
   }
 
   ngAfterViewInit() {
@@ -145,6 +144,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  // Check viewport width for `isMobile` property
   private checkView() {
     this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
       if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
@@ -152,7 +152,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
   
-  
+  // scrollTo arrow buttons
   scrollTo(target: string) {
     switch (target) {
       case 'firstSection':
@@ -186,10 +186,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
         }, 100);
         break;
     }
-  }
-
-  getToggleState(state: any, childName: string) {
-    console.log(state, childName);
   }
 
 

@@ -20,7 +20,6 @@ export enum TOGGLE_STATE {
 export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() blockTitle = 'Split Block Title';
-  @Output() toggleStateSwitch: EventEmitter<any> = new EventEmitter<any>();
 
   // Toggle switch
   btn = {
@@ -59,9 +58,8 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sub.add(this.checkDevice());
   }
 
-  ngAfterViewInit() {
-    this.toggleStateSwitch.emit(TOGGLE_STATE.first);
-  }
+  ngAfterViewInit() {}
+
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
@@ -86,7 +84,6 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private resetToggles() {
-    this.toggleStateSwitch.emit(TOGGLE_STATE.first);
     this.btn = {
       first: {
         label: 'Both',
@@ -115,7 +112,6 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setSecondToggle() {
-    this.toggleStateSwitch.emit(TOGGLE_STATE.second);
     this.btn = {
       first: {
         label: 'Both',
@@ -144,7 +140,6 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setThirdToggle() {
-    this.toggleStateSwitch.emit(TOGGLE_STATE.third);
     this.btn = {
       first: {
         label: 'Both',
