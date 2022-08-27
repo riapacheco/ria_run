@@ -8,12 +8,12 @@ export class ResizeLrDirective {
   isGrabbing = false;
   
   @Input() width!: number;
-  @Output() widthChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() widthChange: EventEmitter<any> 
+                        = new EventEmitter<any>();
 
   @HostListener('body:mousemove', ['$event'])
   public mouseMove(event: MouseEvent) {
     if (!this.isGrabbing) { return; }
-
     this.width += (event.clientX - this.prevClientX);
     this.widthChange.emit(this.width);
     this.prevClientX = event.clientX;
@@ -22,21 +22,16 @@ export class ResizeLrDirective {
   @HostListener('body:touchmove', ['$event'])
   public touchMove(event: TouchEvent) {
     if (!this.isGrabbing) { return;}
-
     this.width += (event.touches[0].clientX - this.prevClientX);
     this.widthChange.emit(this.width);
     this.prevClientX = event.touches[0].clientX;
   }
 
   @HostListener('mouseup', ['$event'])
-  public mouseUp(event: MouseEvent) {
-    if (event) {this.isGrabbing = false;}
-  }
+  public mouseUp(event: MouseEvent) { if (event) { this.isGrabbing = false; } }
 
   @HostListener('touchend', ['$event'])
-  public touchEnd(event: TouchEvent) {
-    if (event) { this.isGrabbing = false; }
-  }
+  public touchEnd(event: TouchEvent) { if (event) { this.isGrabbing = false; } }
 
   @HostListener('mousedown', ['$event']) 
   public mousedown(event: MouseEvent) {
