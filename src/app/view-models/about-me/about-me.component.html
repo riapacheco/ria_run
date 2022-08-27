@@ -32,6 +32,7 @@
 
 
 <!-- ------------------------ COLD BORE TECHNOLOGY ------------------------- -->
+<div class="pt-5" #cbtScrollBlock></div>
 <app-split-block
   [blockTitle]="'Cold Bore Technology'"
   (toggleStateSwitch)="getToggleState($event, 'Cold Bore Technology')"
@@ -59,6 +60,13 @@
         </h3>
       </div>
     </ng-container>
+    <ng-container *ngIf="!cbtSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('mydoma')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
     <div class="right-content">
@@ -84,11 +92,19 @@
         </div>
       </ng-container>
     </div>
+    <ng-container *ngIf="cbtSplitBlock.right.isShowing">
+      <a
+      (click)="scrollTo('mydoma')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
 </app-split-block>
 
 
 <!-- ------------------------------- MYDOMA -------------------------------- -->
+<div class="pt-5" #mydomaScrollBlock></div>
 <app-split-block
   [blockTitle]="'Mydoma Studio'"
   (toggleStateSwitch)="getToggleState($event, 'Mydoma')"
@@ -117,6 +133,14 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="!mydomaSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('steer')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
@@ -140,10 +164,19 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="mydomaSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('steer')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
 </app-split-block>
 
 <!-- -------------------------------- STEER -------------------------------- -->
+<div class="pt-5" #steerScrollBlock></div>
 <app-split-block
   [blockTitle]="'Steer Software'"
   (toggleStateSwitch)="getToggleState($event, 'Steer')"
@@ -171,6 +204,14 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="!steerSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('showpass')"
+        class="next-btn">
+      <i class="material-icons">south</i>
+    </a>
+    </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" rightSectionContent>
     <ng-container *ngIf="steerSplitBlock.right.isShowing && steerSplitBlock.left.isShowing">
@@ -193,10 +234,19 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="steerSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('showpass')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
 </app-split-block>
 
 <!-- ------------------------------ SHOWPASS ------------------------------- -->
+<div class="pt-5" #showpassScrollBlock></div>
 <app-split-block
   [blockTitle]="'Showpass'"
   (toggleStateSwitch)="getToggleState($event, 'Showpass')"
@@ -224,6 +274,14 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="!showpassSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('intriga')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
     <ng-container *ngIf="showpassSplitBlock.right.isShowing && showpassSplitBlock.left.isShowing">
@@ -246,10 +304,19 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="showpassSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('intriga')"
+        class="next-btn">
+        <i class="material-icons">south</i>
+      </a>
+    </ng-container>
   </div>
 </app-split-block>
 
 <!-- -------------------------- INTRIGA MOBILITY --------------------------- -->
+<div class="pt-5" #intrigaScrollBlock></div>
 <app-split-block
   [blockTitle]="'Intriga Mobility'"
   (toggleStateSwitch)="getToggleState($event, 'Intriga Mobility')"
@@ -278,6 +345,14 @@
         </h3>
       </div>
     </ng-container>
+
+    <ng-container *ngIf="!intrigaSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('cbt')"
+        class="next-btn">
+        <i class="material-icons">keyboard_double_arrow_up</i>
+      </a>
+    </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
     <ng-container *ngIf="intrigaSplitBlock.right.isShowing && intrigaSplitBlock.left.isShowing">
@@ -300,6 +375,14 @@
           Right side only for Intriga Mobility block
         </h3>
       </div>
+    </ng-container>
+
+    <ng-container *ngIf="intrigaSplitBlock.right.isShowing">
+      <a
+        (click)="scrollTo('cbt')"
+        class="next-btn">
+        <i class="material-icons">keyboard_double_arrow_up</i>
+      </a>
     </ng-container>
   </div>
 </app-split-block>

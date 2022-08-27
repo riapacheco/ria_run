@@ -97,7 +97,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   @ViewChild('startHere') startHere!: ElementRef;
-
+  @ViewChild('cbtScrollBlock') cbtScrollBlock!: ElementRef;
+  @ViewChild('mydomaScrollBlock') mydomaScrollBlock!: ElementRef;
+  @ViewChild('showpassScrollBlock') showpassScrollBlock!: ElementRef;
 
   // Content properties
   heroPara!: string | undefined;
@@ -115,6 +117,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   /* --------------------------- SECTION ANIMATIONS --------------------------- */
   @ViewChild('cbtComponent') cbtComponent!: SplitBlockComponent;
   @ViewChild('mydomaBlock') mydomaBlock!: ElementRef;
+  @ViewChild('steerScrollBlock') steerScrollBlock!: ElementRef;
+  @ViewChild('intrigaScrollBlock') intrigaScrollBlock!: ElementRef;
 
   isMobile!: boolean;
   private sub = new Subscription();
@@ -154,6 +158,31 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
       case 'firstSection':
         setTimeout(() => {
           this.startHere.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        break;
+      case 'mydoma':
+        setTimeout(() => {
+          this.mydomaScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        break;
+      case 'steer':
+        setTimeout(() => {
+          this.steerScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        break;
+      case 'showpass':
+        setTimeout(() => {
+          this.showpassScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        },100);
+        break;
+      case 'intriga':
+        setTimeout(() => {
+          this.intrigaScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        break;
+      case 'cbt':
+        setTimeout(() => {
+          this.cbtScrollBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
         }, 100);
         break;
     }

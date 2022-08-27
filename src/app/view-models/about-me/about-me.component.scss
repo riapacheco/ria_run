@@ -138,6 +138,40 @@
     }
   }
 }
+$next-btn-height: 3rem;
+.left-content,
+.right-content {
+  position: relative;
+  .next-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -1rem;
+    margin-right: -0.3rem;
+    height: $next-btn-height;
+    width: $next-btn-height;
+    border-radius: $next-btn-height;
+    background-image: linear-gradient(to bottom right, $black, $midnight);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 6px 12px black;
+    .material-icons {
+      font-size: 1.4rem;
+      color: $soot-grey-medium;
+    }
+
+    &:hover {
+      .material-icons {
+        color: $canary-dark;
+      }
+    }
+  }
+}
 
 
+.right-content {
+
+}
 
