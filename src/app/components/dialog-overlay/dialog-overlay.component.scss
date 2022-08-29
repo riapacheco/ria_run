@@ -32,6 +32,7 @@ $title-height: 4rem;
       box-shadow: 4px 8px 28px black;
       padding: 20px;
       margin-top: -2rem;
+      overflow-y: scroll !important;
       .title {
         min-height: $title-height;
         height: $title-height;
@@ -40,8 +41,31 @@ $title-height: 4rem;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        justify-content: space-between;
-        margin-bottom: 2rem;
+        justify-content: center;
+        margin-bottom: 3rem;
+      }
+
+      .body {
+        max-height: 100%;
+        overflow-y: scroll;
+      }
+    }
+  }
+
+
+  &.mobile {
+
+    h4 {
+      @include h4-mobile;
+    }
+    .structure-layer {
+      .dialog-container {
+        padding: 10px;
+        .title {
+          h3 {
+            @include h3-mobile;
+          }
+        }
       }
     }
   }
@@ -64,7 +88,7 @@ $close-btn-height: 4.5rem;
 
   margin: 1.5rem;
 
-  box-shadow: 4px 6px 12px #00000050;
+  box-shadow: 6px 10px 22px #ffc80050;
 
   background-color: $canary-dark;
   background-image: linear-gradient(to bottom right, $canary-dark, $canary-medium);

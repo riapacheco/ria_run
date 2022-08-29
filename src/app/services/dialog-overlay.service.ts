@@ -15,10 +15,10 @@ export class DialogOverlayService {
   private _body$: BehaviorSubject<string> = new BehaviorSubject<string>(`Use template literals for the innerHTML element that holds this component's body content!`);
   public body$: Observable<string> = this._body$.asObservable();
 
-  private _width$: BehaviorSubject<number> = new BehaviorSubject<number>(70);
+  private _width$: BehaviorSubject<number> = new BehaviorSubject<number>(70); // min-width
   public width$: Observable<number> = this._width$.asObservable();
 
-  private _height$: BehaviorSubject<number> = new BehaviorSubject<number>(60);
+  private _height$: BehaviorSubject<number> = new BehaviorSubject<number>(100);
   public height$: Observable<number> = this._height$.asObservable();
 
   private _maxHeight$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -30,16 +30,14 @@ export class DialogOverlayService {
 
   configMaxHeight(height: number) { this._maxHeight$.next(height); }
   onClose() { this._isShowing$.next(false); }
-  callNewDialog(dialogTitle: string, width?: number, height?: number) {
+
+  callNewDialog(dialogTitle: string, body: string, widthPercentage?: number) {
     
     this._title$.next(dialogTitle);
+    this._body$.next(body);
 
-    if (width !== undefined) {
-      this._width$.next(width);
-    }
-
-    if (height !== undefined) {
-      this._height$.next(height);
+    if (widthPercentage !== undefined) {
+      this._width$.next(widthPercentage);
     }
 
     this._isShowing$.next(true);

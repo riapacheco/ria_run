@@ -3,18 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 import { from, Observable } from 'rxjs';
 import { SUPABASE } from '../constants/supabase.constants';
 import { map } from 'rxjs';
+import { TTable } from '../types/supabase.type';
 
-export type TTable =  'introduction' |
-                      'home' |
-                      'code_tabs' |
-                      'commands' |
-                      'iframes' |
-                      'dev_projects' |
-                      'companies' |
-                      'menu_cards' |
-                      'about_me' |
-                      'product_mgmt'
-                      ;
+
 
 @Injectable({
   providedIn: 'root'

@@ -6,12 +6,13 @@ import { TSectionType } from 'src/app/components/section/section.component';
 import { SplitBlockComponent } from 'src/app/components/split-block/split-block.component';
 import { leftSlidesLeft, rightSlideRight } from 'src/app/constants/animations.constants';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
-import { COMPANY, TABLE_NAME } from 'src/app/enums/company.enums';
 import { IAboutMe } from 'src/app/interfaces/about-me.interface';
-import { ICompany, IDevProjects, IProductMgmt } from 'src/app/models/xp.model';
+import { IUseCase } from 'src/app/models/positions.model';
 import { AboutMeService } from 'src/app/services/about-me.service';
+import { DialogOverlayService } from 'src/app/services/dialog-overlay.service';
 import { SbService } from 'src/app/services/sb.service';
 import { ToastService } from 'src/app/services/toast.service';
+
 
 
 @Component({
@@ -21,93 +22,42 @@ import { ToastService } from 'src/app/services/toast.service';
   animations: [ leftSlidesLeft, rightSlideRight ]
 })
 export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
+  /* -------------------------------------------------------------------------- */
+  /*                                    DATA                                    */
+  /* -------------------------------------------------------------------------- */
+  cbtUseCases!: IUseCase[];
+  cbtProductUseCases!: IUseCase[];
+  cbtDevelopmentUseCases!: IUseCase[];
+  cbtSliderBgColor = '#FFC400';
+  cbtSliderIconColor = 'black';
+  cbtBorderColor="#FFC400";
 
-
-  cbtPortfolioItems = [
-    {
-      title: 'Enterprise Product Portfolio Re-Launch',
-      description: '',
-      isDevelopment: false,
-      icon: 'rocket_launch',
-      folders: [
-        {
-          title: 'Re-Launched Portfolio including all Enterprise Elements',
-          isOpen: false,
-          contents: 'Blah blah blah',
-          targetLabel: 'View Comparison',
-          target: 'productRelaunch'
-        },
-        {
-          title: 'Market, Technology, and Industry Segmented Research',
-          isOpen: false,
-          contents: '',
-          targetLabel: 'View Samples',
-          target: 'industryResearch'
-        },
-        {
-          title: 'Sales Enablement Development & Materials',
-          isOpen: false,
-          contents: '',
-          targetLabel: 'View Sample Data Sheets',
-          target: 'dataSheets'
-        }
-      ]
+  
+  /* -------------------- TOGGLE SWITCH & SPLIT BLOCK STATE ------------------- */
+  showsFirst = true;
+  cbtToggle = {
+    first: {
+      label: 'Both',
+      isActive: false,
     },
-    {
-      title: 'Asset Tracker Internal Platform Development',
-      description: '',
-      isDevelopment: true,
-      icon: 'code',
-      folders: [
-        {
-          title: 'Data Model Design & Testing',
-          isOpen: false,
-          contents: '',
-          targetLabel: 'Data Model Sample',
-          target: 'dataModelling'
-        },
-        {
-          title: 'Inventory Manager - System of Record Module',
-          isOpen: false,
-          contents: 'lsdkfjsld',
-          targetLabel: 'See Preview',
-          target: 'inventoryManagerFeature'
-        },
-        {
-          title: 'Lab Kanban - M&R Workflow Tracking Module',
-          isOpen: false,
-          contents: 'sldkfjsdlkfjsdlkj',
-          targetLabel: 'See Preview',
-          target: 'labKanbanFeature'
-        }
-      ]
+    second: {
+      label: 'Product',
+      isActive: false,
     },
-    {
-      title: 'MFG Process Scoping for Software Development',
-      description: '',
-      isDevelopment: true,
-      icon: 'web',
-      folders: []
-    },
-    { 
-      title: 'Product Marketing Discovery',
-      description: '',
-      isDevelopment: false,
-      icon: 'file_copy',
-      folders: []
+    third: {
+      label: 'Development',
+      isActive: true
     }
-  ];
-
-  /* ---------------------------- SPLIT BLOCK STATE --------------------------- */
+  }
   cbtSplitBlock = {
     left: {
-      isShowing: true,
-      width: '50%',
+      isShowing: false,
+      width: '0%',
       display: 'block',
     },
     right: {
       isShowing: true,
-      width: '50%',
+      width: '100%',
       display: 'block',
     }
   }
@@ -160,7 +110,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   };
 
-
   // Content properties
   heroPara!: string | undefined;
 
@@ -190,7 +139,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     private observer: BreakpointObserver,
     private aboutService: AboutMeService,
     private supaService: SbService,
-    private toast: ToastService
+    private toast: ToastService,
+    public dialog: DialogOverlayService
   ) { }
 
   ngOnInit(): void {
@@ -199,6 +149,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    // setTimeout(() => {
+    //   this.cbtScrollBlock.nativeElement.scrollIntoView();
+    // }, 100);
   }
 
   ngOnDestroy() {
@@ -208,11 +161,16 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Check viewport width for `isMobile` property
   private checkView() {
     this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
-      if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
-      else { this.isMobile = false; }
+      if (state.breakpoints[BREAKPOINT_VALUE.mobile]) {
+        this.isMobile = true;
+        this.showsFirst = false;
+      }
+      else {
+        this.isMobile = false; 
+        this.showsFirst = true;
+      }
     })
   }
-  
   // scrollTo arrow buttons
   scrollTo(target: string) {
     switch (target) {
@@ -249,8 +207,67 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  onToggleSwitch(e: any, company: string) {
+    console.log(e)
+    switch (true) {
+      case e == 'firstTab' && company == 'cbt':
+        this.cbtToggle.first.isActive = true;
+        this.cbtToggle.second.isActive = false;
+        this.cbtToggle.third.isActive = false;
+        this.cbtSplitBlock = {
+          left: {
+            isShowing: true,
+            width: '50%',
+            display: 'block',
+          },
+          right: {
+            isShowing: true,
+            width: '50%',
+            display: 'block',
+          }
+        }
+        break;
+        case e == 'secondTab' && company == 'cbt':
+          this.cbtToggle.first.isActive = false;
+          this.cbtToggle.second.isActive = true;
+          this.cbtToggle.third.isActive = false;
+          this.cbtSplitBlock = {
+            left: {
+              isShowing: true,
+              width: '100%',
+              display: 'block',
+            },
+            right: {
+              isShowing: false,
+              width: '0%',
+              display: 'block',
+            }
+          }
+          break;
+          case e == 'thirdTab' && company == 'cbt':
+            this.cbtToggle.first.isActive = false;
+            this.cbtToggle.second.isActive = false;
+            this.cbtToggle.third.isActive = true;
+            this.cbtSplitBlock = {
+              left: {
+                isShowing: false,
+                width: '0%',
+                display: 'block',
+              },
+              right: {
+                isShowing: true,
+                width: '100%',
+                display: 'block',
+              }
+            }
+            break;
+    }
+  }
 
-  /* ---------------------------------- DATA ---------------------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                              DATABASE METHODS                              */
+  /* -------------------------------------------------------------------------- */
   getHeroContent() {
     this.aboutService.getAllContent().then((res: IAboutMe[]) => {
       const aboutMeData = [...res];
@@ -258,7 +275,13 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.heroPara = heroData?.body;
     })
   }
-
+  getUseCases(data: IUseCase[]) {
+    if (data) {
+      this.cbtUseCases = data.filter((useCase: IUseCase) => useCase.parentCompany == 'Cold Bore Technology');
+      this.cbtProductUseCases = this.cbtUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == false);
+      this.cbtDevelopmentUseCases = this.cbtUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == true);
+    }
+  }
 
 
   private showToast() {
@@ -272,4 +295,19 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(targetString);
 
   }
+
+
+
+  /* -------------------------------------------------------------------------- */
+  /*                                TARGET CLICK                                */
+  /* -------------------------------------------------------------------------- */
+  onProjectTargetClick(data: any) {
+    const { projectTarget, projectContents } = data;
+    this.dialog.callNewDialog(
+      projectTarget,
+      projectContents,
+      65
+    );
+  }
+
 }

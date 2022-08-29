@@ -17,7 +17,7 @@
   </div>
 </app-section>
 
-
+<!-- --------------------------- INDICATOR CARDS --------------------------- -->
 <div
   [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'">
   <div class="content" #hint>
@@ -56,22 +56,52 @@
       >
     </app-tabs>
   </div>
-
-
-
 </div>
 
-<div [ngClass]="isMobile ? 'portfolio-item reverse mobile' : 'portfolio-item reverse'" >
 
+<!-- ------------------------ responsive action bar ------------------------ -->
+<div [ngClass]="isMobile ? 'portfolio-item reverse mobile' : 'portfolio-item reverse'">
   <div class="tabs-wrapper">
     <app-tabs
-      [tabs]="iphoneMockupContent"
-      [htmlData]="iphoneHtmlContent"
-      [typescriptData]="iphoneTypescriptContent"
-      [scssData]="iphoneScssContent"
+      [tabs]="responsiveActionBarContent"
+      [htmlData]="responsiveActionBarHtmlContent"
+      [typescriptData]="responsiveActionBarTypescriptContent"
+      [scssData]="responsiveActionBarScssContent"
       >
     </app-tabs>
   </div>
+  <div class="content">
+    <div class="title">
+      <h2>
+        {{ responsiveActionBarHtmlContent?.component }}
+      </h2>
+    </div>
+
+    <div class="para">
+      <div class="inner-html" [innerHTML]="responsiveActionBarHtmlContent?.description"></div>
+    </div>
+
+
+    <ng-container *ngIf="responsiveActionBarHtmlContent?.userStory">
+      <div class="user-story">
+        <div class="us-title">
+          <h6>
+            User Story
+          </h6>
+        </div>
+        <div class="html-body">
+          <div class="inner-html" [innerHTML]="responsiveActionBarHtmlContent?.userStory"></div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+<!-- ---------------------------- mobile mockup ---------------------------- -->
+
+<div [ngClass]="isMobile ? 'portfolio-item mobile' : 'portfolio-item'" >
+
   <div class="content">
     <div class="title">
       <h2>
@@ -83,7 +113,15 @@
       <div class="inner-html" [innerHTML]="iphoneHtmlContent?.description"></div>
     </div>
   </div>
-
+  <div class="tabs-wrapper">
+    <app-tabs
+      [tabs]="iphoneMockupContent"
+      [htmlData]="iphoneHtmlContent"
+      [typescriptData]="iphoneTypescriptContent"
+      [scssData]="iphoneScssContent"
+      >
+    </app-tabs>
+  </div>
 </div>
 
 

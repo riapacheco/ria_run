@@ -1,16 +1,21 @@
 
 .comparison-container {
   position: relative;
+  // overflow: scroll;
+  
   .img-wrapper {
     position: absolute;
     width: auto;
     height: auto;
     overflow: hidden;
+    // overflow-y: scroll;
+    overflow-y: scroll !important;
     &.img-overlay {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
       justify-content: center;
+      
       .resizer-layer {
         width: inherit;
         height: inherit;

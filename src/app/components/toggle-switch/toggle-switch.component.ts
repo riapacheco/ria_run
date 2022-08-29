@@ -12,6 +12,7 @@ export class ToggleSwitchComponent implements OnInit, OnDestroy {
   @Output() firstTabClick: EventEmitter<any> = new EventEmitter<any>();
   @Output() secondTabClick: EventEmitter<any> = new EventEmitter<any>();
   @Output() thirdTabClick: EventEmitter<any> = new EventEmitter<any>();
+  @Input() showsFirst = false;
 
   @Input() btn = {
     first: {
@@ -20,11 +21,11 @@ export class ToggleSwitchComponent implements OnInit, OnDestroy {
     },
     second: {
       label: 'Product',
-      isActive: true,
+      isActive: false,
     },
     third: {
       label: 'Development',
-      isActive: false
+      isActive: true
     }
   }
 

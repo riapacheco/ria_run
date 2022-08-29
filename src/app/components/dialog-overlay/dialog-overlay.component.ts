@@ -1,7 +1,6 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
+
+import { AfterViewInit, Component, Input} from '@angular/core';
+
 import { DialogOverlayService } from 'src/app/services/dialog-overlay.service';
 
 @Component({
@@ -10,30 +9,15 @@ import { DialogOverlayService } from 'src/app/services/dialog-overlay.service';
   styleUrls: ['./dialog-overlay.component.scss'],
   
 })
-export class DialogOverlayComponent implements AfterViewInit, OnDestroy {
-
-  isMobile!: boolean;
-  private sub = new Subscription();
+export class DialogOverlayComponent implements AfterViewInit {
+  @Input() isMobile!: boolean;
 
   constructor(
     public dialog: DialogOverlayService,
-    private observer: BreakpointObserver
   ) { }
 
-  ngAfterViewInit() {
-    this.sub.add(this.checkDevice());
-  }
+  ngAfterViewInit() {}
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  private checkDevice() {
-    this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
-      if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
-      else { this.isMobile = false; }
-    })
-  }
 
   onClose() { this.dialog.onClose(); }
 }

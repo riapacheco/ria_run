@@ -25,7 +25,7 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
   btn = {
     first: {
       label: 'Both',
-      isActive: true,
+      isActive: false,
     },
     second: {
       label: 'Product',
@@ -36,6 +36,7 @@ export class SplitBlockComponent implements OnInit, AfterViewInit, OnDestroy {
       isActive: false
     }
   }
+
   @Input() left = {
     isShowing: true,
     width: '50%',

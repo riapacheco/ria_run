@@ -55,6 +55,8 @@ import { ResizeDirective } from './directives/resize.directive';
 import { ResizeLrDirective } from './directives/resize-lr.directive';
 import { DialogOverlayComponent } from './components/dialog-overlay/dialog-overlay.component';
 import { DialogOverlayService } from './services/dialog-overlay.service';
+import { DataComponent } from './components/data/data.component';
+import { FolderListComponent } from './components/content/folder-list/folder-list.component';
 
 
 @NgModule({
@@ -85,7 +87,9 @@ import { DialogOverlayService } from './services/dialog-overlay.service';
     ComparisonSliderComponent,
     ResizeDirective,
     ResizeLrDirective,
-    DialogOverlayComponent
+    DialogOverlayComponent,
+    DataComponent,
+    FolderListComponent
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,10 @@ export class CodePreviewComponent implements OnInit, OnDestroy {
     }
   ];
 
+  // Responsive action bar
+  sliderWidth = 550;
+  mobileSliderWidth = 400;
+  mockMobile = false;
   isMobile!: boolean;
   private sub = new Subscription();
   constructor(
@@ -50,5 +54,13 @@ export class CodePreviewComponent implements OnInit, OnDestroy {
       if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
       else { this.isMobile = false; }
     })
+  }
+  onWidthChange(data: any){
+    // console.log(data);
+    if (data <= 500) {
+      this.mockMobile = true;
+    } else {
+      this.mockMobile = false;
+    }
   }
 }

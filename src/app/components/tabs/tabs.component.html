@@ -126,7 +126,11 @@
         </div>
       </ng-container>
 
-      <!-- ------------------------------- PREVIEW ------------------------------- -->
+      <!-- ----------------------------------------------------------------------- -->
+      <!--                                PREVIEWS                                 -->
+      <!-- ----------------------------------------------------------------------- -->
+
+      <!-- --------------------------- INDICATOR CARDS --------------------------- -->
       <ng-container *ngIf="tabsState.preview && htmlData?.component == 'Indicator Card'">
         <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
           <app-code-preview
@@ -135,9 +139,19 @@
         </div>
       </ng-container>
 
+      <!-- ------------------------ RESPONSIVE ACTION BAR ------------------------ -->
+      <ng-container *ngIf="tabsState.preview && htmlData?.component == 'Responsive Action Bar'">
+        <div class="code-preview"
+          [style.min-height]="isMobile ? '300px' : '550px'">
+          <img src="https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/portfolio/cold_bore_technology/responsiveMenu.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3BvcnRmb2xpby9jb2xkX2JvcmVfdGVjaG5vbG9neS9yZXNwb25zaXZlTWVudS5naWYiLCJpYXQiOjE2NjE3OTQ2ODAsImV4cCI6MTk3NzE1NDY4MH0.DJtRMIHNO7cvRXLk_hCLBrV7iAP1HBjR_unT1ILGMmY" alt="">
+        </div>
+      </ng-container>
+
       <!-- ---------------------------- IPHONE MOCKUP ---------------------------- -->
       <ng-container *ngIf="tabsState.preview && htmlData?.component == 'Iphone Mockup'">
-        <div class="code-preview" [style.height]="isMobile ? '700px' : '720px'">
+        <div class="code-preview"
+          [style.height]="isMobile ? '700px' : '720px'" 
+          >
           <app-code-preview
             [componentType]="'Iphone Mockup'">
           </app-code-preview>

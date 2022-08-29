@@ -364,4 +364,180 @@ $grey-medium: #252831;
       }
     }
   }
+  @if $component == 'Responsive Action Bar' {
+    $header-height: 6rem;
+    $bg-color: rgb(12, 13, 14);
+    $placeholder-color: rgb(48, 54, 60);
+    $icon-color: rgb(57, 65, 71);
+    $input-height: 40px;
+    $input-width: 200px;
+    $icons-height: 2.5rem;
+    .mock-wrapper {
+      width: fit-content;
+    }
+    .action-header {
+      margin: 3rem;
+      height: $header-height;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      position: relative;
+      .left-header {}
+
+      .right-header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        justify-content: flex-end;
+        .button-group {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          
+          a {
+            height: calc($input-height - 2px);
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: $input-height;
+            margin-left: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            filter: brightness(0.8);
+            white-space: nowrap;
+            &.secondary {
+              background-color: $cbt-coral;
+            }
+
+            &.primary {
+              background-color: $cbt-teal-dark;
+            }
+
+            &:hover {
+              filter: brightness(1.1);
+            }
+          }
+        }
+        .form-group {
+          position: relative;
+          margin-left: 1.5rem;
+          .material-icons {
+            // border: 1px solid red;
+            position: absolute;
+            left: 1rem;
+            top: calc(($input-height / 2) - ($icons-height / 2));
+
+            width: $icons-height;
+            height: $icons-height;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            color: $icon-color;
+
+          }
+          input {
+            height: $input-height;
+            max-height: $input-height;
+            background-color: black;
+            border-radius: $input-height;
+            width: $input-width;
+            color: white !important;
+            padding-left: 3.8rem;
+            &::placeholder {
+              color: $placeholder-color;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+
+      .handle {
+        color: pink;
+        position: absolute;
+        right: -1rem;
+        
+        .material-icons {
+          transform: rotate(90deg);
+        }
+
+        &:hover {
+          cursor: grab;
+          color: $cbt-teal-dark;
+        }
+        &:active {
+          cursor: grabbing;
+          color: $cbt-coral;
+        }
+      }
+    }
+
+    $action-btn-width: 46px;
+    $mobile-view-width: 370px;
+    $bar-background-color: rgb(28, 32, 35);
+    .mobile-wrapper {
+      min-height: 500px;
+      border: 1px solid $midnight-medium;
+      width: $mobile-view-width;
+
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      .action-title {
+        padding: 20px;
+      }
+      .mobile-action-bar {
+        width: 100%;
+        height: 5rem;
+        background-color:$bar-background-color;
+        .content-area {
+          position: relative;
+          height: inherit;
+          width: inherit;
+
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+
+          a {
+            // border: 1px solid grey;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 4rem;
+            .material-icons {
+              font-size: 1.7rem;
+              opacity: 0.3;
+            }
+
+            &.action-btn {
+              width: $action-btn-width;
+              height: $action-btn-width;
+              border-radius: $action-btn-width;
+              position: absolute;
+              left: calc(($mobile-view-width / 2) - ($action-btn-width / 2));
+              top: -1rem;
+              background-image: linear-gradient(to bottom right, $bar-background-color, $bg-color);
+              color: $cbt-teal-dark;
+              filter: brightness(1.1);
+              &.material-icons {
+                color: $cbt-teal-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

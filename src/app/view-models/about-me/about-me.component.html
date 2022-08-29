@@ -31,12 +31,25 @@
   </div>
 </app-section>
 
-
-
 <!-- ----------------------------------------------------------------------- -->
 <!--                      ***** COLD BORE SECTION *****                      -->
 <!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #cbtScrollBlock></div>
+<div [ngClass]="isMobile ? 'company-headline mobile' : 'company-headline'">
+  <div class="company-name">
+    <h2>
+      Cold Bore Technology
+    </h2>
+  </div>
+  <app-toggle-switch
+    (firstTabClick)="onToggleSwitch($event, 'cbt')"
+    (secondTabClick)="onToggleSwitch($event, 'cbt')"
+    (thirdTabClick)="onToggleSwitch($event, 'cbt')"
+    [showsFirst]="showsFirst"
+    [btn]="cbtToggle"
+    >
+  </app-toggle-switch>
+</div>
 <app-split-block
   [blockTitle]="'Cold Bore Technology'"
   [left]="cbtSplitBlock.left"
@@ -46,60 +59,40 @@
   <!--                           COLD BORE LEFT SIDE                           -->
   <!-- ----------------------------------------------------------------------- -->
   <div class="content" leftSectionContent>
+    
     <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && cbtSplitBlock.right.isShowing">
-      <div 
-        class="portfolio-item"
-        *ngFor="let item of cbtPortfolioItems">
-        <ng-container *ngIf="!item.isDevelopment">
-          <div [ngClass]="isMobile ? 'headline-block mobile' : 'headline-block'">
-            <h4>
-              {{item.title}}
-            </h4>
-          </div>
-          <div [ngClass]="isMobile ? 'divider-block mobile' : 'divider-block'">
-            <i class="material-icons">{{item.icon}}</i>
-            <div class="divider-line"></div>
-          </div>
-          
-          <!-- ------------------------------- FOLDERS ------------------------------- -->
-          <a
-            *ngFor="let folder of item.folders"
-            (click)="folder.isOpen = !folder.isOpen"
-            [ngClass]="isMobile ? 'folders mobile' : 'folders'">
-            <div class="folder">
-              <div class="icon">
-                <i class="material-icons">
-                  {{ folder.isOpen ? 'folder_open' : 'folder' }}
-                </i>
-              </div>
-              <span>{{ folder.title }}</span>
-            </div>
-
-            <ng-container *ngIf="folder.isOpen">
-              <div class="folder-contents">
-                <ng-container *ngIf="folder.contents">
-                  <div class="pb-3">
-                    {{ folder.contents }}
-                  </div>
-                </ng-container>
-                <div class="preview-group">
-                  <a
-                    (click)="onFolderOpen(folder.target)"
-                    class="preview-btn">
-                    <i class="material-icons">open_in_browser</i>
-                    {{ folder.targetLabel }}
-                  </a>
-                </div>
-              </div>
-            </ng-container>
-          </a>
-          
-        </ng-container>
-      </div>
+      <app-folder-list
+        [categories]="cbtProductUseCases"
+        (targetButtonClick)="onProjectTargetClick($event)"
+        >
+      </app-folder-list>
     </ng-container>
     <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && !cbtSplitBlock.right.isShowing">
+      <div [ngClass]="isMobile ? 'left-expanded cbt mobile' : 'left-expanded cbt'">
+        <ng-container *ngIf="!isMobile">
+          <div class="image">
+            <app-comparison-slider
+              [sliderBgColor]="cbtSliderBgColor"
+              [sliderIconColor]="cbtSliderIconColor"
+              [imgHeight]="470"
+              [imgWidth]="800"
+              [borderColor]="cbtBorderColor"
+              [leftImg]="'https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/portfolio/cold_bore_technology/cbt_BEFORE_home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3BvcnRmb2xpby9jb2xkX2JvcmVfdGVjaG5vbG9neS9jYnRfQkVGT1JFX2hvbWUucG5nIiwiaWF0IjoxNjYxNzk3MzUxLCJleHAiOjE5NzcxNTczNTF9.pvzFruW1aNozqQK13s8ASaqK3EL4Fg6pfy_TWpKSuJI'"
+              [rightImg]="'https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/portfolio/cold_bore_technology/cbt_AFTER_home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3BvcnRmb2xpby9jb2xkX2JvcmVfdGVjaG5vbG9neS9jYnRfQUZURVJfaG9tZS5wbmciLCJpYXQiOjE2NjE3OTczNzksImV4cCI6MTk3NzE1NzM3OX0.xSZQKM8wbwnGhUCDx8TRP9m08wYqJ_xaOEz3jVzZ4PU&t=2022-08-29T18%3A22%3A59.606Z'"
+              >
+            </app-comparison-slider>
+          </div>
+        </ng-container>
+
+        <app-folder-list
+          [style.width.%]="100"
+          [categories]="cbtProductUseCases"
+          (targetButtonClick)="onProjectTargetClick($event)"
+          >
+        </app-folder-list>
+      </div>
     </ng-container>
   </div>
   <!-- ----------------------------------------------------------------------- -->
@@ -108,55 +101,26 @@
   <div class="content" rightSectionContent>
     <!-- ------------------------------- SUMMARY ------------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.right.isShowing && cbtSplitBlock.left.isShowing">
-      <div class="portfolio-item reverse"
-        *ngFor="let item of cbtPortfolioItems">
-        <ng-container *ngIf="item.isDevelopment">
-          <div [ngClass]="isMobile ? 'headline-block reverse mobile' : 'headline-block reverse'">
-            <h4>{{item.title}}</h4>
-          </div>
-          <div [ngClass]="isMobile ? 'divider-block mobile' : 'divider-block'">
-            <div class="divider-line"></div>
-            <i class="material-icons">{{item.icon}}</i>
-          </div>
-          <!-- ------------------------------- FOLDERS ------------------------------- -->
-          <a 
-            *ngFor="let folder of item.folders"
-            (click)="folder.isOpen = !folder.isOpen"
-            [ngClass]="isMobile ? 'folders mobile' : 'folders'">
-            <div class="folder reverse">
-              <div class="icon">
-                <i class="material-icons">
-                  {{ folder.isOpen ? 'folder_open' : 'folder' }}
-                </i>
-              </div>
-              <span>{{ folder.title }}</span>
-            </div>
-
-            <ng-container *ngIf="folder.isOpen">
-              <div class="folder-contents reverse">
-                <ng-container *ngIf="folder.contents">
-                  <div class="pb-2">
-                    {{ folder.contents }}
-                  </div>
-                </ng-container>
-                <div class="preview-group">
-                  <a
-                    (click)="onFolderOpen(folder.target)"
-                    class="preview-btn">
-                    <i class="material-icons">open_in_browser</i>
-                    {{ folder.targetLabel }}
-                  </a>
-                </div>
-              </div>
-
-            </ng-container>
-          </a>
-        </ng-container>
-      </div>
+      <app-folder-list
+        [categories]="cbtDevelopmentUseCases"
+        (targetButtonClick)="onProjectTargetClick($event)"
+        >
+      </app-folder-list>
     </ng-container>
     <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.right.isShowing && !cbtSplitBlock.left.isShowing">
-
+      <div [ngClass]="isMobile ? 'right-expanded cbt mobile' : 'right-expanded cbt'">
+        <ng-container *ngIf="!isMobile">
+          <div class="image">
+            <img src="https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/diagrams/AssetTracker_ERD.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL2RpYWdyYW1zL0Fzc2V0VHJhY2tlcl9FUkQucG5nIiwiaWF0IjoxNjYxNzgzMzEyLCJleHAiOjE5NzcxNDMzMTJ9.zeLhOZf0BFywe3VH_DGaxNP9wXv7yEFMz9YqN1xlh8E&t=2022-08-29T14%3A28%3A32.878Z" alt="">
+          </div>
+        </ng-container>
+        <app-folder-list
+          [categories]="cbtDevelopmentUseCases"
+          (targetButtonClick)="onProjectTargetClick($event)"
+          >
+        </app-folder-list>
+      </div>
     </ng-container>
   </div>
 </app-split-block>
@@ -165,148 +129,137 @@
 <!-- ----------------------------------------------------------------------- -->
 <!--                       ***** MYDOMA SECTION *****                        -->
 <!-- ----------------------------------------------------------------------- -->
-<div class="pt-5" #mydomaScrollBlock></div>
+<!-- <div class="pt-5" #mydomaScrollBlock></div>
+<div [ngClass]="isMobile ? 'company-headline mobile' : 'company-headline'">
+  <div class="company-name">
+    <h2>
+      Mydoma Studio
+    </h2>
+  </div>
+  <app-toggle-switch
+    (firstTabClick)="onToggleSwitch($event, 'mydoma')"
+    (secondTabClick)="onToggleSwitch($event, 'mydoma')"
+    (thirdTabClick)="onToggleSwitch($event, 'mydoma')"
+    [btn]="cbtToggle"
+    >
+  </app-toggle-switch>
+</div>
 <app-split-block
   [blockTitle]="'Mydoma Studio'"
   [left]="mydomaSplitBlock.left"
   [right]="mydomaSplitBlock.right"
   >
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                            MYDOMA LEFT SIDE                             -->
-  <!-- ----------------------------------------------------------------------- -->
+
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
-    <!-- ------------------------------- SUMMARY ------------------------------- -->
+    
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && mydomaSplitBlock.right.isShowing">
+
     </ng-container>
-    <!-- ------------------------------ EXPANDED ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && !mydomaSplitBlock.right.isShowing">
 
     </ng-container>
 
   </div>
 
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                            MYDOMA RIGHT SIDE                            -->
-  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
-    <!-- ------------------------------- SUMMARY ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
 
     </ng-container>
-    <!-- ------------------------------ EXPANDED ------------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && !mydomaSplitBlock.left.isShowing">
 
     </ng-container>
 
   </div>
-</app-split-block>
+</app-split-block> -->
 
 <!-- ----------------------------------------------------------------------- -->
 <!--                        ***** STEER SECTION *****                        -->
 <!-- ----------------------------------------------------------------------- -->
-<div class="pt-5" #steerScrollBlock></div>
+<!-- <div class="pt-5" #steerScrollBlock></div>
 <app-split-block
   [blockTitle]="'Steer Software'"
   [left]="steerSplitBlock.left"
   [right]="steerSplitBlock.right"
   >
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                               STEER LEFT                                -->
-  <!-- ----------------------------------------------------------------------- -->
+
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
-    <!-- ------------------------- STEER LEFT SUMMARY -------------------------- -->
     <ng-container *ngIf="steerSplitBlock.left.isShowing && steerSplitBlock.right.isShowing">
     </ng-container>
-    <!-- ------------------------ STEER RIGHT EXPANDED ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.left.isShowing && !steerSplitBlock.right.isShowing">
     </ng-container>
   </div>
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" rightSectionContent>
-    <!-- ------------------------- STEER RIGHT SUMMARY ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.right.isShowing && steerSplitBlock.left.isShowing">
     </ng-container>
-    <!-- ------------------------ STEER RIGHT EXPANDED ------------------------- -->
     <ng-container *ngIf="steerSplitBlock.right.isShowing && !steerSplitBlock.left.isShowing">
     </ng-container>
   </div>
-</app-split-block>
+</app-split-block> -->
 
 <!-- ----------------------------------------------------------------------- -->
 <!--                      ***** SHOWPASS SECTION *****                       -->
 <!-- ----------------------------------------------------------------------- -->
-<div class="pt-5" #showpassScrollBlock></div>
+<!-- <div class="pt-5" #showpassScrollBlock></div>
 <app-split-block
   [blockTitle]="'Showpass'"
   [left]="showpassSplitBlock.left"
   [right]="showpassSplitBlock.right"
   >
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                              SHOWPASS LEFT                              -->
-  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
-
-    <!-- ------------------------ SHOWPASS LEFT SUMMARY ------------------------ -->
     <ng-container *ngIf="showpassSplitBlock.left.isShowing && showpassSplitBlock.right.isShowing">
     </ng-container>
-    <!-- ----------------------- SHOWPASS LEFT EXPANDED ------------------------ -->
     <ng-container *ngIf="showpassSplitBlock.left.isShowing && !showpassSplitBlock.right.isShowing">
     </ng-container>
   </div>
 
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                             SHOWPASS RIGHT                              -->
-  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
 
-    <!-- ----------------------- SHOWPASS RIGHT SUMMARY ------------------------ -->
     <ng-container *ngIf="showpassSplitBlock.right.isShowing && showpassSplitBlock.left.isShowing">
     </ng-container>
-    <!-- ----------------------- SHOWPASS RIGHT EXPANDED ----------------------- -->
     <ng-container *ngIf="showpassSplitBlock.right.isShowing && !showpassSplitBlock.left.isShowing">
     </ng-container>
   </div>
-</app-split-block>
+</app-split-block> -->
 
 <!-- ----------------------------------------------------------------------- -->
 <!--                       ***** INTRIGA SECTION *****                       -->
 <!-- ----------------------------------------------------------------------- -->
-<div class="pt-5" #intrigaScrollBlock></div>
+<!-- <div class="pt-5" #intrigaScrollBlock></div>
 <app-split-block
   [blockTitle]="'Intriga Mobility'"
   [left]="intrigaSplitBlock.left"
   [right]="intrigaSplitBlock.right"
   >
-
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                              INTRIGA LEFT                               -->
-  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'left-content mobile' : 'left-content'" leftSectionContent>
 
-    <!-- ----------------------- INTRIGA LEFT - SUMMARY ------------------------ -->
     <ng-container *ngIf="intrigaSplitBlock.left.isShowing && intrigaSplitBlock.right.isShowing">
     </ng-container>
 
-    <!-- ----------------------- INTRIGA LEFT - EXPANDED ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.left.isShowing && !intrigaSplitBlock.right.isShowing">
     </ng-container>
 
   </div>
-
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                           INTRIGA RIGHT SIDE                            -->
-  <!-- ----------------------------------------------------------------------- -->
   <div [ngClass]="isMobile ? 'right-content mobile' : 'right-content'" rightSectionContent>
 
-    <!-- ----------------------- INTRIGA RIGHT - SUMMARY ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.right.isShowing && intrigaSplitBlock.left.isShowing">
     </ng-container>
 
-    <!-- ---------------------- INTRIGA RIGHT - EXPANDED ----------------------- -->
     <ng-container *ngIf="intrigaSplitBlock.right.isShowing && !intrigaSplitBlock.left.isShowing">
     </ng-container>
 
   </div>
-</app-split-block>
+</app-split-block> -->
 
 
 
+
+<div class=" pb-10 pt-4" style="text-align: center">
+  <h6>More coming soon</h6>
+</div>
+<!-- ----------------------------------------------------------------------- -->
+<!--                                  DATA                                   -->
+<!-- ----------------------------------------------------------------------- -->
+
+<app-data
+  (useCaseData)="getUseCases($event)">
+</app-data>

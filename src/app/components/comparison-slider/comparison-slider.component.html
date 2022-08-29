@@ -5,7 +5,9 @@
   [style.max-height.px]="imgHeight"
   [style.width.px]="imgWidth"
   [style.min-width.px]="imgWidth"
-  [style.max-width.px]="imgWidth">
+  [style.max-width.px]="imgWidth"
+  [style.overflow-y]="'scroll'"
+  >
 
   <!-- -------------------------- STATIONARY IMAGE --------------------------- -->
   <div
@@ -35,8 +37,10 @@
     [style.height.px]="imgHeight"
     [style.min-height.px]="imgHeight"
     [style.max-height.px]="imgHeight"
+    
     [(width)]="sliderWidth"
     [style.max-width.px]="imgWidth"
+    [style.border-right]="'4px solid ' + borderColor"
     class="img-wrapper img-overlay">
 
     <div class="resizer-layer">

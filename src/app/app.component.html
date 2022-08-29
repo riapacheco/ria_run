@@ -1,5 +1,9 @@
+
+
 <app-toast></app-toast>
 <app-sidebar></app-sidebar>
 
 <router-outlet (activate)="onActivate()"></router-outlet>
-<app-dialog-overlay></app-dialog-overlay>
+<app-dialog-overlay
+  [isMobile]="isMobile">
+</app-dialog-overlay>

@@ -12,6 +12,197 @@
 %text-width-mobile {
   width: 100%;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  TEMPLATES                                 */
+/* -------------------------------------------------------------------------- */
+
+.company-headline {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+
+  .company-name {
+    h2 {
+      color: $white;
+    }
+  }
+  &.mobile {
+    width: 90%;
+    justify-content: flex-end;
+    .company-name {
+      margin-bottom: 1.5rem;
+      h2 {
+        @include h1-mobile;
+      }
+    }
+  }
+}
+
+$use-case-name-height: 3.4rem;
+.summary {
+  .use-case-block {
+    padding: 40px 40px 30px 40px;
+    .use-case-name {
+      margin-bottom: 1rem;
+      h4 { line-height: $use-case-name-height; }
+      min-height: $use-case-name-height;
+      max-height: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      .material-icons {
+        height:$use-case-name-height;
+        font-size: 1.7rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+
+        color: $soot-grey-dark;
+      }
+    }
+
+    .project-list {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .project {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .project-name {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: flex-start;
+          .material-icons, span {
+            min-height: 3rem;
+            height: 3rem;
+          }
+          .material-icons {
+            font-size: 1.5rem;
+            width: 3rem;
+            display: inline-flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            color: $canary-dark;
+          
+            filter: brightness(0.6);
+          }
+          .name-text {
+            white-space: nowrap;
+            font-weight: 500;
+            color: $white;
+          }
+          &:hover {
+            .material-icons, .name-text {
+              color: $canary-dark;
+            }
+          }
+        }
+        .project-description {
+          display: block;
+          padding-left: 15px;
+          padding-bottom: 2rem;
+          border-left: 2px solid $canary-dark;
+          margin-left: 15px;
+          font-size: 1.45rem;
+          
+          .description-text {
+            margin-bottom: 2.5rem;
+          }
+          .project-btn {
+            font-size: 1.35rem;
+
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            background-color: $white;
+            color: $black;
+
+            &:hover {
+              background-color: black;
+              color: $canary-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.summary.mobile {
+  margin-bottom: 5rem;
+  .use-case-block {
+    padding: 20px 15px;
+    .use-case-name {
+      h4 {
+        @include h4-mobile;
+        line-height: 1.3;
+      }
+    }
+  }
+  .project-list {
+    .project {
+      .project-name {
+        span {
+          @include body-text-mobile;
+        }
+      }
+      .project-description {
+        @include body-text-mobile;
+
+      }
+    }
+  }
+}
+
+.right-expanded,
+.left-expanded {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &.cbt {
+    .image {
+      width: 75%;
+      margin: 3rem;
+      img {
+        filter: brightness(0.8);
+      }
+    }
+  }
+  /* --------------------------------- Mobile --------------------------------- */
+  &.mobile {
+    flex-flow: column-reverse nowrap;
+
+    &.cbt {
+      .image {
+        width: 90%;
+        margin:auto;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 HERO STYLES                                */
+/* -------------------------------------------------------------------------- */
 .hero {
   min-height: 100vh;
   width: 100%;
@@ -74,7 +265,6 @@
     }
   }
 }
-
 .hero {
 
   &.mobile {
@@ -111,168 +301,6 @@
         .button-group {
           width: 100%;
           text-align: center;
-        }
-      }
-    }
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                               ACTUAL CONTENT                               */
-/* -------------------------------------------------------------------------- */
-
-$folder-height: 3.5rem;
-%block-margin {
-  width: 95%;
-  margin: auto;
-}
-
-%folders-margin {
-  width: 80%;
-  margin: auto;
-}
-.content {
-  padding-bottom: 3rem;
-  .portfolio-item {
-    .headline-block {
-      padding: 4rem 2rem 0rem 2rem;
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: flex-end;
-      justify-content: flex-end;
-      h4 {
-        font-size: 2rem;
-        line-height: 1.35;
-        color: $steel-regular;
-        // filter: brightness(0.7);
-      }
-      @extend %block-margin;
-      &.reverse { justify-content:  flex-start;}
-      &.opened { font-weight: bold; }
-      &.mobile {
-        h4 {
-          @include h4-mobile;
-        }
-      }
-    }
-    .divider-block  {
-      width: 95%;
-      @extend %block-margin;
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      opacity: 0.5;
-      .divider-line {
-        border-bottom: 2px solid $midnight-medium;
-        @extend %block-margin;
-      }
-      .material-icons {
-        color: $soot-grey-light;
-        font-size: 2.5rem;
-      }
-
-      &.mobile {
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-      }
-    }
-
-    .folders {
-      line-height: 1.3;
-      &.mobile {
-        font-size: 1.4rem;
-        .folder {
-          margin-bottom: 3rem;
-        }
-      }
-      .folder {
-        min-height: $folder-height;
-        height: $folder-height;
-        display: flex;
-        flex-flow: row-reverse nowrap;
-        align-items: center;
-        justify-content: flex-start;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        transition: 200ms ease-in-out;
-
-        span {
-          font-weight: 500;
-        }
-        .icon {
-          height: $folder-height;
-          width: $folder-height;
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: center;
-          padding: 2.5rem;
-          // border: 1px solid grey;
-          .material-icons {
-            display: inline-block;
-            font-size: 2rem;
-            color: $canary-dark;
-            opacity: 0.4;
-          }
-        }
-        &.reverse {
-          flex-flow: row nowrap;
-        }
-
-        &:hover {
-          color: $canary-dark;
-        }
-      }
-      .folder-contents {
-        padding-top: 1rem;
-        border-right: 1px solid $canary-dark;
-        font-size: 1.5rem;
-        line-height: 1.6;
-        margin-right: 2.8rem;
-        padding-right: 2.5rem;
-        margin-bottom: 2.5rem;
-        text-align: right;
-        color: $steel-dark;
-        
-        &.reverse {
-          border-left: 1px solid $canary-dark;
-          margin-left: 2.8rem;
-          padding-left: 2.5rem;
-          text-align: left;
-          border-right: none;
-        }
-
-
-        .preview-group {
-          display: block;
-          // padding-top: 3.5rem;
-          font-size: 1.6rem;
-          .preview-btn {
-            color: $steel-regular;
-            display: inline-flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            border: 1px solid $steel-regular;
-            padding: 0.5rem 1.5rem 0.5rem 1rem;
-            font-size: 1.3rem;
-            border-radius: 5px;
-            font-weight: 500;
-            .material-icons {
-              font-size: 1.8rem;
-              margin-right: 1rem;
-              color: $steel-regular;
-            }
-
-            &:hover {
-              background-color: $steel-regular;
-              color: $black;
-
-              .material-icons {
-                color: $black;
-              }
-            }
-          }
         }
       }
     }

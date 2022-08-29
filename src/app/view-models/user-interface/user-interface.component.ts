@@ -25,6 +25,12 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   iphoneTypescriptContent!: ICodeTab | undefined;
   iphoneScssContent!: ICodeTab | undefined;
 
+  /* -------------------------- RESPONSIVE ACTION BAR ------------------------- */
+  responsiveActionBarContent: ICodeTab[] = [];
+  responsiveActionBarHtmlContent!: ICodeTab | undefined;
+  responsiveActionBarTypescriptContent!: ICodeTab | undefined;
+  responsiveActionBarScssContent!: ICodeTab | undefined;
+
   /* -------------------------------- ALL TABS -------------------------------- */
   hintClass = 'hidden-message';     // RESET THIS
   showsHint = false; // to prevent any animation slips
@@ -43,7 +49,6 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   constructor(
     private observer: BreakpointObserver,
     private service: CodeTabService,
-
   ) { }
 
   ngOnInit(): void {
@@ -82,6 +87,13 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
       this.iphoneHtmlContent = iphoneData.find((obj: any) => obj.language == 'html');
       this.iphoneTypescriptContent = iphoneData.find((obj: any) => obj.language == 'typescript');
       this.iphoneScssContent = iphoneData.find((obj: any) => obj.language == 'scss');
+
+      const actionBarData = data.filter((obj: any) => obj.component == 'Responsive Action Bar');
+      this.responsiveActionBarContent = actionBarData;
+      this.responsiveActionBarHtmlContent = actionBarData.find((obj: any) => obj.language == 'html');
+      this.responsiveActionBarTypescriptContent = actionBarData.find((obj: any) => obj.language == 'typescript' );
+      this.responsiveActionBarScssContent = actionBarData.find((obj: any) => obj.language == 'scss');
+
     })
   }
 

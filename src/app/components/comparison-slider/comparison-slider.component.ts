@@ -13,6 +13,7 @@ export class ComparisonSliderComponent implements OnInit, AfterViewInit {
   @Input() leftImg = 'https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/portfolio/cold_bore_technology/CBT_Home_BEFORE.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3BvcnRmb2xpby9jb2xkX2JvcmVfdGVjaG5vbG9neS9DQlRfSG9tZV9CRUZPUkUucG5nIiwiaWF0IjoxNjYxNTUzNDE3LCJleHAiOjE5NzY5MTM0MTd9.Hf2jb-_cSz_1t3hzIYFBnVMncfEFY5d1f0xYes04nxU&t=2022-08-26T22%3A36%3A57.466Z';
   @Input() sliderBgColor = 'white';
   @Input() sliderIconColor = 'black';
+  @Input() borderColor = 'white';
   @Output() dragHandle: EventEmitter<any> = new EventEmitter<any>();
 
   hoverCursor = 'grab';

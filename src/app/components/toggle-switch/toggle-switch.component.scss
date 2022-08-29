@@ -66,6 +66,14 @@ $border-thickness: 1px;
     .wrapper-area {
       a {
         @include body-text-mobile;
+
+        &:nth-child(2) {
+          border: $border-thickness solid $splash-color;
+          border-radius: 0px $border-radius $border-radius 0px;
+          &.active {
+            @extend %active-properties;
+          }
+        }
       }
     }
   }

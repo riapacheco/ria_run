@@ -1,12 +1,11 @@
 <ng-container *ngIf="(dialog.isShowing$ | async)">
-  <div class="dialog-overlay">
+  <div [ngClass]="isMobile ? 'dialog-overlay mobile' : 'dialog-overlay'">
     <div class="structure-layer">
       <div
         [style.width.%]="isMobile ? '90%' : (dialog.width$ | async)"
         [style.min-width.%]="isMobile ? '90' : (dialog.width$ | async)"
         [style.max-width.%]="isMobile ? '90' : (dialog.width$ | async)"
-        [style.min-height.%]="(dialog.height$ | async)"
-        [style.max-height.%]="(dialog.maxHeight$ | async)"
+        [style.max-height.%]="90"
         class="dialog-container">
         <div class="title">
           <h3>

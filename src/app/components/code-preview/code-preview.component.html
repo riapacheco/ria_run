@@ -31,7 +31,6 @@
       </div>
     </app-mobile-mockup>
   </ng-container>
-
   <ng-container *ngSwitchCase="'Iphone Mockup'">
     <div [ngClass]="isMobile ? 'wrapper mobile' : 'wrapper'">
       <div class="left-buttons">
@@ -48,6 +47,68 @@
       <div class="right-buttons">
         <div class="single-button"></div>
       </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Responsive Action Bar'">
+    <div class="mock-wrapper">
+      <ng-container *ngIf="!mockMobile">
+        <div 
+          class="action-header" 
+          appResizeLR
+          [(width)]="sliderWidth"
+          [style.width.px]="isMobile ? 'mobileSliderWidth' : 'sliderWidth'"
+          (widthChange)="onWidthChange($event)"
+          #actionHeaderDiv>
+          <div class="left-header">
+            <h3>Action Title</h3>
+          </div>
+    
+          <div class="right-header">
+            <div class="button-group">
+    
+              <a class="primary">
+                Scan Item
+              </a>
+            </div>
+    
+            <div class="form-group">
+              <i class="material-icons">search</i>
+              <input
+                placeholder="Search"
+                type="text">
+            </div>
+          </div>
+    
+          <a class="handle">
+            <i class="material-icons">drag_handle</i>
+          </a>
+        </div>
+      </ng-container>
+    
+      <ng-container *ngIf="mockMobile">
+        <div class="mobile-wrapper">
+          <div class="action-title">
+            <h3>
+              Action Title
+            </h3>
+          </div>
+          <div class="mobile-action-bar">
+            <div class="content-area">
+              <a>
+                <i class="material-icons">search</i>
+              </a>
+        
+              <a>
+                <i class="material-icons">refresh</i>
+              </a>
+        
+              <a class="action-btn">
+                <i class="material-icons">qr_code</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </ng-container>
 </div>

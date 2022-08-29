@@ -4,6 +4,7 @@ $right-button-height: 6.5rem;
 .code-preview {
   @include preview-component('Indicator Card');
   @include preview-component('Iphone Mockup');
+  @include preview-component('Responsive Action Bar');
 }
 
 .mockup-area {

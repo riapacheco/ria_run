@@ -1,10 +1,12 @@
 <div [ngClass]="isMobile ? 'toggle-switch mobile' : 'toggle-switch'">
   <div class="wrapper-area">
-    <a
-      (click)="onFirstTabClick($event)"
-      [ngClass]="btn.first.isActive ? 'active' : ''">
-      Both
-    </a>
+    <ng-container *ngIf="showsFirst">
+      <a
+        (click)="onFirstTabClick($event)"
+        [ngClass]="btn.first.isActive ? 'active' : ''">
+        Both
+      </a>
+    </ng-container>
 
     <a
       (click)="onSecondTabClick($event)"

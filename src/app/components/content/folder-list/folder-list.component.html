@@ -1,0 +1,54 @@
+<div [ngClass]="isMobile ? 'folder-list-summary mobile' : 'folder-list-summary'" *ngFor="let category of categories">
+  <div class="category-block">
+
+    <!-- ----------------------------- NAME BLOCK ------------------------------ -->
+    <div class="category-name">
+      <h4>
+        {{ category.name }}
+      </h4>
+
+      <i class="material-icons">
+        {{ category.icon }}
+      </i>
+    </div>
+
+    <!-- ------------------------- FOLDERS / PROJECTS -------------------------- -->
+    <div class="project-list">
+
+      <!-- --------------------------- SINGLE PROJECT ---------------------------- -->
+      <div class="project" *ngFor="let project of category.projects">
+
+        <!--project name-->
+        <a
+          class="project-name"
+          (click)="project.isOpen = !project.isOpen"
+          >
+          <i class="material-icons">
+            {{ project.isOpen ? 'folder_open' : 'folder' }}
+          </i>
+
+          <div class="name-text">
+            {{ project.name }}
+          </div>
+        </a>
+
+        <!--expanded project content-->
+        <ng-container *ngIf="project.isOpen">
+          <div class="project-description">
+            <div class="description-text">
+              <div class="inner-html" [innerHTML]="project.description"></div>
+            </div>
+  
+            <ng-container *ngIf="project.target">
+              <a
+                (click)="onTargetClick(project.target, project.contents)"
+                class="project-btn">
+                {{ project.targetLabel }}
+              </a>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
