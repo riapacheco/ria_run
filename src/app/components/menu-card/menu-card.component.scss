@@ -60,7 +60,7 @@ $padding: 20px;
   .content-area {
     width: 100%;
     min-height: $content-height;
-    height: $content-height;
+    // height: $content-height;
     background-color: $midnight;
     border-radius: 0rem 0rem $border-radius $border-radius;
     padding: $padding;
@@ -76,9 +76,9 @@ $padding: 20px;
     }
     .description {
       @include body-text-mobile;
-      padding-left: 5px;
       line-height: 1.5;
       opacity: 0.8;
+      padding: 0.8rem;
     }
 
     .tag-block {

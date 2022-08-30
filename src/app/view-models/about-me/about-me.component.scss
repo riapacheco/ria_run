@@ -269,13 +269,13 @@ $use-case-name-height: 3.4rem;
 
   &.mobile {
     @include auto-width-mobile;
-    min-height: 150vh;
-    max-height: 150vh;
+    min-height: 100vh;
+    // max-height: 150vh;
     .content {
       flex-flow: column nowrap;
       .my-image {
         width: 100%;
-        margin-top: 1rem;
+        margin-top: 120px;
         margin-bottom: 6rem;
         @extend %image-width-mobile;
       }
@@ -306,3 +306,6 @@ $use-case-name-height: 3.4rem;
     }
   }
 }
+
+
+
