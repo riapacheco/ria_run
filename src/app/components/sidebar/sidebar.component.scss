@@ -39,7 +39,9 @@ $scroll-window-height: calc((100vh - $top-block) - ($sidebar-padding * 2));
         min-height: $scroll-window-height;
         max-height: $scroll-window-height;
         height: $scroll-window-height;
-        overflow-y: scroll;
+        overflow-y: scroll !important;
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
       }
     }
   }
