@@ -57,6 +57,7 @@ import { DialogOverlayComponent } from './components/dialog-overlay/dialog-overl
 import { DialogOverlayService } from './services/dialog-overlay.service';
 import { DataComponent } from './components/data/data.component';
 import { FolderListComponent } from './components/content/folder-list/folder-list.component';
+import { ContactComponent } from './view-models/contact/contact.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { FolderListComponent } from './components/content/folder-list/folder-lis
     ResizeLrDirective,
     DialogOverlayComponent,
     DataComponent,
-    FolderListComponent
+    FolderListComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

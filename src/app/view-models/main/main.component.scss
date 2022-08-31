@@ -18,9 +18,11 @@
 $desktop-height: 60vh;
 $mobile-height: 80vh;
 .hero { // aka hero-section
+  // margin-top: 10rem;
   color: $black;
   .hero-content { // aka hero
     position: relative;
+    
     .polygon {
       position: absolute;
       top: 0;
@@ -45,6 +47,7 @@ $mobile-height: 80vh;
       right: 0;
       bottom: 0;
       height: $desktop-height;
+      padding-top: 5rem;
       .text-information {
         @include auto-width;
         .title {
@@ -58,6 +61,7 @@ $mobile-height: 80vh;
       }
       &.mobile {
         height: $mobile-height;
+        padding-top: 8rem;
         .text-information {
           @include auto-width-mobile;
           .title {

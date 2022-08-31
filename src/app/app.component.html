@@ -1,5 +1,9 @@
-
-
+<!-- <app-contact></app-contact> -->
+<ng-container *ngIf="topNavClass.isShowing">
+  <app-top-nav
+    [navClass]="topNavClass">
+  </app-top-nav>
+</ng-container>
 <app-toast></app-toast>
 <app-sidebar></app-sidebar>
 

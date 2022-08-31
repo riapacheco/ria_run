@@ -1,0 +1,77 @@
+@import '~@riapacheco/yutes/season/two.scss';
+@import '../../../scss/mixins.scss';
+
+/* -------------------------------- STRUCTURE ------------------------------- */
+
+
+
+app-top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.emoji {
+  font-size: 5rem;
+}
+.section-content {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+
+  &.mobile {
+    h2 {
+      @include h2-mobile;
+    }
+  }
+}
+
+.form-container {
+  min-width: 100vw;
+  .content-wrapper {
+    width: 300px;
+    margin: auto;
+    padding-top: 3rem;
+    .form-group {
+      margin-bottom: 1.5rem;
+      input,
+      textarea {
+        border: 1px solid $midnight-dark;
+      }
+      input {
+        background-color: $black;
+        color: $white;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      textarea {
+        border-radius: 5px;
+        width: 100%;
+        background-color: $black;
+        color: $white;
+        white-space: pre;
+        font-family: unset;
+        font-size: 100%;
+        max-width: 100%;
+        padding: 10px;
+        margin-bottom: 2.5rem;
+      }
+    }
+
+  }
+}
+
+.submit-btn {
+  @include btn($dark: false, $icon: false);
+  filter: brightness(0.8);
+
+  &:hover {
+    filter: brightness(1);
+  }
+}
+

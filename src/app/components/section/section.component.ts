@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 
-export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section blue-paint' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange' | 'section pink-paint' | 'section green-paint';
+export type TSectionType = 'section' | 'section blue' | 'section painted' | 'section blue-paint' | 'section polygon' | 'section yellow-splatter' | 'section blue-rust' | 'section orange' | 'section pink-paint' | 'section green-paint' | 'section inkblot';
 
 @Component({
   selector: 'app-section',
@@ -22,7 +22,7 @@ export class SectionComponent implements AfterViewInit {
   @Input() minHeight = '100vh';
   @Input() maxHeight = 'none';
   @Input() showsPolygon = true;
-  @Input() sectionClass: TSectionType = 'section';
+  @Input() sectionClass = 'section';
 
   constructor() { }
 

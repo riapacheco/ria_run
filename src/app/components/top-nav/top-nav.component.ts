@@ -17,7 +17,8 @@ export class TopNavComponent implements AfterViewInit {
   @Output() menuClick: EventEmitter<any> = new EventEmitter<any>();
   @Input() navClass = {
     desktop: 'top-nav',
-    mobile: 'top-nav mobile'
+    mobile: 'top-nav mobile',
+    isShowing: true
   }
   @Input() topNav = TOP_NAV.height;
   isAtTopView = true;

@@ -6,5 +6,6 @@ export enum SUPABASE_TABLE {
   MENU_CARDS = 'menu_cards',
   POSITIONS = 'positions',
   USE_CASES = 'use_cases',
-  PROJECTS = 'projects'
+  PROJECTS = 'projects',
+  MESSAGES = 'messages'
 }

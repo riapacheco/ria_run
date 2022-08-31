@@ -36,12 +36,6 @@ export class UserInterfaceComponent implements OnInit, AfterViewInit, OnDestroy 
   showsHint = false; // to prevent any animation slips
 
 
-  /* ---------------------------- TOP NAV COMPONENT --------------------------- */
-  navClass = {
-    desktop: 'top-nav canary',
-    mobile: 'top-nav canary mobile'
-  };
-
   @ViewChild('hint') hint!: ElementRef;
 
   isMobile!: boolean;

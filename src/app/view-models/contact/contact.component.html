@@ -1,0 +1,47 @@
+
+<app-section
+  [sectionClass]="'section marble'"
+  [minHeight]="'100vh'">
+  <div
+    [ngClass]="isMobile ? 'section-content mobile' : 'section-content'"
+    sectionContent>
+    <h2>
+      Contact me
+    </h2>
+
+    <div [ngClass]="isMobile ? 'form-container mobile' : 'form-container' ">
+      <div class="content-wrapper">
+        <div class="form-group">
+          <input
+            [(ngModel)]="contact.fullName"
+            placeholder="Full name"
+            type="text">
+        </div>
+        <div class="form-group">
+          <input
+            [(ngModel)]="contact.email"
+            placeholder="Email"
+            type="text">
+        </div>
+        <div class="form-group">
+          <textarea
+            [(ngModel)]="contact.message"
+            placeholder="Message (optional)"
+            type="text"
+            name="" 
+            cols="30"
+            rows="5">
+          </textarea>
+        </div>
+
+        <div class="flex-row nowrap align-start justify-end">
+          <a
+            (click)="onSend()"
+            class="submit-btn">
+            Send
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-section>
