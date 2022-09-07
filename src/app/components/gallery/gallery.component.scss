@@ -1,0 +1,90 @@
+@import '../../../scss/mixins.scss';
+@import '~@riapacheco/yutes/season/two.scss';
+
+
+.no-select {
+  @include remove-selection;
+}
+
+$btn-height: 4rem;
+$btn-top: calc(50% - ($btn-height / 2));
+$caption-height: 5rem;
+$transition: 200ms ease-in-out;
+
+.gallery-container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  .content-wrapper {
+    height: inherit;
+    width: inherit;
+    position: relative;
+
+    .prev-btn,
+    .next-btn {
+      width: $btn-height;
+      height: $btn-height;
+      position: absolute;
+      @include center-absolute('top', $btn-height, 100%);
+      display: inline-flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(31, 33, 38, 0.821);
+      backdrop-filter: blur(5px);
+      transition: $transition;
+      opacity: 0;
+      .material-icons {
+        font-size: 4rem;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+    .prev-btn {
+      left: 0;
+      border-radius: 0px 4px 4px 0px;
+    }
+    .next-btn {
+      right: 0;
+      border-radius: 4px 0px 0px 4px;
+    }
+
+    .caption-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: $caption-height;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(31, 33, 38, 0.821);
+      backdrop-filter: blur(5px);
+      transition: $transition;
+      opacity: 0;
+      @include body-text-mobile;
+
+      &.persist {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    .content-wrapper {
+      .prev-btn,
+      .next-btn,
+      .caption-container {
+        opacity: 1;
+      }
+    }
+  }
+}

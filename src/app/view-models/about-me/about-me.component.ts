@@ -25,6 +25,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   /* -------------------------------------------------------------------------- */
   /*                                    DATA                                    */
   /* -------------------------------------------------------------------------- */
+  // CBT
   cbtUseCases!: IUseCase[];
   cbtProductUseCases!: IUseCase[];
   cbtDevelopmentUseCases!: IUseCase[];
@@ -32,9 +33,19 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
   cbtSliderIconColor = 'black';
   cbtBorderColor="#FFC400";
 
+  // Mydoma Studio
+  mydomaUseCases!: IUseCase[];
+  mydomaProductUseCases!: IUseCase[];
+  mydomaDevelopmentUseCases!: IUseCase[];
+
   
-  /* -------------------- TOGGLE SWITCH & SPLIT BLOCK STATE ------------------- */
-  showsFirst = true;
+  /* -------------------------------------------------------------------------- */
+  /*                        TOGGLE AND SPLIT-BLOCK STATES                       */
+  /* -------------------------------------------------------------------------- */
+
+
+  /* -------------------------- COLD BORE TECHNOLOGY -------------------------- */
+  cbtShowsBoth = true;
   cbtToggle = {
     first: {
       label: 'Both',
@@ -61,18 +72,37 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
       display: 'block',
     }
   }
-  mydomaSplitBlock = {
+  /* ------------------------------ MYDOMA STUDIO ----------------------------- */
+  mydomaShowsBoth = true; // toggle switch
+  mydomaToggle = {        // toggle switch
+    first: {
+      label: 'Both',
+      isActive: false,
+    },
+    second: {
+      label: 'Product',
+      isActive: false,
+    },
+    third: {
+      label: 'Development',
+      isActive: true
+    }
+  }
+  mydomaSplitBlock = {  // split block
     left: {
-      isShowing: true,
-      width: '50%',
+      isShowing: false,
+      width: '0%',
       display: 'block',
     },
     right: {
       isShowing: true,
-      width: '50%',
+      width: '100%',
       display: 'block',
     }
   };
+
+
+
   steerSplitBlock = {
     left: {
       isShowing: true,
@@ -163,11 +193,13 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
       if (state.breakpoints[BREAKPOINT_VALUE.mobile]) {
         this.isMobile = true;
-        this.showsFirst = false;
+        this.cbtShowsBoth = false;
+        this.mydomaShowsBoth = false;
       }
       else {
         this.isMobile = false; 
-        this.showsFirst = true;
+        this.cbtShowsBoth = true;
+        this.mydomaShowsBoth = true;
       }
     })
   }
@@ -261,6 +293,57 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
               }
             }
             break;
+      case e == 'firstTab' && company == 'mydoma':
+        this.mydomaToggle.first.isActive = true;
+        this.mydomaToggle.second.isActive = false;
+        this.mydomaToggle.third.isActive = false;
+        this.mydomaSplitBlock = {
+          left: {
+            isShowing: true,
+            width: '50%',
+            display: 'block',
+          },
+          right: {
+            isShowing: true,
+            width: '50%',
+            display: 'block',
+          }
+        }
+        break;
+        case e == 'secondTab' && company == 'mydoma':
+          this.mydomaToggle.first.isActive = false;
+          this.mydomaToggle.second.isActive = true;
+          this.mydomaToggle.third.isActive = false;
+          this.mydomaSplitBlock = {
+            left: {
+              isShowing: true,
+              width: '100%',
+              display: 'block',
+            },
+            right: {
+              isShowing: false,
+              width: '0%',
+              display: 'block',
+            }
+          };
+          break;
+          case e == 'thirdTab' && company == 'mydoma':
+            this.mydomaToggle.first.isActive = false;
+            this.mydomaToggle.second.isActive = false;
+            this.mydomaToggle.third.isActive = true;
+            this.mydomaSplitBlock = {
+              left: {
+                isShowing: false,
+                width: '0%',
+                display: 'block',
+              },
+              right: {
+                isShowing: true,
+                width: '100%',
+                display: 'block',
+              }
+            }
+            break;
     }
   }
 
@@ -280,6 +363,10 @@ export class AboutMeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.cbtUseCases = data.filter((useCase: IUseCase) => useCase.parentCompany == 'Cold Bore Technology');
       this.cbtProductUseCases = this.cbtUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == false);
       this.cbtDevelopmentUseCases = this.cbtUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == true);
+
+      this.mydomaUseCases = data.filter((useCase: IUseCase) => useCase.parentCompany == 'Mydoma Studio');
+      this.mydomaProductUseCases = this.mydomaUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == false );
+      this.mydomaDevelopmentUseCases = this.mydomaUseCases.filter((useCase: IUseCase) => useCase.isDevelopment == true);
     }
   }
 

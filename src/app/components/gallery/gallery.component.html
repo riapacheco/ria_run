@@ -1,0 +1,57 @@
+<div
+  [style.width.%]="imageConfig.width"
+  [style.height.%]="imageConfig.height"
+  class="gallery-container">
+
+  <div
+    [style.width.%]="imageConfig.width"
+    [style.height.%]="imageConfig.height"
+    class="content-wrapper">
+
+    <!-- ------------------------------- BUTTONS ------------------------------- -->
+    <ng-container *ngIf="currentIndex !== 0">
+      <a
+        (click)="onPreviousImage()"
+        class="no-select prev-btn">
+        <i class="material-icons">chevron_left</i>
+      </a>
+    </ng-container>
+    
+    <ng-container *ngIf="currentIndex !== indexLength">
+      <a
+        class="no-select next-btn"
+        (click)="onNextImage()">
+        <i class="material-icons">chevron_right</i>
+      </a>
+    </ng-container>
+
+    <!-- ------------------------------- CAPTION ------------------------------- -->
+    <ng-container *ngIf="galleryImages[currentIndex].caption">
+      <div [ngClass]="showsCaption ? 'caption-container persist' : isMobile ? 'caption-container persist' : 'caption-container' ">
+        {{ galleryImages[currentIndex].caption }}
+      </div>
+    </ng-container>
+    <!-- -------------------------------- IMAGE -------------------------------- -->
+    <div
+      [style.width.%]="imageConfig.width"
+      [style.height.%]="imageConfig.height"
+      *ngFor="let image of galleryImages; let i = index"
+      class="image-wrapper">
+
+      <div
+        [style.width.%]="imageConfig.width"
+        [style.height.%]="imageConfig.height"
+        class="image">
+
+        <ng-container *ngIf="i == currentIndex;">
+          <img
+            
+            [style.width.%]="imageConfig.width"
+            [style.height.%]="imageConfig.height"
+            [src]="image.imageUrl" alt="">
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</div>

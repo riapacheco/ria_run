@@ -137,6 +137,85 @@ export class DataComponent implements OnInit {
           galleryImages: ['']
         }
       ]
+    },
+    {
+      id: 4,
+      name: 'Scrum Transition',
+      parentCompany: 'Mydoma Studio',
+      description: '',
+      isDevelopment: false,
+      icon: '',
+      projectIds: [0],
+      projects: [
+        {
+          id: 8,
+          name: 'Audit and Pitch',
+          parentCompany: 'Mydoma Studio',
+          description: 'Audited utilized methods & approaches to develop proposal on dev team transitions (accepted)',
+          isDevelopment: false,
+          isOpen: true,
+          contents: ``,
+          targetLabel: 'View pitch',
+          target: '',
+          galleryImages: ['']
+        },
+        {
+          id: 9,
+          name: 'DoD Implementation',
+          parentCompany: 'Mydoma Studio',
+          description: 'Implemented full scrum DoD framework with software team enabling team member successive growth and an increased output of ~400%',
+          isDevelopment: false,
+          isOpen: true,
+          contents: ``,
+          targetLabel: 'View summary',
+          target: '',
+          galleryImages: ['']
+        }
+      ]
+    },
+    {
+      id: 5,
+      name: 'Hands-On Dev',
+      parentCompany: 'Mydoma Studio',
+      description: '',
+      isDevelopment: true,
+      icon: 'code',
+      projectIds: [0],
+      projects: [
+        {
+          id: 10,
+          name: 'Flutter Frontend UI',
+          parentCompany: 'Mydoma Studio',
+          description: 'Refined and developed frontend UI components prior to each sprint end',
+          isDevelopment: true,
+          isOpen: true,
+          contents: ``,
+          targetLabel: 'View examples',
+          target: ``
+        },
+        {
+          id: 11,
+          name: 'Backend Unit Test Writing',
+          parentCompany: 'Mydoma Studio',
+          description: 'Wrote backend NodeJS unit tests utilizing postman services / swagger documentation to assist backend team',
+          isDevelopment: true,
+          isOpen: true,
+          contents: ``,
+          targetLabel: 'View examples',
+          target: ``
+        },
+        {
+          id: 12,
+          name: 'Complete UI Design',
+          parentCompany: 'Mydoma Studio',
+          description: 'Completely re-designed user interface for v3 implementation (AdobeXD)',
+          isDevelopment: true,
+          isOpen: true,
+          contents: ``,
+          targetLabel: 'View examples',
+          target: ``
+        }
+      ]
     }
   ];
   constructor() { }

@@ -9,6 +9,9 @@ export class DialogOverlayService {
   private _isShowing$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isShowing$: Observable<boolean> = this._isShowing$.asObservable();
 
+  private _showsGallery$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public showsGallery$: Observable<boolean> = this._showsGallery$.asObservable();
+
   private _title$: BehaviorSubject<string> = new BehaviorSubject<string>('Title of Dialog');
   public title$: Observable<string> = this._title$.asObservable();
 

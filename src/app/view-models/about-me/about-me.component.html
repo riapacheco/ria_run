@@ -45,7 +45,7 @@
     (firstTabClick)="onToggleSwitch($event, 'cbt')"
     (secondTabClick)="onToggleSwitch($event, 'cbt')"
     (thirdTabClick)="onToggleSwitch($event, 'cbt')"
-    [showsFirst]="showsFirst"
+    [showsFirst]="cbtShowsBoth"
     [btn]="cbtToggle"
     >
   </app-toggle-switch>
@@ -59,7 +59,6 @@
   <!--                           COLD BORE LEFT SIDE                           -->
   <!-- ----------------------------------------------------------------------- -->
   <div class="content" leftSectionContent>
-    
     <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && cbtSplitBlock.right.isShowing">
       <app-folder-list
@@ -68,6 +67,7 @@
         >
       </app-folder-list>
     </ng-container>
+
     <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
     <ng-container *ngIf="cbtSplitBlock.left.isShowing && !cbtSplitBlock.right.isShowing">
       <div [ngClass]="isMobile ? 'left-expanded cbt mobile' : 'left-expanded cbt'">
@@ -126,6 +126,94 @@
 </app-split-block>
 
 
+<!-- ----------------------------------------------------------------------- -->
+<!--                        ***** MYDOMA STUDIO *****                        -->
+<!-- ----------------------------------------------------------------------- -->
+<div class="pt-5" #mydomaScrollBlock></div>
+<!-- ----------------------------- TITLE BLOCK ----------------------------- -->
+<div [ngClass]="isMobile ? 'company-headline mobile' : 'company-headline'">
+  <div class="company-name">
+    <h2>
+      Mydoma Studio
+    </h2>
+  </div>
+
+  <app-toggle-switch
+    (firstTabClick)="onToggleSwitch($event, 'mydoma')"
+    (secondTabClick)="onToggleSwitch($event, 'mydoma')"
+    (thirdTabClick)="onToggleSwitch($event, 'mydoma')"
+    [btn]="mydomaToggle"
+    [showsFirst]="mydomaShowsBoth"
+    >
+  </app-toggle-switch>
+</div>
+<app-split-block
+  [blockTitle]="'Mydoma Studio'"
+  [left]="mydomaSplitBlock.left"
+  [right]="mydomaSplitBlock.right"
+  >
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                           MYDOMA < LEFT SIDE                            -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="content" leftSectionContent>
+    <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
+    <ng-container *ngIf="mydomaSplitBlock.left.isShowing && mydomaSplitBlock.right.isShowing">
+      <app-folder-list
+        [categories]="mydomaProductUseCases"
+
+        >
+      </app-folder-list>
+    </ng-container>
+    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
+    <ng-container *ngIf="mydomaSplitBlock.left.isShowing && !mydomaSplitBlock.right.isShowing">
+      <div [ngClass]="isMobile ? 'left-expanded mydoma mobile' : 'left-expanded'">
+        <ng-container *ngIf="!isMobile">
+          <div class="image">
+            Image here
+          </div>
+        </ng-container>
+
+        <app-folder-list
+          [style.width.%]="100"
+          [categories]="mydomaProductUseCases"
+          (targetButtonClick)="onProjectTargetClick($event)"
+          >
+        </app-folder-list>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                           MYDOMA > RIGHT SIDE                           -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="content" rightSectionContent>
+    <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
+    <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
+      <app-folder-list
+        [categories]="mydomaDevelopmentUseCases"
+        (targetButtonClick)="onProjectTargetClick($event)"
+        >
+      </app-folder-list>
+    </ng-container>
+
+    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
+    <ng-container *ngIf="mydomaSplitBlock.right.isShowing && !mydomaSplitBlock.left.isShowing">
+      <div [ngClass]="isMobile ? 'right-expanded mydoma mobile' : 'right-expanded'">
+        <ng-container *ngIf="!isMobile">
+          <div class="image">
+            Image here
+          </div>
+        </ng-container>
+
+        <app-folder-list
+          [categories]="mydomaDevelopmentUseCases"
+          (targetButtonClick)="onProjectTargetClick($event)"
+          [style.width.%]="100">
+        </app-folder-list>
+      </div>
+    </ng-container>
+  </div>
+</app-split-block>
 <!-- ----------------------------------------------------------------------- -->
 <!--                       ***** MYDOMA SECTION *****                        -->
 <!-- ----------------------------------------------------------------------- -->
@@ -252,10 +340,6 @@
 
 
 
-
-<div class=" pb-10 pt-4" style="text-align: center">
-  <h6>More coming soon</h6>
-</div>
 <!-- ----------------------------------------------------------------------- -->
 <!--                                  DATA                                   -->
 <!-- ----------------------------------------------------------------------- -->

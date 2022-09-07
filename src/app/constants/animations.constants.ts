@@ -76,3 +76,22 @@ export const slideLeftAnimation = trigger('slideLeftTrigger', [
     animate('450ms ease-in-out')
   ])
 ])
+
+export const sliderLR = trigger('sliderLR', [
+  state('showing', style({ 
+    transform: 'translateX(0%)',
+    transition: '200ms ease-in-out',
+    display: 'block'
+  })),
+  state('hiding', style({
+    transform: 'translateX(0%)',
+    transition: '200ms ease-in-out',
+    display: 'none'
+  })),
+  transition(':enter', [
+    animate('200ms ease-in-out')
+  ]),
+  transition(':leave', [
+    animate('200ms ease-in-out')
+  ])
+])

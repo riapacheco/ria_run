@@ -60,7 +60,11 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onCardClick(data: any) {
-    this.router.navigateByUrl(`/${data}`);
+    if (data.substring(0, 8) == 'https://') {
+      window.open(data);
+    } else {
+      this.router.navigateByUrl(`/${data}`);
+    }
     this.sidebar.toggleSidebar(false);
   }
 }

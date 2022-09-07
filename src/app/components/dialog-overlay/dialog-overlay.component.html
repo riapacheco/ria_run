@@ -14,7 +14,16 @@
         </div>
   
         <div class="body">
-          <div class="inner-html" [innerHTML]="(dialog.body$ | async)"></div>
+          <!-- -------------------------- GALLERY COMPONENT -------------------------- -->
+          <ng-container *ngIf="(dialog.showsGallery$ | async);else dialogBodyTemplate">
+            <app-gallery></app-gallery>
+          </ng-container>
+
+          <!-- --------------------------- INNER HTML BODY --------------------------- -->
+          <ng-template #dialogBodyTemplate>
+            <div class="inner-html" [innerHTML]="(dialog.body$ | async)"></div>
+          </ng-template>
+
         </div>
       </div>
   

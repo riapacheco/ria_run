@@ -15,6 +15,17 @@ $auto-width-mobile: 90%;
   margin: auto;
 }
 
+/* ----------------------------------- UX ----------------------------------- */
+@mixin remove-selection {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
 /* -------------------------------- DEBUGGING ------------------------------- */
 @mixin debug-red { border: 1px solid red; }
 @mixin debug-red-thick { border: 4px solid red; }
@@ -180,4 +191,70 @@ $auto-width-mobile: 90%;
       margin-right: 0.5rem;
     }
   } @else { padding: 1rem 2.2rem; }
+}
+
+@mixin center-absolute(
+  $direction, 
+  $itemSize, 
+  $containerSize) {
+    position: absolute;
+    @if (
+      $direction == 'TD' or 
+      $direction == 'td' or 
+      $direction == 'top' or 
+      $direction == 'down'
+    ) { top: calc(($containerSize / 2) - ($itemSize / 2)); }
+    @if (
+      $direction == 'LR' or
+      $direction == 'lr' or
+      $direction == 'left' or
+      $direction == 'right'
+    ) { left: calc(($containerSize/2) - ($itemSize /2)); }
+}
+
+
+@mixin keyframeStyle($name) {
+  @if ($name == 'spinner') {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after {
+      animation: changeContent .8s linear infinite;
+      display: block;
+      content: "⠋";
+    }
+  }
+
+  @if ($name == 'shake') {
+    animation: shake 0.4s;
+  }
+}
+
+
+/* -------------------------------- KEYFRAMES ------------------------------- */
+@keyframes changeContent {
+  10% { content: "⠙"; }
+  20% { content: "⠹"; }
+  30% { content: "⠸"; }
+  40% { content: "⠼"; }
+  50% { content: "⠴"; }
+  60% { content: "⠦"; }
+  70% { content: "⠧"; }
+  80% { content: "⠇"; }
+  90% { content: "⠏"; }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }

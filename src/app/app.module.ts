@@ -58,6 +58,7 @@ import { DialogOverlayService } from './services/dialog-overlay.service';
 import { DataComponent } from './components/data/data.component';
 import { FolderListComponent } from './components/content/folder-list/folder-list.component';
 import { ContactComponent } from './view-models/contact/contact.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { ContactComponent } from './view-models/contact/contact.component';
     DialogOverlayComponent,
     DataComponent,
     FolderListComponent,
-    ContactComponent
+    ContactComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
