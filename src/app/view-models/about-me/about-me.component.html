@@ -125,12 +125,10 @@
   </div>
 </app-split-block>
 
+<!-- 
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                        ***** MYDOMA STUDIO *****                        -->
-<!-- ----------------------------------------------------------------------- -->
 <div class="pt-5" #mydomaScrollBlock></div>
-<!-- ----------------------------- TITLE BLOCK ----------------------------- -->
+
 <div [ngClass]="isMobile ? 'company-headline mobile' : 'company-headline'">
   <div class="company-name">
     <h2>
@@ -152,11 +150,9 @@
   [left]="mydomaSplitBlock.left"
   [right]="mydomaSplitBlock.right"
   >
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                           MYDOMA < LEFT SIDE                            -->
-  <!-- ----------------------------------------------------------------------- -->
+
   <div class="content" leftSectionContent>
-    <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
+    
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && mydomaSplitBlock.right.isShowing">
       <app-folder-list
         [categories]="mydomaProductUseCases"
@@ -164,7 +160,7 @@
         >
       </app-folder-list>
     </ng-container>
-    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
+    
     <ng-container *ngIf="mydomaSplitBlock.left.isShowing && !mydomaSplitBlock.right.isShowing">
       <div [ngClass]="isMobile ? 'left-expanded mydoma mobile' : 'left-expanded'">
         <ng-container *ngIf="!isMobile">
@@ -183,11 +179,8 @@
     </ng-container>
   </div>
 
-  <!-- ----------------------------------------------------------------------- -->
-  <!--                           MYDOMA > RIGHT SIDE                           -->
-  <!-- ----------------------------------------------------------------------- -->
+
   <div class="content" rightSectionContent>
-    <!-- ---------------------------- SUMMARY VIEW ----------------------------- -->
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && mydomaSplitBlock.left.isShowing">
       <app-folder-list
         [categories]="mydomaDevelopmentUseCases"
@@ -196,7 +189,7 @@
       </app-folder-list>
     </ng-container>
 
-    <!-- ---------------------------- EXPANDED VIEW ---------------------------- -->
+    
     <ng-container *ngIf="mydomaSplitBlock.right.isShowing && !mydomaSplitBlock.left.isShowing">
       <div [ngClass]="isMobile ? 'right-expanded mydoma mobile' : 'right-expanded'">
         <ng-container *ngIf="!isMobile">
@@ -213,7 +206,12 @@
       </div>
     </ng-container>
   </div>
-</app-split-block>
+</app-split-block> -->
+
+
+
+
+
 <!-- ----------------------------------------------------------------------- -->
 <!--                       ***** MYDOMA SECTION *****                        -->
 <!-- ----------------------------------------------------------------------- -->
