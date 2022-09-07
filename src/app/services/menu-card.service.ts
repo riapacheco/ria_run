@@ -16,7 +16,8 @@ export class MenuCardService {
   async getMenuCards(): Promise<any> {
     const { data, error } = await this.supabaseClient
       .from(this.supabaseTable)
-      .select('*');
+      .select('*')
+      .order('id', { ascending: true });
     if (!data || data == undefined) throw 'no data found';
     else if (error) { return error; }
     else { return data; }
