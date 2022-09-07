@@ -17,7 +17,7 @@ export class MenuCardService {
     const { data, error } = await this.supabaseClient
       .from(this.supabaseTable)
       .select('*')
-      .order('id', { ascending: true });
+      .order('order', { ascending: true });
     if (!data || data == undefined) throw 'no data found';
     else if (error) { return error; }
     else { return data; }
