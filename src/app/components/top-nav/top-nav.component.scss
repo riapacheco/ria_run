@@ -186,6 +186,7 @@ $pre-hover-opacity: 0.85;
     background-size: 60%;
     background-color: #0f1115dd;
     padding-bottom: 1.5rem;
+    backdrop-filter: blur(2px);
     .nav-content {
       
       border-bottom: none !important;
