@@ -61,9 +61,16 @@
 </app-section>
 
 <div #sectionThreeDiv></div>
-<app-section [sectionClass]="sectionThreeClass">
-  <div [ngClass]="isMobile ? 'section-repeater section-three mobile' : 'section-repeater section-three'" sectionContent>
-    <h1>
+<app-section
+  [sectionClass]="sectionThreeClass"
+  >
+  <div
+    [style.min-height]="'100vh'"
+    [style.padding-top]="'5rem'"
+    [style.padding-bottom]="'5rem'"
+    [ngClass]="isMobile ? 'section-repeater section-three  mobile' : 'section-repeater section-three'" sectionContent>
+
+    <h1 class="pt-3">
       <div class="inner-html" [innerHTML]="sectionThree.title"></div>
     </h1>
 
@@ -71,6 +78,18 @@
 
     <div class="explainer mt-3">
       <div class="inner-html" [innerHTML]="sectionThree.body"></div>
+    </div>
+
+
+    <div class="preview-terminal">
+      <div class="top-browser-bar">
+        <div class="buttons">
+          <div class="button"></div>
+          <div class="button"></div>
+          <div class="button"></div>
+        </div>
+      </div>
+      <img src="https://lvvhyxbvfcygnlzlbsok.supabase.co/storage/v1/object/sign/ria-gets-buckets/terminalPreview.gif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyaWEtZ2V0cy1idWNrZXRzL3Rlcm1pbmFsUHJldmlldy5naWYiLCJpYXQiOjE2NjM0Nzc5OTUsImV4cCI6MTk3ODgzNzk5NX0.RqGeipEnMzuD-I8MnpaQ6MJ0_KsozfmKooelzqx_LTs" alt="">
     </div>
   </div>
 </app-section>

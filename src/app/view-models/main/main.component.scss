@@ -110,14 +110,57 @@ $mobile-height: 80vh;
 }
 
 /* ------------------------------ ALL SECTIONS ------------------------------ */
+$browser-bar-height: 1.6rem;
 .section-repeater {
   height: inherit;
   width: inherit;
   @include auto-width;
+  
+  .preview-terminal {
+    position: relative;
+    .top-browser-bar {
+      border-radius: 5px 5px 0px 0px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 64%;
+      height: $browser-bar-height;
+      background-color: $midnight-dark;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      .buttons {
+        height: inherit;
+        width: 100px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    img {
+      margin-top: $browser-bar-height;
+      width: 64%;
+      border-radius: 0px 0px 5px 5px;
+      box-shadow: 8px 12px 52px rgba(0, 0, 0, 0.499);
+    }
+  }
 
   &.mobile {
     @include auto-width-mobile;
 
+    .preview-terminal {
+      .top-browser-bar {
+        width: 100%;
+        height: calc($browser-bar-height / 1.4);
+      }
+      img {
+        margin-top: calc($browser-bar-height / 1.4);
+        width: 100%;
+      }
+    }
     h1 {
       @include h1-mobile;
     }
@@ -169,13 +212,23 @@ $mobile-height: 80vh;
 /* -------------------------------------------------------------------------- */
 /*                                sectionThree                                */
 /* -------------------------------------------------------------------------- */
-.section-three {
-  height: calc(100vh - $floating-nav-height);
+#sectionThree {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: center;
+}
+.section-three {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+
   @include auto-width;
+
+  margin-left: 5%;
+  margin-right: 5%;
+
 
   .divider-white {
     width: 65%;
@@ -183,6 +236,7 @@ $mobile-height: 80vh;
 
   .explainer {
     width: 65%;
+    padding-bottom: 4rem;
   }
 
   &.mobile {
@@ -210,3 +264,4 @@ $mobile-height: 80vh;
     @include btn($dark: false, $icon: true);
   }
 }
+
