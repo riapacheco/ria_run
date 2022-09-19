@@ -78,6 +78,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
           isShowing: true
         };
         break;
+      case this.router.url == '/apps':
+        this.topNavClass.isShowing = false;
+        break;
     }
   }
   
