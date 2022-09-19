@@ -1,6 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
 
@@ -32,7 +31,6 @@ export class RcTopNavComponent implements OnInit, OnDestroy {
   private sub = new Subscription();
   constructor(
     private observer: BreakpointObserver,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
