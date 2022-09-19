@@ -80,14 +80,17 @@ $section-padding-top-bottom: 10rem;
         border: 2px solid #F5F5F5;
         background-image: linear-gradient(to bottom right, #F5F5F5, white);
         box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.153);
+
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
         .material-icons {
           font-size: 4rem;
           color: $steel-regular;
         }
         span {
-          font-size: 2.3rem;
-          font-weight: 600;
-          letter-spacing: -0.1rem;
+          font-size: 2.2rem;
+          font-weight: 700;
+          letter-spacing: -0.08rem;
         }
         &:hover {
           border: 2px solid #F5F5F5;
