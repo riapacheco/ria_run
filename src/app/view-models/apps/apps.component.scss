@@ -124,7 +124,8 @@ $section-padding-top-bottom: 10rem;
 /* --------------------------- Conditional Styles --------------------------- */
 // Mobile styles
 .intro-section.mobile {
-  padding-top: 6rem;
+  padding-top: 5rem;
+  padding-bottom: calc($section-padding-top-bottom * 2);
   .title-block {
     h1 {
       @include h1-title-mobile;
