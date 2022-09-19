@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './view-models/about-me/about-me.component';
+import { AppsComponent } from './view-models/apps/apps.component';
 import { ContactComponent } from './view-models/contact/contact.component';
 import { MainComponent } from './view-models/main/main.component';
 import { TerminalComponent } from './view-models/terminal/terminal.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'user-interface',
     component: UserInterfaceComponent
+  },
+  {
+    path: 'apps',
+    component: AppsComponent
   },
   {
     path: 'contact',

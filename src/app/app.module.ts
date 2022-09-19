@@ -59,6 +59,10 @@ import { DataComponent } from './components/data/data.component';
 import { FolderListComponent } from './components/content/folder-list/folder-list.component';
 import { ContactComponent } from './view-models/contact/contact.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { AppsComponent } from './view-models/apps/apps.component';
+import { RcTopNavComponent } from './components/ricreated/rc-top-nav/rc-top-nav.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { TooltipService } from './services/tooltip.service';
 
 
 @NgModule({
@@ -93,7 +97,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     DataComponent,
     FolderListComponent,
     ContactComponent,
-    GalleryComponent
+    GalleryComponent,
+    AppsComponent,
+    RcTopNavComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
@@ -136,7 +143,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     CodeTabService,
     ToastService,
     XpService,
-    DialogOverlayService
+    DialogOverlayService,
+    TooltipService
   ],
   bootstrap: [AppComponent]
 })

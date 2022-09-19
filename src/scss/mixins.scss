@@ -25,6 +25,19 @@ $auto-width-mobile: 90%;
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+@mixin antialiased {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
 
 /* -------------------------------- DEBUGGING ------------------------------- */
 @mixin debug-red { border: 1px solid red; }
@@ -73,6 +86,41 @@ $auto-width-mobile: 90%;
   line-height: 1.6;
 }
 
+/* ---------------------------- SPECIAL HEADINGS ---------------------------- */
+@mixin h1-title {
+  font-size: 6rem;
+  line-height: 1;
+  letter-spacing: -0.3rem;
+  margin-block-start: -5px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 600;
+}
+@mixin h1-title-mobile {
+  font-size: 4.8rem;
+  line-height: 1;
+  letter-spacing: -0.3rem;
+  margin-block-start: -5px;
+  margin-block-end: 5px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 600;
+}
+
+@mixin h3-title {
+  font-family: "Inter", sans-serif;
+  font-size: 2.9rem;
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+}
+
+@mixin h3-title-mobile {
+  font-family: "Inter", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+}
 /* --------------------------------- BUTTON --------------------------------- */
 @mixin cta-btn {
   background-color: $black;

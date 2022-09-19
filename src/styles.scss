@@ -18,6 +18,7 @@
 %antialiased {
   -webkit-font-smoothing: antialiased !important;
   font-smooth: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -68,6 +69,10 @@ pre {
   @include auto-width-mobile;
 }
 
+.h1-title-mobile {
+  // color: red;
+  @include h1-title-mobile;
+}
 /* -------------------------------------------------------------------------- */
 /*                                   HEADERS                                  */
 /* -------------------------------------------------------------------------- */
@@ -169,7 +174,8 @@ app-root {
   z-index: calc($base-index * 2);
 }
 
-app-top-nav, .top-nav {
+app-top-nav, .top-nav,
+app-rc-top-nav, .rc-top-nav {
   z-index: calc($base-index * 3);
 }
 
@@ -183,4 +189,8 @@ app-toast, .toast {
 
 app-dialog-overlay, .dialog-overlay {
   z-index: calc($base-index * 7);
+}
+
+app-tooltip, .tooltip {
+  z-index: calc($base-index * 10);
 }

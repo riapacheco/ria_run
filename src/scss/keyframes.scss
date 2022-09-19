@@ -25,7 +25,9 @@
 }
 
 /* ---------------------------------- SHAKE --------------------------------- */
-
+@mixin shake($ms: 200ms) {
+  animation: shake #{$ms}ms;
+}
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -40,3 +42,36 @@
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+
+/* --------------------------------- FADE-IN -------------------------------- */
+
+@mixin fade-in($ms: 500) {
+  transition: ease-in-out;
+  animation: fadeIn #{$ms}ms;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@mixin slide-right($ms) {
+  @if $ms {
+    transition: ease-in;
+    animation: slideRight #{$ms};
+  }
+  @else {
+    transition: ease-in;
+    animation: slideRight 500ms;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

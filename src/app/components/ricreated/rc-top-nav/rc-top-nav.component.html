@@ -1,0 +1,55 @@
+<div [ngClass]="isMobile ? 'rc-top-nav mobile' : 'rc-top-nav'">
+  <div class="rc-bar-content">
+    <div class="left-content">
+      <a
+        (click)="onLogoClick($event)"
+        class="logo">
+        <img src="../../../../assets/logos/logo-soot-dark.png" alt="">
+      </a>
+
+      <div class="hyperlinks">
+        <a
+          (mouseenter)="onMouseover($event, 'store')"
+          (mouseleave)="onMouseout($event)"
+          (click)="onLinkClick($event, 'store')"
+          
+          >
+          Store
+        </a>
+
+        <a
+          (mouseenter)="onMouseover($event, 'apps')"
+          (mouseleave)="onMouseout($event)"
+          (click)="onLinkClick($event, 'apps')"
+          >
+          Apps
+        </a>
+
+        <a
+          (mouseenter)="onMouseover($event, 'releaseNotes')"
+          (mouseleave)="onMouseout($event)"
+          (click)="onLinkClick($event, 'releaseNotes')"
+          >
+          Release Notes
+        </a>
+      </div>
+    </div>
+
+    <div class="right-content">
+      <ng-container *ngIf="!isMobile">
+        <a
+          (click)="onLinkClick($event, 'email')"
+          >
+          <i class="material-icons">
+            email
+          </i>
+        </a>
+      </ng-container>
+      <a
+        (click)="onLinkClick($event, 'home')"
+        >
+        <i class="material-icons">home</i>
+      </a>
+    </div>
+  </div>
+</div>

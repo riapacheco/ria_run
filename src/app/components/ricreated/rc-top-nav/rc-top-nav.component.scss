@@ -1,0 +1,137 @@
+@import 'node_modules/@riapacheco/yutes/season/two.scss';
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+@import '../../../../scss/variables.scss';
+
+$link-font-size: 12px;
+$link-letter-spacing: calc($link-font-size/240) !important;
+
+:host {
+  @include antialiased;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              DEFAULT STYLINGS                              */
+/* -------------------------------------------------------------------------- */
+.rc-top-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: $rc-height;
+  background-image: linear-gradient(to right, $midnight-darkest, $black);
+
+  .rc-bar-content {
+    // @include debug-red;
+    min-height: $rc-height;
+    max-height: $rc-height;
+    @include auto-width;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-content,
+    .right-content {
+      height: $rc-height;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      a {
+        font-size: $link-font-size;
+        line-height: $link-font-size;
+        letter-spacing: $link-letter-spacing;
+        font-weight: 400;
+      }
+    }
+
+    .left-content {
+      // @include debug-red;
+      justify-content: flex-start;
+      width: 50%;
+      // LOGO
+      .logo {
+        width: $rc-logo;
+        height: $rc-height;
+        display: inline-flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        margin-right: 2rem;
+        img {
+          display: inline-block;
+          height: $rc-logo;
+          width: $rc-logo;
+        }
+      }
+      .hyperlinks {
+        // @include debug-blue;
+        height: 100%;
+        a {
+          line-height: $rc-height;
+          height: inherit;
+          display: inline-block;
+          // @include debug-red;
+          margin-left: 1.5rem;
+          margin-right: 1.5rem;
+          transition: 200ms ease-in-out;
+
+          &:hover {
+            color: $blood-orange-light;
+          }
+        }
+      }
+    }
+
+    .right-content {
+      justify-content: flex-end;
+      a {
+        height: $rc-height;
+        width: $rc-height;
+
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        .material-icons {
+          display: inline-block;
+          font-size: 1.6rem;
+          color: $soot-grey-regular;
+        }
+
+        &:hover {
+          .material-icons {
+            color: $blood-orange-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 ALT STATES                                 */
+/* -------------------------------------------------------------------------- */
+$left-width-mobile: 90%;
+$right-width-mobile: calc(100% - $left-width-mobile);
+.rc-top-nav {
+  /* ------------------------------- MOBILE MODE ------------------------------ */
+  &.mobile {
+    .left-content {
+      width: $left-width-mobile !important;
+    }
+
+    .right-content {
+      width: $right-width-mobile !important;
+    }
+    
+  }
+
+  /* -------------------------------- DARK MODE ------------------------------- */
+  &.dark {
+    .left-content {}
+  }
+}

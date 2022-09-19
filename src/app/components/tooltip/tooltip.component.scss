@@ -1,0 +1,31 @@
+@import 'node_modules/@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss/keyframes.scss';
+
+
+:host {
+  @include antialiased;
+}
+
+.tooltip {
+  pointer-events: none;
+  animation: fadeIn 500ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  .tooltip-text {
+    white-space: nowrap;
+    border-radius: 4px;
+    font-size: $tooltip-font-size;
+    line-height: $tooltip-font-size;
+    padding: 0.5rem 1rem !important;
+    background-image: linear-gradient(to bottom, $blood-orange-regular, $blood-orange-medium);
+    color: $black;
+    font-weight: 500;
+
+    box-shadow: 8px 12px 22px black;
+  }
+}

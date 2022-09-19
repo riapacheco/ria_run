@@ -1,0 +1,60 @@
+
+<app-rc-top-nav
+  (linkClick)="onLinkClick($event)"
+  (logoClick)="onLogoClick($event)"
+  (mouseoverEvent)="onMouseover($event)"
+  (mouseoutEvent)="onMouseout($event)"
+  >
+</app-rc-top-nav>
+
+<div [ngClass]="isMobile ? 'intro-section mobile' : 'intro-section'">
+  <div class="title-block">
+    <h1>
+      <span>ri</span>Created
+    </h1>
+  </div>
+
+  <div class="mockup">
+    <img src="../../../assets/img/mockups/blood-orange-phone.png" alt="">
+  </div>
+</div>
+
+
+<div [ngClass]="isMobile ? 'section-light mobile' : 'section-light'">
+  <div class="section-light-content">
+    <div class="title-block">
+      <h1>
+        UX-Focused <br> Development
+      </h1>
+      
+      <br>
+  
+      <h3>
+        Apps I've always wanted.
+      </h3>
+    </div>
+
+    <div class="logos">
+      <a
+        *ngFor="let app of apps"
+        (click)="onBadgeClick(app.label)"
+        >
+        <ng-container *ngIf="!app.showsAlt;else altIconBlock">
+          <i class="material-icons">
+            {{ app.icon }}
+          </i>
+        </ng-container>
+        <ng-template #altIconBlock>
+          <i class="material-icons">code</i>
+        </ng-template>
+
+        <ng-container *ngIf="!app.showsAlt;else altLabelBlock">
+          <span>{{ app.label }}</span>
+        </ng-container>
+        <ng-template #altLabelBlock>
+          <span>{{ app.altLabel }}</span>
+        </ng-template>
+      </a>
+    </div>
+  </div>
+</div>

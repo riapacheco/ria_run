@@ -1,0 +1,166 @@
+@import 'node_modules/@riapacheco/yutes/season/two.scss';
+@import '../../../scss/colors.scss';
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variables.scss';
+@import '../../../scss//keyframes.scss';
+
+:host {
+  @include antialiased;
+}
+
+$section-padding-top-bottom: 10rem;
+
+/* -------------------------------------------------------------------------- */
+/*                                Intro Section                               */
+/* -------------------------------------------------------------------------- */
+/* ----------------------------- Default Styles ----------------------------- */
+// Intro Section
+.intro-section {
+  margin-top: calc($rc-height * 2.5);
+  @include fade-in(1800);
+  .title-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    h1 {
+      @include no-select;
+      @include h1-title;
+      @include antialiased;
+
+      span {
+        color: $soot-grey-regular;
+      }
+    }
+  }
+
+  .mockup {
+    @include auto-width;
+    filter: brightness(0.8);
+  }
+}
+// White BG - section light
+.section-light {
+  background-color: white;
+  color: $black;
+  @include fade-in(2000);
+
+  .section-light-content {
+    @include auto-width;
+    .title-block {
+      text-align: center;
+      h1 {
+        @include h1-title;
+      }
+
+      h3 {
+        @include h3-title;
+        // color: $steel-regular;
+      }
+    }
+
+    .logos {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      a {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        margin: 2rem;
+
+        padding: 2rem 2rem 1rem 2rem;
+        border-radius: 15px;
+        
+        min-width: 150px;
+        min-height: 150px;
+
+        border: 2px solid #F5F5F5;
+        background-image: linear-gradient(to bottom right, #F5F5F5, white);
+        box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.153);
+        .material-icons {
+          font-size: 4rem;
+          color: $steel-regular;
+        }
+        span {
+          font-size: 2.3rem;
+          font-weight: 600;
+          letter-spacing: -0.1rem;
+        }
+        &:hover {
+          border: 2px solid #F5F5F5;
+          background-image: linear-gradient(to top left, #F5F5F5, white);
+          box-shadow: 28px 28px 42px rgba(0, 0, 0, 0.264);
+
+        }
+      }
+    }
+  }
+
+}
+/* ---------------------------- Vertical Spacing ---------------------------- */
+.intro-section {
+  // padding-top: $section-padding-top-bottom;
+  padding-top: 4rem;
+  padding-bottom: calc($section-padding-top-bottom * 2);
+  .title-block {
+    margin-bottom: 3rem;
+  }
+}
+.section-light {
+  padding-top: $section-padding-top-bottom;
+  padding-bottom: $section-padding-top-bottom;
+
+  .section-light-content {
+    .title-block {
+      margin-bottom: 5rem;
+    }
+
+  }
+}
+
+/* --------------------------- Conditional Styles --------------------------- */
+// Mobile styles
+.intro-section.mobile {
+  padding-top: 10rem;
+  .title-block {
+    h1 {
+      @include h1-title-mobile;
+    }
+  }
+
+  .mockup {
+    @include auto-width-mobile;
+  }
+}
+// Mobile vertical spacing
+.intro-section.mobile {
+  .title-block {
+    margin-bottom: 5rem;
+
+    h1 {
+      @include h1-title-mobile;
+    }
+  }
+}
+.section-light.mobile {
+  .section-light-content {
+    .title-block {
+      h1 {
+        @include h1-title-mobile;
+      }
+      h3 {
+        @include h3-title-mobile;
+      }
+    }
+
+    .logos {
+      a {
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
