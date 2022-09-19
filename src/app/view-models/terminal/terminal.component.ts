@@ -103,6 +103,13 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
   private returnWindow(typeName: string, contentString?: string, contentObject?: object) {
     if (this.result) { this.resetTerminal(); }
 
+    if (typeName == 'appStore') {
+      setTimeout(() => {
+        this.router.navigateByUrl('/apps');
+        this.stopSpinner();
+      }, this.shortLoadingLength);
+    }
+
     if (typeName == 'codeBlog') {
       setTimeout(() => {
         window.open('https://riapacheco.codes');
