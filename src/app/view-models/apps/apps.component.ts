@@ -17,28 +17,30 @@ export class AppsComponent implements OnInit, OnDestroy {
     {
       icon: 'auto_stories',
       label: 'RiReader',
-      altLabel: 'In Development',
+      altLabel: 'Currently in active development',
       showsAlt: false
     },
     {
       label: 'RiOrganizer',
       icon: 'widgets',
-      altLabel: 'Coming Soon',
+      altLabel: 'Developing soon',
       showsAlt: false
     },
     {
       label: 'RiDefiner',
       icon: 'history_edu',
-      altLabel: 'Coming soon',
+      altLabel: 'Coming later',
       showsAlt: false
     },
     {
       label: 'RiMixer',
       icon: 'supervisor_account',
-      altLabel: 'Coming soon',
+      altLabel: 'Coming later',
       showsAlt: false
     }
   ];
+
+  @ViewChild('appsDialog') appsDialog!: ElementRef;
 
   isMobile!: boolean;
   private sub = new Subscription();
@@ -110,10 +112,7 @@ export class AppsComponent implements OnInit, OnDestroy {
   onBadgeClick(appName: string) {
     const app = this.apps.map((app: any) => {
       if (app.label == appName) {
-        app.showsAlt = true;
-        setTimeout(() => {
-          this.resetBadges();
-        }, 1800);
+        window.alert(app.altLabel);
       }
     })
   }
