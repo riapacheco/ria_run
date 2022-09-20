@@ -9,6 +9,7 @@
 }
 
 $section-padding-top-bottom: 10rem;
+$block-height: 120px;
 
 /* -------------------------------------------------------------------------- */
 /*                                Intro Section                               */
@@ -69,34 +70,37 @@ $section-padding-top-bottom: 10rem;
         align-items: center;
         justify-content: center;
 
-        margin: 2rem;
+        margin: 1.5rem;
 
         padding: 2rem 2rem 1rem 2rem;
         border-radius: 15px;
         
-        min-width: 150px;
-        min-height: 150px;
+        min-width: $block-height;
+        max-width: $block-height;
+        min-height: $block-height;
+        max-height: $block-height;
 
-        border: 2px solid #F5F5F5;
-        background-image: linear-gradient(to bottom right, #F5F5F5, white);
-        box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.153);
+        border: 1px solid #F5F5F5;
+        background-image: linear-gradient(to top left, #eeeeee, white);
+        box-shadow: 28px 28px 42px rgba(0, 0, 0, 0.264);
 
         -webkit-font-smoothing: antialiased !important;
         -moz-osx-font-smoothing: grayscale !important;
         .material-icons {
-          font-size: 4rem;
+          font-size: 3.6rem;
           color: $steel-regular;
+          margin-bottom: 0.5rem;
         }
         span {
-          font-size: 2.2rem;
-          font-weight: 700;
-          letter-spacing: -0.08rem;
+          font-size: 1.4rem;
+          font-weight: 600;
+          letter-spacing: -0.03rem;
+          white-space: nowrap;
         }
         &:hover {
-          border: 2px solid #F5F5F5;
-          background-image: linear-gradient(to top left, #F5F5F5, white);
-          box-shadow: 28px 28px 42px rgba(0, 0, 0, 0.264);
-
+          border: 1px solid #F5F5F5;
+          background-image: linear-gradient(to bottom right, #F5F5F5, white);
+          box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.153);
         }
       }
     }
@@ -154,6 +158,11 @@ $section-padding-top-bottom: 10rem;
     .title-block {
       h1 {
         @include h1-title-mobile;
+
+        &.light-section-h1 {
+          font-size: 3.3rem;
+          letter-spacing: -0.2rem;
+        }
       }
       h3 {
         @include h3-title-mobile;

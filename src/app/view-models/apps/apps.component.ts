@@ -21,15 +21,21 @@ export class AppsComponent implements OnInit, OnDestroy {
       showsAlt: false
     },
     {
+      label: 'RiOrganizer',
       icon: 'widgets',
-      label: 'RiStored',
       altLabel: 'Coming Soon',
       showsAlt: false
     },
     {
-      icon: 'badge',
-      label: 'riRM',
-      altLabel: 'Coming Soon',
+      label: 'RiDefiner',
+      icon: 'history_edu',
+      altLabel: 'Coming soon',
+      showsAlt: false
+    },
+    {
+      label: 'RiMixer',
+      icon: 'supervisor_account',
+      altLabel: 'Coming soon',
       showsAlt: false
     }
   ];
