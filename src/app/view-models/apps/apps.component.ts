@@ -41,6 +41,7 @@ export class AppsComponent implements OnInit, OnDestroy {
   ];
 
   @ViewChild('appsDialog') appsDialog!: ElementRef;
+  @ViewChild('riReaderScrollTo') riReaderScrollTo!: ElementRef;
 
   isMobile!: boolean;
   private sub = new Subscription();
@@ -110,11 +111,17 @@ export class AppsComponent implements OnInit, OnDestroy {
 
   /* ------------------------------- APP BADGES ------------------------------- */
   onBadgeClick(appName: string) {
-    const app = this.apps.map((app: any) => {
-      if (app.label == appName) {
-        window.alert(app.altLabel);
-      }
-    })
+    if (appName == 'RiReader') {
+      setTimeout(() => {
+        this.riReaderScrollTo.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const app = this.apps.map((app: any) => {
+        if (app.label == appName) {
+          window.alert(app.altLabel);
+        }
+      });
+    }
   }
 
   private resetBadges() {

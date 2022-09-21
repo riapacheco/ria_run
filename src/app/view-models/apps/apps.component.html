@@ -62,3 +62,81 @@
     </div>
   </div>
 </div>
+
+<div #riReaderScrollTo></div>
+
+<div [ngClass]="isMobile ? 'rireader-section mobile' : 'rireader-section' ">
+  <div class="rireader-content">
+
+    <div class="title-block">
+      <i class="material-icons">auto_stories</i>
+      <h1>
+        RiReader
+      </h1>
+
+      <ng-container *ngIf="!isMobile">
+        <div class="tag-block">
+          <div class="tag-content">
+            In Development
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="isMobile">
+      <div class="show-tag on-mobile">
+        <div class="tag-block">
+          <div class="tag-content">
+            In Development
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="value-props">
+      <div class="prop">
+        <div class="prop-title">
+          <i class="material-icons">speed</i>
+          <h3>
+            Maximize Reading Efficiency
+          </h3>
+        </div>
+
+        <div class="prop-body">
+          Keep your reading sessions uninterrupted by storing multi-line passages from your favorite books & research papers, captured by your smartphone's camera and the power of a neural net OCR engine for high recognition accuracy.
+        </div>
+      </div>
+
+      <div class="prop">
+        <div class="prop-title">
+          <i class="material-icons">
+            tips_and_updates
+          </i>
+          <h3>
+            Capture Key Ideas Intuitively
+          </h3>
+        </div>
+
+        <div class="prop-body">
+          Store contextual notes, tags, and details with every book passage you capture, to easily review important ideas and refresh each idea's impact on the bigger picture every time you open the app.
+        </div>
+      </div>
+
+      <div class="prop">
+        <div class="prop-title">
+          <i class="material-icons">
+            scale
+          </i>
+          <h3>
+            Think Bigger
+          </h3>
+        </div>
+
+        <div class="prop-body">
+          Get to know what's important to you with a weighted and flexible book scoring system, covering criteria that includes the author's organization of content, their use of examples, and much more.
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

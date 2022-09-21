@@ -10,7 +10,14 @@
 
 $section-padding-top-bottom: 10rem;
 $block-height: 120px;
+%tag-block {
+  .tag-content {
+    border: 1px solid $white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 
+  }
+}
 /* -------------------------------------------------------------------------- */
 /*                                Intro Section                               */
 /* -------------------------------------------------------------------------- */
@@ -109,6 +116,9 @@ $block-height: 120px;
   }
 
 }
+.rireader-section {
+
+}
 /* ---------------------------- Vertical Spacing ---------------------------- */
 .intro-section {
   // padding-top: $section-padding-top-bottom;
@@ -121,7 +131,12 @@ $block-height: 120px;
 .section-light {
   padding-top: calc($section-padding-top-bottom * 2.5);
   padding-bottom: calc($section-padding-top-bottom * 2.5);
+  min-height: 100vh;
 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   .section-light-content {
     .title-block {
       margin-bottom: 5rem;
@@ -129,7 +144,90 @@ $block-height: 120px;
 
   }
 }
+.rireader-section {
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+  .rireader-content {
+    @include auto-width;
+    .title-block {
+      width: inherit;
+      height: inherit;
+      margin: auto;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      white-space: nowrap;
+      position: relative;
+      width: 65%;
+      margin: auto;
+      .material-icons {
+        font-size: 7rem;
+        line-height: 7rem;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased !important;
+        margin-bottom: 0.5rem;
+        padding-bottom: 1.5rem;
+        margin-right: 1.3rem;
+        color: $canary-regular;
+      }
 
+      h1 {
+        @include h1-title;
+      }
+
+      .tag-block {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0.5rem;
+        @extend %tag-block;
+      }
+    }
+
+    .value-props {
+      padding-top: 10rem;
+      width: 65%;
+      margin: auto;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      .prop {
+        margin-bottom: 7rem;
+        .prop-title {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: flex-end;
+
+          .material-icons {
+            font-size: 3.5rem;
+            margin-right: 1rem;
+            color: $canary-regular;
+          }
+        }
+
+        .prop-body {
+          padding-top: 1.5rem;
+        }
+      }
+    }
+
+    .show-tag.on-mobile {
+      text-align: center;
+      transform: scale(0.85);
+      margin-top: 0.5rem;
+      .tag-block {
+        display: inline-block;
+        @extend %tag-block;
+        color: $soot-grey-regular;
+        .tag-content {
+          border: 1px solid $soot-grey-regular !important;
+        }
+      }
+    }
+  }
+}
 /* --------------------------- Conditional Styles --------------------------- */
 // Mobile styles
 .intro-section.mobile {
@@ -175,6 +273,56 @@ $block-height: 120px;
     .logos {
       a {
         margin-top: 3rem;
+      }
+    }
+  }
+}
+.rireader-section.mobile {
+  .rireader-content {
+    @include auto-width-mobile;
+    .title-block {
+      transform: scale(1.15);
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+
+      .material-icons {
+        font-size: 3.5rem;
+        height: inherit;
+        padding-bottom: 1rem;
+        margin-right: 1.2rem;
+      }
+      h1 {
+        @include h1-mobile;
+      }
+    }
+
+    .value-props {
+      margin-top: 3rem;
+      width: 90%;
+      .prop {
+        
+        .prop-title {
+          align-items: center;
+          flex-flow: column nowrap;
+          .material-icons {
+            margin-right: 0rem;
+            font-size: 3.1rem;
+            margin-bottom: 1.5rem;
+          }
+          h3 {
+            @include h3-mobile;
+            text-align: center;
+            margin-bottom: 0rem;
+          }
+        }
+
+        .prop-body {
+          @include body-text-mobile;
+          text-align: center;
+          margin-top: -1rem;
+        }
       }
     }
   }
