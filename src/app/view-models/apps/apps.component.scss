@@ -270,10 +270,12 @@ $block-height: 120px;
       }
       h3 {
         @include h3-title-mobile;
+        margin-top: -0.5rem;
       }
     }
 
     .logos {
+      margin-top: -1rem;
       a {
         margin-top: 3rem;
       }
