@@ -66,6 +66,8 @@
 
 <div #riReaderScrollTo></div>
 
+
+<!-- ------------------------------ RIREADER ------------------------------- -->
 <div [ngClass]="isMobile ? 'rireader-section mobile' : 'rireader-section' ">
   <div class="rireader-content">
 
@@ -106,14 +108,22 @@
             {{ prop.label }}
           </h3>
         </div>
-
         <div class="prop-body">
           {{ prop.body }}
         </div>
       </div>
-
     </div>
 
-
+    <div class="github-block">
+      <a
+        href="https://github.com/riapacheco/ri-reader-app"
+        target="_blank"
+        class="github-button">
+        <img src="../../../assets/logos/githublogo.png" alt="">
+        <h4>
+          Github Repo
+        </h4>
+      </a>
+    </div>
   </div>
 </div>

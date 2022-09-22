@@ -333,3 +333,35 @@ $block-height: 120px;
   }
 }
 
+.github-block {
+  padding-top: 10rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  a {
+    opacity: 0.15;
+    height: 30px;
+    line-height: 30px;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    img {
+      width: 30px;
+      display: inline-block;
+      margin-right: 1rem;
+    }
+    h4 {
+      padding-top: 1rem;
+      display: inline-block;
+      letter-spacing: -0.08rem;
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+    }
+  }
+}
