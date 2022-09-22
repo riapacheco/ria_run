@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IMouseoverData, TRiCreatedLink } from 'src/app/components/ricreated/rc-top-nav/rc-top-nav.component';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
+import { SUPABASE_TABLE } from 'src/app/enums/supabase.enums';
+import { IValueProposition } from 'src/app/interfaces/value-proposition.interface';
+import { SbService } from 'src/app/services/sb.service';
 import { TooltipService } from 'src/app/services/tooltip.service';
 
 @Component({
@@ -40,6 +43,8 @@ export class AppsComponent implements OnInit, OnDestroy {
     }
   ];
 
+  rireaderValueProps: IValueProposition[] = [];
+
   @ViewChild('appsDialog') appsDialog!: ElementRef;
   @ViewChild('riReaderScrollTo') riReaderScrollTo!: ElementRef;
 
@@ -49,11 +54,13 @@ export class AppsComponent implements OnInit, OnDestroy {
   constructor(
     private tooltip: TooltipService,
     private observer: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private supabase: SbService
   ) { }
 
   ngOnInit(): void {
     this.sub.add(this.observeBreakpoints());
+    this.sub.add(this.loadData());
   }
 
   ngOnDestroy(): void {
@@ -65,6 +72,13 @@ export class AppsComponent implements OnInit, OnDestroy {
     this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
       if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
       else { this.isMobile = false; }
+    })
+  }
+
+  /* ---------------------------------- DATA ---------------------------------- */
+  private loadData() {
+    this.supabase.getOrderedData(SUPABASE_TABLE.PRODUCT_MARKETING, 'order', true).subscribe((res: IValueProposition[]) => {
+      this.rireaderValueProps = res;
     })
   }
 

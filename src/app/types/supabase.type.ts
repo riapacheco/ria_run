@@ -7,4 +7,5 @@ export type TTable =  SUPABASE_TABLE.HOME |
                       SUPABASE_TABLE.MENU_CARDS |
                       SUPABASE_TABLE.POSITIONS |
                       SUPABASE_TABLE.USE_CASES |
+                      SUPABASE_TABLE.PRODUCT_MARKETING |
                       SUPABASE_TABLE.PROJECTS;

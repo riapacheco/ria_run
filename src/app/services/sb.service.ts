@@ -24,6 +24,13 @@ export class SbService {
     return from(query).pipe(map((res: any) => res['body']));
   }
 
+  getOrderedData(tableName: TTable, orderLabel?: string, isAscending?: boolean): any {
+    if (orderLabel !== undefined) {
+      const query = this._supabase.from(tableName).select('*').order(orderLabel, { ascending: isAscending });
+      return from(query).pipe(map((res: any) => res['body']));
+    }
+  }
+
   getFromArray(table: TTable, column?: string, searchArray?: Array<number | string>): Observable<any> {
     const query = this._supabase.from(table).select('*')
     if (column !== undefined && searchArray !== undefined) {

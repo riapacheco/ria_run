@@ -7,5 +7,6 @@ export enum SUPABASE_TABLE {
   POSITIONS = 'positions',
   USE_CASES = 'use_cases',
   PROJECTS = 'projects',
-  MESSAGES = 'messages'
+  MESSAGES = 'messages',
+  PRODUCT_MARKETING = 'product_marketing'
 }

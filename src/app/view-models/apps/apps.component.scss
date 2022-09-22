@@ -12,10 +12,9 @@ $section-padding-top-bottom: 10rem;
 $block-height: 120px;
 %tag-block {
   .tag-content {
-    border: 1px solid $white;
+    border: 1px solid $success;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-
   }
 }
 /* -------------------------------------------------------------------------- */
@@ -182,6 +181,7 @@ $block-height: 120px;
         right: 0;
         margin: 0.5rem;
         @extend %tag-block;
+        color: $success;
       }
     }
 
@@ -220,9 +220,12 @@ $block-height: 120px;
       .tag-block {
         display: inline-block;
         @extend %tag-block;
-        color: $soot-grey-regular;
+
+        // color: $soot-grey-regular;
+        color: $success;
         .tag-content {
-          border: 1px solid $soot-grey-regular !important;
+          // border: 1px solid $soot-grey-regular !important;
+          border: 1px solid $success;
         }
       }
     }
