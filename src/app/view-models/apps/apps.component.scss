@@ -333,6 +333,24 @@ $block-height: 120px;
   }
 }
 
+.waitlist-block {
+  padding-top: 10rem;
+  width: 65%;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  a {
+    @include btn($dark: true, $icon: false);
+  }
+
+  &.mobile {
+    justify-content: center;
+  }
+}
+
 .github-block {
   padding-top: 10rem;
   width: 100%;

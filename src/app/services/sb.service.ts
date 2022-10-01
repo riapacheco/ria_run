@@ -20,6 +20,7 @@ export class SbService {
 
   get(tableName: TTable, column?: string, matchValue?: any): Observable<any> {
     const query = this._supabase.from(tableName).select('*')
+    
     if (column !== undefined && matchValue !== undefined) { query.match({ column, matchValue }); }
     return from(query).pipe(map((res: any) => res['body']));
   }
