@@ -154,10 +154,10 @@ $browser-bar-height: 1.6rem;
     .preview-terminal {
       .top-browser-bar {
         width: 100%;
-        height: calc($browser-bar-height / 1.4);
+        height: calc($browser-bar-height / 2);
       }
       img {
-        margin-top: calc($browser-bar-height / 1.4);
+        margin-top: calc($browser-bar-height / 2);
         width: 100%;
       }
     }
