@@ -1,3 +1,24 @@
+<div [@slideDownTrigger]="showsBanner ? 'open' : 'close'" [ngClass]="isMobile ? 'banner mobile' : 'banner'">
+  <div class="banner-content">
+    <div class="main-content">
+      <h4>
+        Be the first to know!
+      </h4>
+      <span>
+        Sign up for the <strong>RiReader Beta Release Waitlist</strong> for updates and downloads sent directly to your inbox!
+      </span>
+    </div>
+
+    <div class="right-content">
+      <a (click)="onBannerClick('dismiss')">
+        Dismiss
+      </a>
+      <a (click)="onBannerClick('take me there')">
+        Take Me There
+      </a>
+    </div>
+  </div>
+</div>
 <app-tooltip></app-tooltip>
 <ng-container *ngIf="topNavClass.isShowing">
   <app-top-nav

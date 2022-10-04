@@ -3,13 +3,15 @@ import { ThisReceiver } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { slideDownUp } from './constants/animations.constants';
 import { BREAKPOINT_VALUE } from './enums/breakpoint.enums';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [ slideDownUp ]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   
@@ -19,6 +21,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     isShowing: true
   };
 
+  showsBanner!: boolean;
+  banner = {
+    key: 'Banner State',
+    value: 'RiReader Signup'
+  };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
   private sub = new Subscription();
@@ -34,6 +41,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       })
     );
     if (this.router.url == '/terminal') { this.topNavClass.isShowing = false; }
+    setTimeout(() => {
+      this.checkStorage();
+    }, 500);
   }
   ngAfterViewInit() {
     document.body.scroll(0,0);
@@ -80,6 +90,28 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         break;
       case this.router.url == '/apps':
         this.topNavClass.isShowing = false;
+        break;
+    }
+  }
+
+  checkStorage() {
+    // IF value does not match key
+    // OR there is no key
+    if (localStorage.getItem(this.banner.key) !== this.banner.value || !localStorage.getItem(this.banner.key)) {
+      // THEN trigger banner
+      this.showsBanner = true;
+      // SET storage
+      localStorage.setItem(this.banner.key, this.banner.value);
+    } else { this.showsBanner = false; }
+  }
+  onBannerClick(action: string) {
+    switch (action) {
+      case 'dismiss':
+        this.showsBanner = false;
+        break;
+      case 'take me there':
+        window.open('https://rireader.app');
+        this.showsBanner = false;
         break;
     }
   }
