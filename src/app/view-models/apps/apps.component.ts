@@ -21,25 +21,29 @@ export class AppsComponent implements OnInit, OnDestroy {
       icon: 'auto_stories',
       label: 'RiReader',
       altLabel: 'Currently in active development',
-      showsAlt: false
+      showsAlt: false,
+      status: 'dev'
+    },
+    {
+      label: 'FinePrint',
+      icon: 'print',
+      altLabel: 'Developing soon',
+      showsAlt: false,
+      status: 'alpha'
     },
     {
       label: 'RiOrganizer',
       icon: 'widgets',
-      altLabel: 'Developing soon',
-      showsAlt: false
-    },
-    {
-      label: 'RiDefiner',
-      icon: 'history_edu',
       altLabel: 'Coming later',
-      showsAlt: false
+      showsAlt: false,
+      status: 'planned'
     },
     {
       label: 'RiMixer',
       icon: 'supervisor_account',
       altLabel: 'Coming later',
-      showsAlt: false
+      showsAlt: false,
+      status: 'planned'
     }
   ];
 
@@ -47,6 +51,7 @@ export class AppsComponent implements OnInit, OnDestroy {
 
   @ViewChild('appsDialog') appsDialog!: ElementRef;
   @ViewChild('riReaderScrollTo') riReaderScrollTo!: ElementRef;
+  @ViewChild('finePrintBlock') finePrintBlock!: ElementRef;
 
   isMobile!: boolean;
   private sub = new Subscription();
@@ -129,7 +134,12 @@ export class AppsComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.riReaderScrollTo.nativeElement.scrollIntoView({ behavior: 'smooth' });
       }, 100);
-    } else {
+    } else if (appName == 'FinePrint') {
+      setTimeout(() => {
+        this.finePrintBlock.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+    else {
       const app = this.apps.map((app: any) => {
         if (app.label == appName) {
           window.alert(app.altLabel);

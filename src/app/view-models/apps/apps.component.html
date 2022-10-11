@@ -44,9 +44,14 @@
         (click)="onBadgeClick(app.label)"
         >
         <ng-container *ngIf="!app.showsAlt;else altIconBlock">
-          <i class="material-icons">
-            {{ app.icon }}
-          </i>
+          <div class="app-icon">
+
+            <i class="material-icons">
+              {{ app.icon }}
+            </i>
+            <div class="badge warning" *ngIf="app.status == 'dev'"></div>
+            <div *ngIf="app.status == 'alpha'" class="badge success"></div>
+          </div>
         </ng-container>
         <ng-template #altIconBlock>
           <i class="material-icons">code</i>
@@ -132,6 +137,35 @@
         <h4>
           Github Repo
         </h4>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------------- FINE PRINT ------------------------------ -->
+<div [ngClass]="isMobile ? 'fine-print mobile' : 'fine-print'" #finePrintBlock> 
+  <div class="fine-print-content">
+    <div class="title-block">
+      <div class="title">
+        <i class="material-icons">print</i>
+        <span>FinePrint</span>
+      </div>
+
+      <div class="tag-block">
+        <div class="tag-content">
+          Released: Pre-Alpha
+        </div>
+      </div>
+
+    </div>
+
+    <div class="body">
+      <strong>FinePrint</strong> is a free web application for creating print- and download-friendly docs with responsive templates that adjusts themselves as they're populated.
+    </div>
+
+    <div class="cta-block">
+      <a class="cta-btn" href="https://fine-print.app" target="_blank">
+        Try the App
       </a>
     </div>
   </div>

@@ -191,6 +191,6 @@ app-dialog-overlay, .dialog-overlay {
   z-index: calc($base-index * 7);
 }
 
-app-tooltip, .tooltip, .banner, .banner-content {
+app-tooltip, .tooltip, .banner, .banner-content, .badge {
   z-index: calc($base-index * 10);
 }
