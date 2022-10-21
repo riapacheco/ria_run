@@ -81,6 +81,8 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
   onEnter(searchText: string) {
     // Presentation housekeeping
     this.startSpinner();
+
+    // Clear terminal
     if (this.result.isShowing) { this.resetTerminal(); }
 
     // Run command
@@ -100,8 +102,16 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-  private returnWindow(typeName: string, contentString?: string, contentObject?: object) {
+  private returnWindow(typeName: string, contentString?: string, contentObject?: ICommandPrompt) {
     if (this.result) { this.resetTerminal(); }
+
+    if (typeName == 'website' && contentObject !== undefined) {
+      const url = contentObject.URL;
+      setTimeout(() => {
+        window.open(url);
+        this.stopSpinner();
+      }, this.shortLoadingLength);
+    }
 
     if (typeName == 'appStore') {
       setTimeout(() => {

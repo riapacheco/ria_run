@@ -4,4 +4,5 @@ export interface ICommandPrompt {
   commands?: string[];
   description?: string;
   publicCategory?: string;
+  URL?: string;
 }
