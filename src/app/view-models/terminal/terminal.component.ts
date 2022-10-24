@@ -85,14 +85,24 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
     // Clear terminal
     if (this.result.isShowing) { this.resetTerminal(); }
 
-    // Run command
+    /* ------------------------------- RUN COMMAND ------------------------------ */
+    // Service finds array of strings assoc. and returns objective it belongs to
     this.commandsService.runCommand(searchText).then((res: any) => {
-      console.log(res);
-      this.returnWindow(
-        res.refName,
-        undefined,
-        res
-      );
+      // IF the object's identifier refName starts with `https://`, navigate there
+      if (res.refName.substring(0, 8) == 'https://') {
+        setTimeout(() => {
+          window.open(res.refName);
+          this.stopSpinner();
+        }, this.shortLoadingLength);
+      } else {
+        // ELSE trigger associated results terminal window
+        this.returnWindow(
+          res.refName,
+          undefined,
+          res
+        );
+      }
+      // IF error / does not exist, return window with error repeated
     }).catch((error) => {
       this.returnWindow(
         'error',
