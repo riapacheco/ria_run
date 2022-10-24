@@ -77,40 +77,35 @@ export class TerminalComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-  /* ----------------------------- SUBMITTING DATA ---------------------------- */
+
+
+  /* ------------------------------- RUN COMMAND ------------------------------ */
   onEnter(searchText: string) {
-    // Presentation housekeeping
+    // Animation
     this.startSpinner();
 
-    // Clear terminal
+    // Clear old results in terminal
     if (this.result.isShowing) { this.resetTerminal(); }
 
-    /* ------------------------------- RUN COMMAND ------------------------------ */
-    // Service finds array of strings assoc. and returns objective it belongs to
+    // Service: Finds array of strings (commands) assoc. and returns object it belongs to
+    // IF the object's identifier refName starts with `https://`, navigate there
+    // ELSE trigger associated results terminal window
+    // IF error || does not exist, return window + echo error string used
     this.commandsService.runCommand(searchText).then((res: any) => {
-      // IF the object's identifier refName starts with `https://`, navigate there
       if (res.refName.substring(0, 8) == 'https://') {
         setTimeout(() => {
           window.open(res.refName);
+          this.clearInputField();
           this.stopSpinner();
         }, this.shortLoadingLength);
-      } else {
-        // ELSE trigger associated results terminal window
-        this.returnWindow(
-          res.refName,
-          undefined,
-          res
-        );
       }
-      // IF error / does not exist, return window with error repeated
-    }).catch((error) => {
-      this.returnWindow(
-        'error',
-        error,
-        undefined
-      );
-    })
+      else {
+        this.returnWindow(res.refName, undefined, res);
+      }
+    }).catch((error) => { this.returnWindow('error', error, undefined ); });
   }
+
+
 
   private returnWindow(typeName: string, contentString?: string, contentObject?: ICommandPrompt) {
     if (this.result) { this.resetTerminal(); }
