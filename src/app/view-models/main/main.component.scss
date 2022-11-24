@@ -246,27 +246,31 @@ $browser-bar-height: 1.6rem;
           // font-size: 6rem;
           font-size: 2.5rem;
           display: inline-block;
-          padding-bottom: 1rem;
+          padding-bottom: 0.5rem;
           // margin: 1rem;
           padding-right: 1rem;
+
           color: $canary-regular;
         }
         .para {
           color: $steel-regular;
           padding-left: 1.5rem;
-          margin-bottom: 2rem;
+          margin-bottom: 3rem;
         }
 
         .learn-more {
           font-size: 1.4rem;
           padding: 0.6rem 1.4rem;
           border: 1px solid white;
+          -webkit-font-smoothing: antialiased !important;
           opacity: 0.85;
           border-radius: 5px;
           // color: $steel-dark;
           margin-left: 1.5rem;
-          // background-color: #FFFFFF10;
-          letter-spacing: 0rem;
+          font-weight: 550;
+          // letter-spacing: 0rem;
+          letter-spacing: -0.02rem;
+          transition: 200ms ease-in-out;
           &:hover {
             transform: scale(1.1);
           }
@@ -309,6 +313,7 @@ $browser-bar-height: 1.6rem;
           }
           .learn-more {
             font-size: 1.15rem;
+            margin-bottom: 1.7rem;
           }
         }
       }
