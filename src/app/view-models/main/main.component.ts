@@ -1,5 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 import { Subscription } from 'rxjs';
 import { TSectionType } from 'src/app/components/section/section.component';
 import { BREAKPOINT_VALUE } from 'src/app/enums/breakpoint.enums';
@@ -17,6 +19,12 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   sectionOne: IHomeContent = {};
   sectionTwo: IHomeContent = {};
   sectionThree: IHomeContent = {};
+
+  // Lottie Animation
+  options: AnimationOptions = {
+    path: '/assets/lottie/rotating_net__.json'
+  };
+
 
   sectionThreeClass: TSectionType = 'section painted';
 
@@ -48,7 +56,9 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-
+  onAnimate(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
   scrollTo(sectionName: string) {
     switch (sectionName) {
       case 'sectionTwo':

@@ -22,7 +22,7 @@ $mobile-height: 80vh;
   color: $black;
   .hero-content { // aka hero
     position: relative;
-    
+
     .polygon {
       position: absolute;
       top: 0;
@@ -52,28 +52,58 @@ $mobile-height: 80vh;
         @include auto-width;
         .title {
           margin-top: 8rem;
+          display: flex;
+          width: 550px;
+
+          h1, h2 {
+            // line-height: 1.15;
+            letter-spacing: -0.14rem;
+            font-size: 4rem;
+            line-height: 1.23;
+            strong {
+              white-space: nowrap;
+              font-weight: 800;
+              letter-spacing: -0.08rem;
+            }
+          }
         }
         .paragraph {
           margin-top: 2rem;
           margin-bottom: 4rem;
           width: 500px;
+          font-size: 1.6rem;
+          .inner-html {
+            line-height: 1.6;
+          }
         }
       }
       &.mobile {
         height: $mobile-height;
-        padding-top: 8rem;
+        padding-top: 9.5rem;
         .text-information {
           @include auto-width-mobile;
           .title {
             margin-top: 3rem;
-            h1 {
+            width: 90%;
+            h1, h2 {
               @include h1-mobile;
+              line-height: 1.25;
+              letter-spacing: -0.08rem;
+              font-weight: 600;
+
+              strong {
+                font-weight: 800;
+                // font-size: 2.5rem;
+                white-space:unset;
+
+              }
             }
           }
           .paragraph {
             margin-top: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom:3rem;
             width: 85%;
+            // width: 90%;
             @include body-text-mobile;
           }
         }
@@ -94,15 +124,15 @@ $mobile-height: 80vh;
   flex-flow: row nowrap;
   align-items: flex-end;
   justify-content: center;
-  img {
-    width: 36%;
+  ng-lottie {
+    width: 45%;
     margin-right: -40%;
     margin-bottom: -15%;
   }
 
   &.mobile {
     height: $mobile-height;
-    img {
+    ng-lottie {
       width: 75%;
       margin-bottom: -13rem !important;
     }
@@ -115,7 +145,7 @@ $browser-bar-height: 1.6rem;
   height: inherit;
   width: inherit;
   @include auto-width;
-  
+
   .preview-terminal {
     position: relative;
     .top-browser-bar {
@@ -173,26 +203,85 @@ $browser-bar-height: 1.6rem;
 
 .section-two {
   min-height: calc(100vh - $floating-nav-height);
+  // padding-top: $floating-nav-height;
+  padding-top: calc($floating-nav-height / 2);
   width: 100%;
 
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
   justify-content: center;
 
-  .section-two-content {
 
-    @include auto-width;
-    .title {
-      margin-bottom: 3rem;
+
+  .section-two-content {
+    width: 90%;
+    margin: auto;
+    min-height: calc(100vh - $floating-nav-height);
+    // border: 1px solid blue;
+
+    display: flex;
+    flex-flow: column nowrap;
+    // align-items: center;
+    justify-content: space-around;
+
+    .values {
+      // border: 1px solid red;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-around;
+      .value {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        max-width: 25%;
+        .value-title {
+          color: $steel-regular;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          margin-bottom: 1rem;
+        }
+        .material-icons {
+          // font-size: 6rem;
+          font-size: 2.5rem;
+          display: inline-block;
+          padding-bottom: 1rem;
+          // margin: 1rem;
+          padding-right: 1rem;
+          color: $canary-regular;
+        }
+        .para {
+          color: $steel-regular;
+          padding-left: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .learn-more {
+          font-size: 1.4rem;
+          padding: 0.6rem 1.4rem;
+          border: 1px solid white;
+          opacity: 0.85;
+          border-radius: 5px;
+          // color: $steel-dark;
+          margin-left: 1.5rem;
+          // background-color: #FFFFFF10;
+          letter-spacing: 0rem;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
     }
     .explainer-para {
       max-width: 60%;
-      margin-bottom: 4rem;
+      // margin-bottom: 4rem;
     }
 
     .cta-btn-reverse {
       @include btn($dark: true, $icon: true);
+      margin: auto;
     }
   }
 
@@ -202,6 +291,33 @@ $browser-bar-height: 1.6rem;
 
 
     .section-two-content {
+      .values {
+        flex-flow: column nowrap;
+        .value {
+          margin: auto;
+          margin-bottom: 6rem;
+          max-width: 90%;
+
+          .value-title {
+            .material-icons {
+              padding-bottom: 0.5rem;
+            }
+            margin-bottom: 1rem;
+          }
+          .para {
+
+          }
+          .learn-more {
+            font-size: 1.15rem;
+          }
+        }
+      }
+      .title {
+        .title-block {
+          display: flex;
+          flex-flow: column nowrap;
+        }
+      }
       .explainer-para {
         max-width: 100%;
       }
@@ -260,6 +376,8 @@ $browser-bar-height: 1.6rem;
 
 .start-button {
   @include btn($dark: true, $icon: true);
+  display: inline-block;
+  width: fit-content;
   &:hover {
     @include btn($dark: false, $icon: true);
   }

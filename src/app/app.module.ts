@@ -64,6 +64,14 @@ import { RcTopNavComponent } from './components/ricreated/rc-top-nav/rc-top-nav.
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { TooltipService } from './services/tooltip.service';
 
+// Add these two
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+// Export this function
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -113,10 +121,11 @@ import { TooltipService } from './services/tooltip.service';
     HighlightModule,
     ScrollingModule,
     ClipboardModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
 
   providers: [
-    { 
+    {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },

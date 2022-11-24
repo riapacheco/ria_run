@@ -22,7 +22,9 @@
     "@angular/router": "^14.1.0",
     "@riapacheco/yutes": "^4.1.7",
     "@supabase/supabase-js": "^1.35.6",
+    "lottie-web": "^5.9.6",
     "ngx-highlightjs": "^7.0.1",
+    "ngx-lottie": "^9.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

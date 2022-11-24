@@ -61,7 +61,7 @@ $auto-width-mobile: 90%;
 
 @mixin h2-mobile {
   font-family: "Inter", sans-serif;
-  font-size: 2.3rem;
+  font-size: 2.35rem;
   line-height: 1.2;
 }
 
@@ -242,14 +242,14 @@ $auto-width-mobile: 90%;
 }
 
 @mixin center-absolute(
-  $direction, 
-  $itemSize, 
+  $direction,
+  $itemSize,
   $containerSize) {
     position: absolute;
     @if (
-      $direction == 'TD' or 
-      $direction == 'td' or 
-      $direction == 'top' or 
+      $direction == 'TD' or
+      $direction == 'td' or
+      $direction == 'top' or
       $direction == 'down'
     ) { top: calc(($containerSize / 2) - ($itemSize / 2)); }
     @if (

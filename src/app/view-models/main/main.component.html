@@ -5,7 +5,11 @@
         <div [ngClass]="isMobile ? 'polygon mobile' : 'polygon'"></div>
 
         <div [ngClass]="isMobile ? 'computer mobile' : 'computer'">
-          <img src="../../../assets/img/computerThing.svg" alt="">
+          <!-- <img src="../../../assets/img/computerThing.svg" alt=""> -->
+          <ng-lottie
+            [options]="options"
+            (animationCreated)="onAnimate($event)">
+          </ng-lottie>
         </div>
 
         <div [ngClass]="isMobile ? 'content mobile' : 'content'">
@@ -13,13 +17,17 @@
 
           <div class="text-information">
             <div class="title">
-              <h1>
-                <div class="inner-html" [innerHTML]="sectionOne.title"></div>
-              </h1>
+              <h2>
+                <!-- An insatiably curious <strong>Product Manager</strong>, <strong>Programmer</strong>, and <strong>Beat Producer</strong>. -->
+                Tech Product Manager turned <strong>Software Programmer</strong> / <strong>Beat Producer</strong>
+              </h2>
             </div>
 
             <div class="paragraph">
-              <div class="inner-html" [innerHTML]="sectionOne.body"></div>
+              <!-- <div class="inner-html" [innerHTML]="sectionOne.body"></div> -->
+              <div class="inner-html">
+                There are millions of ways to build products, experiences, and ideas. I can't help but want to try all of them.
+              </div>
             </div>
 
             <a
@@ -39,23 +47,55 @@
 <div #sectionTwoDiv></div>
 <app-section [minHeight]="'150vh'">
   <div [ngClass]="isMobile ? 'section-repeater section-two mobile' : 'section-repeater section-two'" sectionContent>
-    <div class="mb-15"></div>
+    <!-- <div class="mb-15"></div> -->
     <div class="section-two-content">
 
-      <div class="title">
-        <h1>
-          <div class="inner-html" [innerHTML]="sectionTwo.title"></div>
-        </h1>
+      <div class="values">
+        <div class="value">
+          <div class="value-title">
+            <i class="material-icons">shelves</i>
+            <h3>Products</h3>
+          </div>
+          <div class="para">
+            8 years of Product Management experience from roadmaps to market research to bi-weekly sprints.
+          </div>
+          <a href="https://fine-print.app/#/print-preview" class="learn-more" target="_blank">
+            Resume / CV
+          </a>
+        </div>
+        <div class="value">
+          <div class="value-title">
+            <i class="material-icons">data_object</i>
+            <h3>Code</h3>
+          </div>
+          <div class="para">
+            4 years of programming experience, starting as as a solo founder that jumped into the code with her team.
+          </div>
+          <a routerLink="/apps" class="learn-more">
+            Software Apps
+          </a>
+        </div>
+        <div class="value">
+          <div class="value-title">
+            <i class="material-icons">music_note</i>
+            <h3>Beats</h3>
+          </div>
+          <div class="para">
+            Recent beat producer, influenced by hip hop, R&B, and mixtures of raw and digital instruments.
+          </div>
+          <a href="https://ribeets.studio" class="learn-more" target="_blank">
+            The Mixtape
+          </a>
+        </div>
       </div>
+      <!-- <div class="inner-html explainer-para" [innerHTML]="sectionTwo.body"></div> -->
 
-      <div class="inner-html explainer-para" [innerHTML]="sectionTwo.body"></div>
-
-      <a
+      <!-- <a
         (click)="scrollTo('sectionThree')"
         class="start-button">
         <i class="material-icons">south</i>
         Secret views
-      </a>
+      </a> -->
     </div>
   </div>
 </app-section>
