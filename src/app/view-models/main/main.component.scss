@@ -59,7 +59,7 @@ $mobile-height: 80vh;
             // line-height: 1.15;
             letter-spacing: -0.14rem;
             font-size: 4rem;
-            line-height: 1.23;
+            line-height: 1.24;
             strong {
               // white-space: nowrap;
               font-weight: 800;
@@ -91,7 +91,7 @@ $mobile-height: 80vh;
             width: 100%;
             h1, h2 {
               @include h1-mobile;
-              line-height: 1.15;
+              line-height: 1.25;
               letter-spacing: -0.08rem;
               font-weight: 700;
 
