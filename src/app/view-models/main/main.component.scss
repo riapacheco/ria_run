@@ -61,9 +61,13 @@ $mobile-height: 80vh;
             font-size: 4rem;
             line-height: 1.23;
             strong {
-              white-space: nowrap;
+              // white-space: nowrap;
               font-weight: 800;
               letter-spacing: -0.08rem;
+            }
+
+            .nowrap {
+              white-space: nowrap;
             }
           }
         }
@@ -243,11 +247,9 @@ $browser-bar-height: 1.6rem;
           margin-bottom: 1rem;
         }
         .material-icons {
-          // font-size: 6rem;
           font-size: 2.5rem;
           display: inline-block;
           padding-bottom: 0.5rem;
-          // margin: 1rem;
           padding-right: 1rem;
 
           color: $canary-regular;
@@ -260,11 +262,11 @@ $browser-bar-height: 1.6rem;
 
         .learn-more {
           font-size: 1.4rem;
-          padding: 0.6rem 1.4rem;
+          padding: 0.5rem 1.3rem;
           border: 1px solid white;
           -webkit-font-smoothing: antialiased !important;
           opacity: 0.85;
-          border-radius: 5px;
+          border-radius: 4px;
           // color: $steel-dark;
           margin-left: 1.5rem;
           font-weight: 550;
@@ -304,13 +306,14 @@ $browser-bar-height: 1.6rem;
           max-width: 90%;
 
           .value-title {
+            margin-bottom: 1rem;
             .material-icons {
               padding-bottom: 0.5rem;
+              padding-right: 0.5rem;
             }
-            margin-bottom: 1rem;
-          }
-          .para {
-
+            h3 {
+              @include h2-mobile;
+            }
           }
           .learn-more {
             font-size: 1.15rem;
