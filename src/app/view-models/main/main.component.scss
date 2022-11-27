@@ -90,7 +90,7 @@ $mobile-height: 80vh;
             margin-top: 3rem;
             width: 100%;
             h1, h2 {
-              @include h1-mobile;
+              @include h2-mobile;
               line-height: 1.25;
               letter-spacing: -0.08rem;
               font-weight: 700;
@@ -106,7 +106,7 @@ $mobile-height: 80vh;
           .paragraph {
             margin-top: 2rem;
             margin-bottom:3rem;
-            width: 85%;
+            width: 90%;
             // width: 90%;
             @include body-text-mobile;
           }
