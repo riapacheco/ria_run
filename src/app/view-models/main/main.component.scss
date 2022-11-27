@@ -106,8 +106,8 @@ $mobile-height: 80vh;
           .paragraph {
             margin-top: 2rem;
             margin-bottom:3rem;
+            // width: 100%;
             width: 90%;
-            // width: 90%;
             @include body-text-mobile;
           }
         }
