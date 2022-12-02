@@ -67,6 +67,7 @@ import { TooltipService } from './services/tooltip.service';
 // Add these two
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { LinksService } from './services/links.service';
 
 // Export this function
 export function playerFactory(): any {
@@ -153,7 +154,8 @@ export function playerFactory(): any {
     ToastService,
     XpService,
     DialogOverlayService,
-    TooltipService
+    TooltipService,
+    LinksService
   ],
   bootstrap: [AppComponent]
 })
