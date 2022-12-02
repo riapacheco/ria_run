@@ -105,7 +105,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   followLink(linkUrl: string | undefined) {
-    console.log(linkUrl);
+    window.open(linkUrl);
   }
 }
 
