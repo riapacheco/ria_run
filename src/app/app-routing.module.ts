@@ -4,6 +4,7 @@ import { AboutMeComponent } from './view-models/about-me/about-me.component';
 import { AppsComponent } from './view-models/apps/apps.component';
 import { ContactComponent } from './view-models/contact/contact.component';
 import { MainComponent } from './view-models/main/main.component';
+import { SystemsComponent } from './view-models/systems/systems.component';
 import { TerminalComponent } from './view-models/terminal/terminal.component';
 import { UserInterfaceComponent } from './view-models/user-interface/user-interface.component';
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'about-me',
     component: AboutMeComponent
+  },
+  {
+    path: 'systems',
+    component: SystemsComponent
   },
   {
     path: 'user-interface',

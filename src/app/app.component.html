@@ -2,19 +2,24 @@
   <div class="banner-content">
     <div class="main-content">
       <h4>
-        Be the first to know!
+        New Single: "The Multiverse"
       </h4>
-      <span>
-        Sign up for the <strong>RiReader Beta Release Waitlist</strong> for updates and downloads sent directly to your inbox!
+      <span >
+        Travel through spacetime to another universe via this Hip Hop and R&B instrumental journey. This <strong>single (included in album) hits Spotify in a few weeks.</strong> Check it out on Youtube!
       </span>
+      <img
+        [ngClass]="isMobile ? 'album-art mt-3 mobile' : 'album-art mt-3'"
+        src="../assets/img/multiverse_image.png"
+        (click)="onBannerClick('confirm')"
+        alt=""/>
     </div>
 
     <div class="right-content">
       <a (click)="onBannerClick('dismiss')">
         Dismiss
       </a>
-      <a (click)="onBannerClick('take me there')">
-        Take Me There
+      <a (click)="onBannerClick('confirm')">
+        Listen on Youtube
       </a>
     </div>
   </div>

@@ -1,5 +1,4 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { ThisReceiver } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -14,7 +13,7 @@ import { BREAKPOINT_VALUE } from './enums/breakpoint.enums';
   animations: [ slideDownUp ]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
-  
+
   topNavClass = {
     desktop: 'top-nav black',
     mobile: 'top-nav mobile',
@@ -22,9 +21,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   showsBanner!: boolean;
+  bannerLink = 'https://www.youtube.com/watch?v=NLsMQhIaVpY';
   banner = {
     key: 'Banner State',
-    value: 'RiReader Signup'
+    value: 'the multiverse single'
   };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngOnDestroy() {}
 
-  onActivate() { 
+  onActivate() {
     document.body.scroll(0,0);
     switch (true) {
       case this.router.url == '/terminal':
@@ -109,11 +109,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       case 'dismiss':
         this.showsBanner = false;
         break;
-      case 'take me there':
-        window.open('https://rireader.app');
+      case 'confirm':
+        window.open(this.bannerLink);
         this.showsBanner = false;
         break;
     }
   }
-  
+
 }

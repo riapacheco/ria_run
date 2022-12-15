@@ -68,6 +68,7 @@ import { TooltipService } from './services/tooltip.service';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { LinksService } from './services/links.service';
+import { SystemsComponent } from './view-models/systems/systems.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -109,7 +110,8 @@ export function playerFactory(): any {
     GalleryComponent,
     AppsComponent,
     RcTopNavComponent,
-    TooltipComponent
+    TooltipComponent,
+    SystemsComponent
   ],
   imports: [
     BrowserModule,

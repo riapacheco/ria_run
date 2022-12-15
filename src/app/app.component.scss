@@ -53,7 +53,7 @@ $icons-height: 2.5rem;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
-      
+
       a {
         // border: 1px solid grey;
         height: calc($input-height - 2px);
@@ -120,7 +120,7 @@ $icons-height: 2.5rem;
   .handle {
     position: absolute;
     right: -1rem;
-    
+
     .material-icons {
       transform: rotate(90deg);
     }
@@ -202,7 +202,7 @@ $bar-background-color: rgb(28, 32, 35);
   left: 2rem;
   top: 3.5rem;
   right: 2rem;
-  
+
 
   // background-image: linear-gradient(to left, #FFAB00, #FFC400);
   background-image: linear-gradient(to left, #ffaa00d0, #ffc400d7);
@@ -212,6 +212,7 @@ $bar-background-color: rgb(28, 32, 35);
   border-radius: 6px;
   padding: 2rem;
   border: 2px solid $black;
+
   .banner-content {
     display: flex;
     flex-flow: row nowrap;
@@ -292,8 +293,8 @@ $bar-background-color: rgb(28, 32, 35);
           @include h2-mobile;
         }
         span {
-          width: 90%;
-          @include body-text-mobile;
+          // width: 90%;
+          // @include body-text-mobile;
           letter-spacing: -0.03rem;
           line-height: 1.4;
           margin-right: 0rem;
@@ -310,5 +311,21 @@ $bar-background-color: rgb(28, 32, 35);
         }
       }
     }
+  }
+}
+
+/* --------------------------------- BANNER --------------------------------- */
+img.album-art {
+  border-radius: 6px;
+  width: 280px;
+  box-shadow: 8px 8px 22px #00000050;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  &.mobile {
+    width: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 }
