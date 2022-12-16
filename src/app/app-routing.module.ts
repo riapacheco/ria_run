@@ -15,6 +15,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'the-jewels',
+    component: TerminalComponent
+  },
+  {
     path: 'terminal',
     component: TerminalComponent
   },
