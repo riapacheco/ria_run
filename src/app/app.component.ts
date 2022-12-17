@@ -21,10 +21,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   showsBanner!: boolean;
-  bannerLink = 'https://www.youtube.com/watch?v=NLsMQhIaVpY';
+  bannerLink = 'https://soundcloud.com/ribeets/the-alphaverse';
   banner = {
     key: 'Banner State',
-    value: 'the multiverse single'
+    value: 'the multiverse single by ribeets'
   };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
