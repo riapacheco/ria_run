@@ -2,16 +2,23 @@
   <div class="banner-content">
     <div class="main-content">
       <h4>
-        New Single: "The Multiverse"
+        Listen to "The Multiverse" and "Rogue Planet"
       </h4>
       <span >
-        Travel through spacetime to another universe via this Hip Hop and R&B instrumental journey. This <strong>single hits Spotify in a few weeks.</strong> Listen to it on <a href="https://soundcloud.com/ribeets/the-alphaverse" target="_blank">SoundCloud</a>.
+        The first two instrumental tracks, for my upcoming album, are available on <a href="https://ribeets.studio"><strong>ribeets.studio</strong></a> (and <a href="https://soundcloud.com/ribeets">SoundCloud</a>) until they hit Spotify early 2023!
       </span>
-      <img
-        [ngClass]="isMobile ? 'album-art mt-3 mobile' : 'album-art mt-3'"
-        src="../assets/img/multiverse_image.png"
-        (click)="onBannerClick('confirm')"
-        alt=""/>
+      <div class="albums-block">
+        <img
+          [ngClass]="isMobile ? 'album-art mt-3 mobile' : 'album-art mt-3'"
+          [ngStyle]="isMobile ? {'margin-right': '0rem',  'margin-bottom': '1.5rem'} : {'margin-right': '2rem', 'margin-bottom': '0rem'}"
+          src="../assets/img/multiverse_image.png"
+          (click)="onBannerClick('confirm')"
+          alt=""/>
+        <img src="../assets/img/Rogue_Planet_Image.png"
+          (click)="onBannerClick('confirm')"
+          [ngClass]="isMobile ? 'album-art mobile' : 'album-art' "
+          alt="">
+      </div>
     </div>
 
     <div class="right-content">
@@ -19,7 +26,7 @@
         Dismiss
       </a>
       <a (click)="onBannerClick('confirm')">
-        Listen to Track
+        Listen at the Studio <i class="material-icons">link</i>
       </a>
     </div>
   </div>

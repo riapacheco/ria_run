@@ -247,10 +247,10 @@ $bar-background-color: rgb(28, 32, 35);
         font-size: 1.4rem;
         font-weight: 500;
         display: inline-flex;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
-        white-space: nowrap;
+        white-space: nowrap !important;
 
         height: 42px;
         padding-left: 1.5rem;
@@ -266,6 +266,14 @@ $bar-background-color: rgb(28, 32, 35);
           color: $black;
           background-color: transparent;
           border: 2px solid $black;
+        }
+
+
+        .material-icons {
+          display: inline-block;
+          font-size: 1.5rem;
+          transform: rotate(130deg);
+          margin-left: 0.5rem;
         }
       }
     }
@@ -317,7 +325,7 @@ $bar-background-color: rgb(28, 32, 35);
 /* --------------------------------- BANNER --------------------------------- */
 img.album-art {
   border-radius: 6px;
-  width: 280px;
+  width: 230px;
   box-shadow: 8px 8px 22px #00000050;
   cursor: pointer;
   transition: 200ms ease-in-out;

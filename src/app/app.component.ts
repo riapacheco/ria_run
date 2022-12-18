@@ -21,10 +21,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   showsBanner!: boolean;
-  bannerLink = 'https://soundcloud.com/ribeets/the-alphaverse';
+  bannerLink = 'https://ribeets.studio';
+
   banner = {
     key: 'Banner State',
-    value: 'the multiverse single by ribeets'
+    value: 'multiverse and rogue planet'
   };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (this.router.url == '/terminal') { this.topNavClass.isShowing = false; }
     setTimeout(() => {
+      // this.showsBanner = true;
       this.checkStorage();
     }, 500);
   }
@@ -102,7 +104,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       this.showsBanner = true;
       // SET storage
       localStorage.setItem(this.banner.key, this.banner.value);
-    } else { this.showsBanner = false; }
+    }
+    else { this.showsBanner = false; }
   }
   onBannerClick(action: string) {
     switch (action) {
