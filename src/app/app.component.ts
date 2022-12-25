@@ -21,11 +21,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   showsBanner!: boolean;
-  bannerLink = 'https://ribeets.studio';
+  bannerLink = 'https://ribeets.studio/#tracks';
 
   banner = {
     key: 'Banner State',
-    value: 'multiverse and rogue planet'
+    value: 'Quantum Supremacy',
+    image: '../assets/img/quantum.png'
   };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;

@@ -2,22 +2,17 @@
   <div class="banner-content">
     <div class="main-content">
       <h4>
-        Listen to "The Multiverse" and "Rogue Planet"
+        Listen to "Quantum Supremacy"
       </h4>
       <span >
-        The first two instrumental tracks, for my upcoming album, are available on <a href="https://ribeets.studio"><strong>ribeets.studio</strong></a> (and <a href="https://soundcloud.com/ribeets">SoundCloud</a>) until they hit Spotify early 2023!
+        The third track on <strong>Robots vs Humans</strong>. Since it uses the Travis Barker drum kit, does this mean he's "featured"?
       </span>
       <div class="albums-block">
         <img
           [ngClass]="isMobile ? 'album-art mt-3 mobile' : 'album-art mt-3'"
-          [ngStyle]="isMobile ? {'margin-right': '0rem',  'margin-bottom': '1.5rem'} : {'margin-right': '2rem', 'margin-bottom': '0rem'}"
-          src="../assets/img/multiverse_image.png"
+          [src]="banner.image"
           (click)="onBannerClick('confirm')"
           alt=""/>
-        <img src="../assets/img/Rogue_Planet_Image.png"
-          (click)="onBannerClick('confirm')"
-          [ngClass]="isMobile ? 'album-art mobile' : 'album-art' "
-          alt="">
       </div>
     </div>
 
@@ -26,7 +21,7 @@
         Dismiss
       </a>
       <a (click)="onBannerClick('confirm')">
-        Listen at the Studio <i class="material-icons">link</i>
+        RiBeets Studio <i class="material-icons">link</i>
       </a>
     </div>
   </div>
