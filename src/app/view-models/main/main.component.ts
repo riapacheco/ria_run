@@ -100,7 +100,6 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   getLinksContent() {
     this.linksService.getLinks(undefined).then((res: any) => {
       this.links = res;
-      console.log(this.links);
     })
   }
 

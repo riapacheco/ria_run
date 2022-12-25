@@ -44,4 +44,16 @@ export class LinksService {
       }
     }
   }
+
+  async getLinkByName(name: string): Promise<any> {
+    if (name) {
+      const { data, error } = await this.supabaseClient
+        .from(this.supabaseTable)
+        .select('*')
+        .eq('name', name);
+
+      if (error) { console.warn(error); }
+      if (data) { return data[0]; }
+    }
+  }
 }

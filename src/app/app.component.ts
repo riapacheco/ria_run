@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { slideDownUp } from './constants/animations.constants';
 import { BREAKPOINT_VALUE } from './enums/breakpoint.enums';
+import { LinksService } from './services/links.service';
 
 
 @Component({
@@ -21,11 +22,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   showsBanner!: boolean;
-  bannerLink = 'https://ribeets.studio/#tracks';
+  bannerLink!: string;
 
   banner = {
     key: 'Banner State',
-    value: 'Quantum Supremacy',
+    value: 'Quantum Supremacy ',
     image: '../assets/img/quantum.png'
   };
   isMobile!: boolean;
@@ -33,9 +34,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   private sub = new Subscription();
   constructor(
     private observer: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private links: LinksService
   ) {}
   ngOnInit(): void {
+    this.getBannerLink();
     this.sub.add(
       this.observer.observe([BREAKPOINT_VALUE.mobile]).subscribe((state: BreakpointState) => {
         if (state.breakpoints[BREAKPOINT_VALUE.mobile]) { this.isMobile = true; }
@@ -44,8 +47,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (this.router.url == '/terminal') { this.topNavClass.isShowing = false; }
     setTimeout(() => {
-      this.showsBanner = true;
-      // this.checkStorage();
+      // this.showsBanner = true;
+      this.checkStorage();
+
     }, 500);
   }
   ngAfterViewInit() {
@@ -107,6 +111,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       localStorage.setItem(this.banner.key, this.banner.value);
     }
     else { this.showsBanner = false; }
+  }
+
+  getBannerLink() {
+    this.links.getLinkByName('latest_track').then((res: any) => {
+      this.bannerLink = res.url;
+      console.log(this.bannerLink);
+    })
   }
   onBannerClick(action: string) {
     switch (action) {
