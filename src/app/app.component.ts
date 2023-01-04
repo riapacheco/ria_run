@@ -26,8 +26,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   banner = {
     key: 'Banner State',
-    value: 'Quantum Supremacy ',
-    image: '../assets/img/quantum.png'
+    value: 'Robots vs Humans Album',
+    image: '../assets/img/rvh_cover.png'
   };
   isMobile!: boolean;
   @ViewChild('scrollDiv') scrollDiv!: ElementRef;
@@ -47,8 +47,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (this.router.url == '/terminal') { this.topNavClass.isShowing = false; }
     setTimeout(() => {
-      // this.showsBanner = true;
-      this.checkStorage();
+      this.showsBanner = true;
+      // this.checkStorage();
 
     }, 500);
   }
@@ -114,7 +114,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getBannerLink() {
-    this.links.getLinkByName('latest_track').then((res: any) => {
+    this.links.getLinkByName('banner_link').then((res: any) => {
       this.bannerLink = res.url;
       console.log(this.bannerLink);
     })

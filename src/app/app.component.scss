@@ -302,10 +302,10 @@ $bar-background-color: rgb(28, 32, 35);
         }
         span {
           // width: 90%;
-          // @include body-text-mobile;
-          letter-spacing: -0.03rem;
-          line-height: 1.4;
-          margin-right: 0rem;
+          @include body-text-mobile;
+          // letter-spacing: -0.03rem;
+          // line-height: 1.4;
+          // margin-right: 0rem;
         }
       }
       .right-content {
