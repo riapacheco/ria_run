@@ -61,7 +61,7 @@
 
           <div *ngFor="let link of links">
             <a *ngIf="link.name == 'pm_portfolio'" (click)="followLink(link.url)" class="learn-more" target="_blank">
-              PM Portfolio
+              {{ link.label }}
             </a>
           </div>
         </div>
@@ -75,7 +75,7 @@
           </div>
           <div *ngFor="let link of links">
             <a *ngIf="link.name == 'github'" (click)="followLink(link.url)" class="learn-more">
-              Github Repos
+              {{ link.label }}
             </a>
           </div>
         </div>
@@ -89,7 +89,7 @@
           </div>
           <div *ngFor="let link of links">
             <a *ngIf="link.name == 'ribeets'" (click)="followLink(link.url)" class="learn-more" target="_blank">
-              RiBeets Studio
+              {{ link.label }}
             </a>
           </div>
         </div>

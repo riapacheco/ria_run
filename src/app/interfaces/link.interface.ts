@@ -3,4 +3,5 @@ export interface ILink {
   name?: string;
   url?: string;
   category?: string;
+  label?: string;
 }
