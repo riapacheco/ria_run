@@ -47,8 +47,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (this.router.url == '/terminal') { this.topNavClass.isShowing = false; }
     setTimeout(() => {
-      this.showsBanner = true;
-      // this.checkStorage();
+      // this.showsBanner = true;
+      this.checkStorage();
 
     }, 500);
   }
